@@ -1,10 +1,12 @@
-<div class="header">
+<div class="header" xmlns="http://www.w3.org/1999/html">
 
-  <nav>
-    <a>MyApp    </a>
-    <a routerLink="/quiz-list" class="button-card">Menu Principal</a>
-    <a routerLink="/user-list" class="button-card">Utilisateurs</a>
-
+  <nav id="container">
+    <a>Polyquiz</a>
+    <a class="button-card">Loupe</a><!--TODO-->
+    <span>
+    <a routerLink="/user-list" class="button-card right">Utilisateurs</a>
+    <a routerLink="/quiz-list" class="button-card right">Menu Principal</a>
+    </span>
   </nav>
   <!--MyApp-->
   <!--<nav><a routerLink="quiz-list">Page Principale</a></nav>-->
