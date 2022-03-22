@@ -1,8 +1,12 @@
 @import '../../../styles/card.scss';
 
-h1 {
-    // Add some CSS here! What if you try to change the background?
-}
 h2{
-  background: red;
+  background: $beige;
+  background-color: #f1f1d0;
+  text-align: center;
+  border: solid 1px black;
+  color: black;
+  font-weight: bold;
+  margin: 5px;
+  padding: 0.5em 1em;
 }
