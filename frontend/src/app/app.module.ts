@@ -16,7 +16,7 @@ import {QuestionListComponent} from "./questions/question-list/question-list.com
 import {UserComponent} from "./users/user/user.component";
 import {UserListComponent} from "./users/user-list/user-list.component";
 import {UserFormComponent} from "./users/user-form/user-form.component";
-
+import {OptionsComponent} from "./options/options.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +30,8 @@ import {UserFormComponent} from "./users/user-form/user-form.component";
     QuestionListComponent,
     UserComponent,
     UserFormComponent,
-    UserListComponent
+    UserListComponent,
+    OptionsComponent
   ],
   imports: [
     BrowserModule,
