@@ -3,8 +3,6 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {QuestionsComponent} from "../question/question.component";
-import {QUESTION_SPORT, QUESTION_VIDE} from "../../../mocks/quiz-list.mock";
 import {Question} from "../../../models/question.model";
 
 @Component({

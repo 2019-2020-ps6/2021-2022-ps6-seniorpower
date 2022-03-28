@@ -1,5 +1,22 @@
-<div>
+<div [style.margin-left]="formatting.marginLeft" [style.margin-right]="formatting.marginRight"
+     [style.width]="formatting.width" [style.text-align]="formatting.textAlign">
   <h1>Options</h1>
-
+  <main>
+    <p>Changer la taille de l'écriture :<!--TODO--></p>
+    <p>Choisir la maladie :
+      <button class="button-card" (click)="changeFormatClassic()">Aucune</button>
+      <button class="button-card" (click)="changeFormatDMLA()">DMLA</button>
+      <button class="button-card" (click)="changeFormatGlaucome()">Glaucome</button>
+    </p>
+    <p>Changer le daltonisme :
+    <button class="button-card" (click)="changeColorDefault()">Aucun</button>
+    <button class="button-card" (click)="changeColorProta()">Protanopie</button>
+    <button class="button-card" (click)="changeColorTrita()">Tritanopie</button>
+    <button class="button-card" (click)="changeColorDeute()">Deutéranopie</button>
+  </p>
+  </main>
 
 </div>
+
+
+

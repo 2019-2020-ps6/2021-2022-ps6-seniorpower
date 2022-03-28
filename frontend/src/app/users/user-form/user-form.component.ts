@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {QuizService} from "../../../services/quiz.service";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
 
