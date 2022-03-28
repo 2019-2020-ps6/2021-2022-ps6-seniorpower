@@ -8,3 +8,16 @@
   margin: 0;
   padding: 0;
 }
+.main{
+  display:flex;
+  flex-direction:column;
+  .content{
+      display:flex;
+   }
+
+}
+/*div{
+      grid-template:
+            "app-header app-header app-header"
+            "app-aside  router-outlet router-outlet"  / 1fr 1fr 1fr
+            ;}*/

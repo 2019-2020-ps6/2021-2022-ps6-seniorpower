@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import {AsideComponent} from './aside/aside.component';
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { QuizComponent } from './quizzes/quiz/quiz.component';
@@ -20,6 +20,7 @@ import {OptionsComponent} from "./options/options.component";
 @NgModule({
   declarations: [
     AppComponent,
+    AsideComponent,
     QuizListComponent,
     QuizComponent,
     HeaderComponent,
@@ -30,8 +31,13 @@ import {OptionsComponent} from "./options/options.component";
     QuestionListComponent,
     UserComponent,
     UserFormComponent,
+
     UserListComponent,
-    OptionsComponent
+    OptionsComponent,
+
+    UserListComponent
+
+
   ],
   imports: [
     BrowserModule,
