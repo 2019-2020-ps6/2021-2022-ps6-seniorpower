@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import {Question, QUESTION_LIST} from "../models/question.model";
-import {User} from "../models/user.model";
-import {USER_LIST} from "../mocks/user-list.mock";
+import {Question} from "../models/question.model";
+import {Theme} from "../models/theme.model";
+import {THEME_LIST} from "../mocks/theme-list";
 
 @Injectable({
   providedIn: 'root'
@@ -21,18 +21,21 @@ export class QuizService {
     * The list is retrieved from the mock.
     */
   private quizzes: Quiz[] = QUIZ_LIST;
+  private themes: Theme[] = THEME_LIST;
 
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
+  public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST)
 
-  private stockURL = 'https://raw.githubusercontent.com/NablaT/starter-quiz-two/master/mock-quiz.json';
+  private stockURL = 'https://http://localhost:9428/';
 
 
   constructor(private http: HttpClient) {
     this.getQuizzes();
+    this.getThemes();
   }
 
   addQuiz(quiz: Quiz) {
@@ -55,13 +58,13 @@ export class QuizService {
   getQuizzes(){
     this.http.get<Quiz[]>(this.stockURL).subscribe((quizList) => {
       this.quizzes = quizList;
-      this.addId();
+      this.addIdQuiz();
       this.quizzes$.next(this.quizzes);
       console.log(quizList);
     });
   }
 
-  addId(){
+  addIdQuiz(){
     let id =0
     this.quizzes.forEach(value => {
       value.id = String(id);
@@ -89,4 +92,35 @@ export class QuizService {
     this.quizzes[indexQuiz].questions.splice(index,1);
     this.quizzes$.next(this.quizzes);
   }
+
+  getThemes(){
+    this.http.get<Theme[]>(this.stockURL).subscribe((themelist) => {
+      this.themes = themelist;
+      this.addIdQuiz();
+      this.themes$.next(this.themes);
+      console.log(themelist);
+    });
+  }
+
+  addIdTheme(){
+    let id =0
+    this.quizzes.forEach(value => {
+      value.id = String(id);
+      id +=1;
+    })
+  }
+
+  createTheme(theme: string): void
+  {
+    this.http.post(this.stockURL.toString() + "themes", { name: theme }).subscribe(x =>
+    {
+      this.getThemes();
+    });
+  }
+
+  getQuizById(id: string): Observable<Quiz>
+  {
+    return this.http.get<Quiz>(this.stockURL + "quizzes" + "/" + id);
+  }
+
 }

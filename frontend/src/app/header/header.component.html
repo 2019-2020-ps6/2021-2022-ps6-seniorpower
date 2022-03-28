@@ -2,9 +2,11 @@
 
   <nav id="container">
     <a>Polyquiz</a>
-    <a class="button-card loupe">Loupe</a><!--TODO-->
+    <a class="loupe button-card" [style.background-color]="colorStyle.font.colorLoupe">Loupe</a><!--TODO-->
     <span>
-      <a routerLink="/quiz-list" class="button-card right">Menu Principal</a>
+      <a routerLink="" class="button-card right">Menu Principal</a>
+      <a routerLink="/quiz-list" class="button-card right">Quiz</a>
+      <a routerLink="/themes" class="button-card right">Themes</a>
       <a routerLink="/user-list" class="button-card right">Utilisateurs</a>
       <a routerLink="/options" class="button-card right">Options</a>
     </span>
