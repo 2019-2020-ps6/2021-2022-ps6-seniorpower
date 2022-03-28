@@ -17,6 +17,7 @@ import {UserComponent} from "./users/user/user.component";
 import {UserListComponent} from "./users/user-list/user-list.component";
 import {UserFormComponent} from "./users/user-form/user-form.component";
 import {OptionsComponent} from "./options/options.component";
+import {PlayQuizComponent} from "./play-quiz/play-quiz.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {OptionsComponent} from "./options/options.component";
     UserComponent,
     UserFormComponent,
     UserListComponent,
-    OptionsComponent
+    OptionsComponent,
+    PlayQuizComponent,
   ],
   imports: [
     BrowserModule,

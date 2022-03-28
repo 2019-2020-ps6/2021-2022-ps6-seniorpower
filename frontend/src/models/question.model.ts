@@ -1,5 +1,5 @@
 import {Quiz} from "./quiz.model";
-import {QUESTION_ACTOR, QUESTION_SPORT} from "../mocks/quiz-list.mock";
+import {QUESTION_ACTOR, QUESTION_SPORT} from "../mocks/quiz-list.mock.component";
 
 export interface Answer {
     type?: string;

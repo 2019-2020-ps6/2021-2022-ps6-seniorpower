@@ -1,0 +1,27 @@
+
+<div *ngIf="!isEnd()" class="card">
+  <div class="result">
+
+  </div>
+  <div class="left" > <span class="question-number" > Question{{indexQuiz+1}} / {{quiz.questions.length}}</span> </div>
+  <div class="right" > <span class="question-number" >  / {{quiz.name}}</span> </div>
+  <br><br>
+
+  <div class="question-title">{{quiz.questions[indexQuiz].label}}</div>
+    <div *ngIf="!resultAffiche">
+      <div class="row">
+        <div class="column" *ngFor="let answer of quiz.questions[indexQuiz].answers; let i=index;">
+          <button class="button-card"(click)="incrementCorrect(quiz.questions[indexQuiz].answers[i].value)" >
+            {{quiz.questions[indexQuiz].answers[i].value}}
+          </button>
+        </div>
+      </div>
+    </div>
+  <div *ngIf="resultAffiche">
+    <div class="row">
+      <div class="column">
+        <div class="text_reult"> {{getCorrectAnswer().value}}</div>
+        </div>
+    </div>
+  </div>
+</div>
