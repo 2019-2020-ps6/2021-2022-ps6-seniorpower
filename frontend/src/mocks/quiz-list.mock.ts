@@ -42,7 +42,7 @@ import { Question } from '../models/question.model';
 
 export const QUIZ_LIST: Quiz[] = [
     {
-        name: 'Les Acteurs', // What's happening if I change this value..?
+        name: 'Les Acteurs',
         id: '0',
         theme: 'Cinéma',
         questions: [QUESTION_ACTOR],
@@ -54,5 +54,10 @@ export const QUIZ_LIST: Quiz[] = [
         questions: [QUESTION_SPORT],
     }
 ];
-export const QUIZ_vide: Quiz[] = [
-];
+export const QUIZ_vide: Quiz = {
+  name:"",
+  id:"-1",
+  theme:"",
+  questions: [QUESTION_VIDE]
+}
+

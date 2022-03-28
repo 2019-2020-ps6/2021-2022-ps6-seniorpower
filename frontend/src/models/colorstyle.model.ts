@@ -1,4 +1,4 @@
-export interface ColorStyle { //TODO Modele a definir
+export interface ColorStyle { //TODO Modele definitif a definir
   font: {
     colorLoupe: string;
     colorTrue?: string;

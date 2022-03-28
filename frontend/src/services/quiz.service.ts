@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock.component';
+import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import {Question} from "../models/question.model";
+import {Theme} from "../models/theme.model";
+import {THEME_LIST} from "../mocks/theme-list";
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +58,6 @@ export class QuizService {
   getQuizzes(){
     this.http.get<Quiz[]>(this.stockURL).subscribe((quizList) => {
       this.quizzes = quizList;
-      this.addIdQuiz();
       this.quizzes$.next(this.quizzes);
       console.log(quizList);
     });
@@ -110,15 +111,12 @@ export class QuizService {
 
   createTheme(theme: string): void
   {
-    this.http.post(this.stockURL.toString() + "themes", { name: theme }).subscribe(x =>
+    this.http.post(this.stockURL.toString() + "themes", { name: theme }).subscribe(_ =>
     {
       this.getThemes();
     });
   }
 
-  getQuizById(id: string): Observable<Quiz>
-  {
-    return this.http.get<Quiz>(this.stockURL + "quizzes" + "/" + id);
-  }
+
 
 }

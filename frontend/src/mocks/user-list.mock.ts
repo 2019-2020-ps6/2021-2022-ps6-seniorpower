@@ -1,6 +1,4 @@
 import {User} from "../models/user.model";
-import {Quiz} from "../models/quiz.model";
-import {QUESTION_ACTOR, QUESTION_SPORT} from "./quiz-list.mock.component";
 
 export const ALPHA_USER:User = {
   name:"A",

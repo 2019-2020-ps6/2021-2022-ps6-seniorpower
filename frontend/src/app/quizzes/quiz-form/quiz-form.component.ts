@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {QuizComponent} from "../quiz/quiz.component";
-import {QUESTION_SPORT, QUESTION_VIDE} from "../../../mocks/quiz-list.mock.component";
+import {QUESTION_VIDE} from "../../../mocks/quiz-list.mock";
 
 @Component({
   selector: 'app-quiz-form',

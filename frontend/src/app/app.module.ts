@@ -17,7 +17,7 @@ import {UserComponent} from "./users/user/user.component";
 import {UserListComponent} from "./users/user-list/user-list.component";
 import {UserFormComponent} from "./users/user-form/user-form.component";
 import {OptionsComponent} from "./options/options.component";
-import {PlayQuizComponent} from "./play-quiz/play-quiz.component";
+import {PlayQuizComponent} from "./quizzes/play-quiz/play-quiz.component";
 import {MenuComponent} from "./menu/menu.component";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
