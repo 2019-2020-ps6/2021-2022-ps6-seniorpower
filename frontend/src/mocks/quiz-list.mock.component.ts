@@ -54,3 +54,5 @@ export const QUIZ_LIST: Quiz[] = [
         questions: [QUESTION_SPORT],
     }
 ];
+export const QUIZ_vide: Quiz[] = [
+];

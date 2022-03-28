@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import { QUIZ_LIST } from '../mocks/quiz-list.mock.component';
 import {Question, QUESTION_LIST} from "../models/question.model";
 import {User} from "../models/user.model";
 import {USER_LIST} from "../mocks/user-list.mock";

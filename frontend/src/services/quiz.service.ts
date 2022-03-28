@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
+import { QUIZ_LIST } from '../mocks/quiz-list.mock.component';
 import {Question} from "../models/question.model";
-import {Theme} from "../models/theme.model";
-import {THEME_LIST} from "../mocks/theme-list";
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +70,7 @@ export class QuizService {
     })
   }
 
-  getQuiz(id: string): Observable<Quiz> {
+  getQuiz(id: string | null): Observable<Quiz> {
     const quiz = this.quizzes.find(q => q.id === id)!;
     return of(quiz);
   }
