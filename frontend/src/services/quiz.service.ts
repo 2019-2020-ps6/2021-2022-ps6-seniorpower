@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import {Question} from "../models/question.model";
+import {Question, QUESTION_LIST} from "../models/question.model";
 import {Theme} from "../models/theme.model";
 import {THEME_LIST} from "../mocks/theme-list";
 
@@ -22,13 +22,15 @@ export class QuizService {
     */
   private quizzes: Quiz[] = QUIZ_LIST;
   private themes: Theme[] = THEME_LIST;
+  private questions :Question[]=QUESTION_LIST;
 
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
-  public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST)
+  public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST);
+  public question$:BehaviorSubject<Question[]>=new BehaviorSubject(QUESTION_LIST);
 
   private stockURL = 'https://http://localhost:9428/';
 
@@ -79,10 +81,14 @@ export class QuizService {
   addQuestion(question:Question,id:string|undefined){
     let quiz = this.quizzes.find(q => q.id === id)!;
     quiz.questions.push(question);
-   /* this.questions.push(question);
+
+    /* this.questions.push(question);
     this.questions$.next(this.questions);*/
     this.quizzes$.next(this.quizzes);
+
   }
+
+
 
   deleteQuestion(question:Question, id:string|undefined){
     let quiz = this.quizzes.find(q => q.id === id)!;
