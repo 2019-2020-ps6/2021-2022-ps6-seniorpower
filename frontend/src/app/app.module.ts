@@ -40,7 +40,7 @@ import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
     OptionsComponent,
 
 
-    UserListComponent
+    UserListComponent,
 
 
     PlayQuizComponent,
