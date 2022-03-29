@@ -22,7 +22,6 @@ export class QuizService {
     */
   private quizzes: Quiz[] = QUIZ_LIST;
   private themes: Theme[] = THEME_LIST;
-  private questions :Question[]=QUESTION_LIST;
 
   /**
    * Observable which contains the list of the quiz.
@@ -30,7 +29,6 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
   public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST);
-  public question$:BehaviorSubject<Question[]>=new BehaviorSubject(QUESTION_LIST);
 
   private stockURL = 'http://localhost:9428/';
 
@@ -74,6 +72,11 @@ export class QuizService {
 
   deleteQuizzes(quiz:Quiz){
     this.http.delete(this.stockURL+"api/quizzes/"+quiz.id);
+  }
+
+  getQuizById(id: string | null): Quiz {
+    const quiz = this.quizzes.find(q => q.id === id)!;
+    return quiz;
   }
 
   getQuiz(id: string | null): Observable<Quiz> {

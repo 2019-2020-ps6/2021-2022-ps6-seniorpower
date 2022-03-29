@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'quiz-list', component: QuizListComponent},
   {path: 'edit-quiz', component: EditQuizComponent},
   { path: 'menu', component: MenuComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/menu', pathMatch: 'full' },
   { path: 'detail/:id', component: EditQuizComponent },//Permet de relier à la page details
   {path:'user-list',component: UserListComponent},
   {path:'options',component:OptionsComponent},
