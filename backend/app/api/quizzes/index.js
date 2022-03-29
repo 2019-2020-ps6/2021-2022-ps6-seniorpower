@@ -2,6 +2,7 @@ const { Router } = require('express')
 
 const { Quiz, Question } = require('../../models')
 const QuestionsRouter = require('./questions')
+const QuestionsListRouter = require('./questions')
 
 const router = new Router()
 
