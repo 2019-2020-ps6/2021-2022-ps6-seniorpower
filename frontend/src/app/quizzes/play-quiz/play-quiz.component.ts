@@ -27,6 +27,7 @@ export class PlayQuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.id = this.route.snapshot.paramMap.get('id');
     this.quizService.getQuiz(this.id);
     this.quizService.getQuiz(this.id).subscribe(quiz=>{this.quiz=quiz});
