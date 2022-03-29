@@ -35,9 +35,14 @@ import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
     QuestionListComponent,
     UserComponent,
     UserFormComponent,
+
     UserListComponent,
     OptionsComponent,
-    UserListComponent,
+
+
+    UserListComponent
+
+
     PlayQuizComponent,
     OptionsComponent,
     MenuComponent,
