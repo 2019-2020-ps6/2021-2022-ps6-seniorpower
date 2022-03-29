@@ -13,7 +13,8 @@ const routes: Routes = [
   {path:'themes./:id', component: QuizListComponent}, //TODO afficher les quiz d'un theme
   {path:'quiz-list', component: QuizListComponent},
   {path: 'edit-quiz', component: EditQuizComponent},
-  { path: '', component: MenuComponent },
+  { path: 'menu', component: MenuComponent },
+  { path: '', redirectTo: '/menu', pathMatch: 'full' },
   { path: 'detail/:id', component: EditQuizComponent },//Permet de relier à la page details
   {path:'user-list',component: UserListComponent},
   {path:'options',component:OptionsComponent},

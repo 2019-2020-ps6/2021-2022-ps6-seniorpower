@@ -22,7 +22,6 @@ export class QuizService {
     */
   private quizzes: Quiz[] = QUIZ_LIST;
   private themes: Theme[] = THEME_LIST;
-  private questions :Question[]=QUESTION_LIST;
 
   /**
    * Observable which contains the list of the quiz.
@@ -30,9 +29,8 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
   public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST);
-  public question$:BehaviorSubject<Question[]>=new BehaviorSubject(QUESTION_LIST);
 
-  private stockURL = 'https://http://localhost:9428/';
+  private stockURL = 'http://localhost:9428/';
 
 
   constructor(private http: HttpClient) {
@@ -41,36 +39,44 @@ export class QuizService {
   }
 
   addQuiz(quiz: Quiz) {
-    let id = this.quizzes.length;
-    id += 1
-    quiz.id = String(id);
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
-
+    this.postQuizzes(quiz);
     // You need here to update the list of quiz and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
   }
+
   deleteQuiz(quiz: Quiz){
     let index = this.quizzes.indexOf(quiz);
     this.quizzes.splice(index,1);
     this.quizzes$.next(this.quizzes);
+    this.deleteQuizzes(quiz);
+  }
 
+  postQuizzes(quiz:Quiz){
+      this.http.post(this.stockURL+"api/quizzes",quiz).subscribe((quiz)=>{
+        console.log(quiz);
+      });
   }
 
   getQuizzes(){
-    this.http.get<Quiz[]>(this.stockURL).subscribe((quizList) => {
+    this.http.get<Quiz[]>(this.stockURL+"api/quizzes").subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);
-      console.log(quizList);
     });
   }
 
-  addIdQuiz(){
-    let id =0
-    this.quizzes.forEach(value => {
-      value.id = String(id);
-      id +=1;
-    })
+  putQuiz(quiz:Quiz){
+    this.http.put(this.stockURL+"api/quizzes/"+quiz.id,quiz);
+  }
+
+  deleteQuizzes(quiz:Quiz){
+    this.http.delete(this.stockURL+"api/quizzes/"+quiz.id);
+  }
+
+  getQuizById(id: string | null): Quiz {
+    const quiz = this.quizzes.find(q => q.id === id)!;
+    return quiz;
   }
 
   getQuiz(id: string | null): Observable<Quiz> {
@@ -82,13 +88,13 @@ export class QuizService {
     let quiz = this.quizzes.find(q => q.id === id)!;
     quiz.questions.push(question);
 
+   /* this.questions.push(question);
+
     /* this.questions.push(question);
     this.questions$.next(this.questions);*/
     this.quizzes$.next(this.quizzes);
-
+    this.putQuiz(quiz); //TODO verif
   }
-
-
 
   deleteQuestion(question:Question, id:string|undefined){
     let quiz = this.quizzes.find(q => q.id === id)!;
@@ -96,12 +102,12 @@ export class QuizService {
     let indexQuiz = this.quizzes.indexOf(quiz)
     this.quizzes[indexQuiz].questions.splice(index,1);
     this.quizzes$.next(this.quizzes);
+    this.putQuiz(quiz); //TODO verif
   }
 
   getThemes(){
     this.http.get<Theme[]>(this.stockURL).subscribe((themelist) => {
       this.themes = themelist;
-      this.addIdQuiz();
       this.themes$.next(this.themes);
       console.log(themelist);
     });
@@ -122,7 +128,5 @@ export class QuizService {
       this.getThemes();
     });
   }
-
-
 
 }

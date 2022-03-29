@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 import {Theme} from "../../../models/theme.model";
+import {Quiz} from "../../../models/quiz.model";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-theme',
@@ -16,6 +18,7 @@ export class ThemeComponent implements OnInit {
 
   @Input()
   theme: Theme | undefined;
+  listQuiz: Quiz|undefined;
 
   @Output()
   themeSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -23,4 +26,5 @@ export class ThemeComponent implements OnInit {
   selectTheme() {
     this.themeSelected.emit(true);
   }
+
 }

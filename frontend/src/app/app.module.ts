@@ -38,6 +38,11 @@ import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
 
     UserListComponent,
     OptionsComponent,
+
+
+    UserListComponent,
+
+
     UserListComponent,
     PlayQuizComponent,
     OptionsComponent,

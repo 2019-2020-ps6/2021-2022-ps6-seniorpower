@@ -4,12 +4,14 @@ import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {QUIZ_vide} from "../../../mocks/quiz-list.mock";
+//TODO rendre fonctionnel
 
 @Component({
   selector: 'app-play-quiz',
   templateUrl: './play-quiz.component.html',
   styleUrls: ['play-quiz.component.scss']
 })
+
 export class PlayQuizComponent implements OnInit {
   indexQuiz: number = 0;
   nbCorrectAnswer: number = 0;
@@ -28,9 +30,10 @@ export class PlayQuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.quizService.getQuiz(this.id)
-    this.quizService.getQuiz(this.id).subscribe(quiz=>{this.quiz=quiz});
-
+    this.quizService.getQuizById(this.id);
+    console.log(this.id);
+    console.log(this.quiz.name)
+    console.log(this.quiz.questions.length)
   }
 
   isEnd() {
