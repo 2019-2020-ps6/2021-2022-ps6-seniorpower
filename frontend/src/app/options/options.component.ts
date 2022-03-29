@@ -64,4 +64,9 @@ export class OptionsComponent implements OnInit {
     this.colorService.colorUpdate(this.colorStyle);
   }
 
+  applyChange(){
+    const size: string = (document.getElementById('size') as HTMLInputElement).value;
+    document.documentElement.style.setProperty(`--font-size`, size + 'px');
+  }
+
 }

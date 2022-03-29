@@ -2,7 +2,11 @@
      [style.width]="formatting.width" [style.text-align]="formatting.textAlign">
   <h1>Options</h1>
   <main>
-    <p>Changer la taille de l'écriture :<!--TODO--></p>
+    <p>
+      Choisissez la taille de la police :
+      <input type="range" value="18" min="1" max="30" oninput="this.nextElementSibling.value = this.value" id ="size" (change) = "applyChange()">
+      <output>18</output>
+    </p>
     <p>Choisir la maladie :
       <button class="button-card" (click)="changeFormatClassic()">Aucune</button>
       <button class="button-card" (click)="changeFormatDMLA()">DMLA</button>
@@ -14,6 +18,7 @@
     <button class="button-card" (click)="changeColorTrita()">Tritanopie</button>
     <button class="button-card" (click)="changeColorDeute()">Deutéranopie</button>
   </p>
+
   </main>
 
 </div>
