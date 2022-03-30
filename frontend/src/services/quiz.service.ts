@@ -71,7 +71,8 @@ export class QuizService {
   }
 
   deleteQuizzes(quiz:Quiz){
-    this.http.delete(this.stockURL+"api/quizzes/"+quiz.id);
+    console.log(this.stockURL+"api/quizzes/"+quiz.id.toString())
+    this.http.delete(this.stockURL+"api/quizzes/"+quiz.id.toString()).subscribe(() => this.getQuizzes());
   }
 
   getQuizById(id: string | null) : Quiz | null{

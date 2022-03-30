@@ -37,9 +37,5 @@ export class ThemeViewComponent implements OnInit {
   quizSelected(selected: boolean) {
     console.log('event received from child:', selected);
   }
-  deleteQuiz(quiz: Quiz){
-    this.quizService.deleteQuiz(quiz);
-    console.log('event deletion',quiz);
-  }
 
 }

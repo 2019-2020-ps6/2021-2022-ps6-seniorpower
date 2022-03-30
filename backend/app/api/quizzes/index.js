@@ -37,6 +37,10 @@ router.get('/:quizId', (req, res) => {
 router.post('/', (req, res) => {
   try {
     const quiz = Quiz.create({ ...req.body })
+    if (req.body.questions && req.body.questions.length > 0) {
+      const questions = req.body.questions.map((question) => Question.create({ ...question, quizId: quiz.id }))
+      quiz = {...quiz, questions}
+    }
     res.status(201).json(quiz)
   } catch (err) {
     if (err.name === 'ValidationError') {
