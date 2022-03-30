@@ -36,8 +36,8 @@ export class QuestionFormComponent implements OnInit {
 
   private createAnswer(){
     return this.formBuilder.group({
-      value: '',
-      isCorrect: false,
+      value: 'valueTest',
+      isCorrect: false
     });
   }
 

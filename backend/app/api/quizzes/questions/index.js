@@ -48,6 +48,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:questionId', (req, res) => {
   try {
+    Answer.get().forEach((answer) => {if(parseInt(answer.questionId) === parseInt(req.params.questionId)){Answer.delete(answer.id)}})
     res.status(200).json(Question.delete(req.params.questionId))
   } catch (err) {
     res.status(500).json(err)
