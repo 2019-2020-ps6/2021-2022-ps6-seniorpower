@@ -90,16 +90,13 @@ export class QuizService {
     return of(quiz);
   }
 
-  addQuestion(question:Question,id:string|undefined){
-    let quiz = this.quizzes.find(q => q.id === id)!;
-    quiz.questions.push(question);
 
-   /* this.questions.push(question);
-
-    /* this.questions.push(question);
-    this.questions$.next(this.questions);*/
-    this.quizzes$.next(this.quizzes);
-    this.putQuiz(quiz); //TODO verif
+  addQuestion(question:Question,id:string|null){
+    console.log(this.stockURL+"api/quizzes/" + id + "/questions")
+    this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
+      console.log(question);
+    });
+    
   }
 
   deleteQuestion(question:Question, id:string|undefined){

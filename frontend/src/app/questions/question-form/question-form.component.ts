@@ -4,6 +4,7 @@ import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {Question} from "../../../models/question.model";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-question-form',
@@ -14,10 +15,11 @@ import {Question} from "../../../models/question.model";
 
 export class QuestionFormComponent implements OnInit {
   @Input()
-  quiz:Quiz|undefined;
+  quiz:Quiz;
   public questionForm: FormGroup;
 
-  constructor(public formBuilder:FormBuilder, public quizService: QuizService) {
+  constructor(public formBuilder:FormBuilder, public quizService: QuizService,
+    private route: ActivatedRoute,) {
     //Form creation
     this.questionForm = this.formBuilder.group(
       {
@@ -27,6 +29,7 @@ export class QuestionFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.quiz = this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
   }
 
   get answers(){
@@ -48,6 +51,6 @@ export class QuestionFormComponent implements OnInit {
   addQuestion() {
     const questionToCreate: Question = this.questionForm.getRawValue() as Question;
     console.log('Add question: ', questionToCreate);
-    this.quizService.addQuestion(questionToCreate, this.quiz?.id);
+    this.quizService.addQuestion(questionToCreate, this.quiz.id);
   }
 }
