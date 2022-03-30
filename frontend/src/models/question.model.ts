@@ -2,20 +2,13 @@ export interface Answer {
     type?: string;
     value: string;
     isCorrect: boolean;
+    id : string;
+    questionId : string;
 }
 
 export interface Question {
+    id: string;
     label: string;
+    quizId: string[];
     answers: Answer[];
 }
-
-export const AnswerFalse:Answer={
-  value:"0",
-  isCorrect: false
-}
-export const QUESTION_LIST: Question[] = [
-  {
-    label:'0',
-    answers: [AnswerFalse]
-  }
-];

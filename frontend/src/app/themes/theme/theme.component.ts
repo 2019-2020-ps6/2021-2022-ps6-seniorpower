@@ -17,10 +17,4 @@ export class ThemeComponent implements OnInit {
   @Input()
   theme: Theme | undefined;
 
-  @Output()
-  themeSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  selectTheme() {
-    this.themeSelected.emit(true);
-  }
 }

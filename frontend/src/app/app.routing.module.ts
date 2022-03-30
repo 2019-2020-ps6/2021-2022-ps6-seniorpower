@@ -6,11 +6,12 @@ import {UserListComponent} from "./users/user-list/user-list.component";
 import {OptionsComponent} from "./options/options.component";
 import {MenuComponent} from "./menu/menu.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
+import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
 
 import {PlayQuizComponent} from "./quizzes/play-quiz/play-quiz.component";
 const routes: Routes = [
   {path:'themes',component:ThemeListComponent},
-  {path:'themes./:id', component: QuizListComponent}, //TODO afficher les quiz d'un theme
+  {path:'themes/:name', component: ThemeViewComponent}, 
   {path:'quiz-list', component: QuizListComponent},
   {path: 'edit-quiz', component: EditQuizComponent},
   { path: 'menu', component: MenuComponent },

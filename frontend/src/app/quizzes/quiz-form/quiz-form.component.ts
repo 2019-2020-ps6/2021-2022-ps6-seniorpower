@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
-import {QUESTION_VIDE} from "../../../mocks/quiz-list.mock";
 
 @Component({
   selector: 'app-quiz-form',
@@ -44,7 +43,7 @@ export class QuizFormComponent implements OnInit {
     // We retrieve here the quiz object from the quizForm and we cast the type "as Quiz".
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
     quizToCreate.questions = [];
-    quizToCreate.questions.push(QUESTION_VIDE);
+    quizToCreate.questions.push();
     // Do you need to log your object here in your class? Uncomment the code below
     // and open your console in your browser by pressing F12 and choose the tab "Console".
     // You will see your quiz object when you click on the create button.

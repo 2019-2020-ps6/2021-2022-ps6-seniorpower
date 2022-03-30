@@ -1,4 +1,5 @@
 export interface Theme {
   name: string,
-  id: string,
+  idQuizList: string[],
+  id : string;
 }
