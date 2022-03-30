@@ -2,12 +2,9 @@
   <h2>
     <i class="fab fa-leanpub"></i>
     Nom du thème : {{theme.name}}
-    <div >
-      <i  *ngIf="theme.name ==='Actor'" class="fas fa-exclamation"></i>
-      <i *ngIf = "theme.name === 'Ceci est un thème'" class = "fab fa-leanpub"></i>
-    </div>
   </h2>
   <nav>
+    <a routerLink="/themes/{{theme.name}}" class="button-card" >
     <a routerLink="/quiz-list/" class="button-card" > <!--TODO mettre la liste des quiz d'un theme -->
       <button class="button-card"  >Jouer ! </button>
     </a>

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {BehaviorSubject, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import {Question, QUESTION_LIST} from "../models/question.model";
+import {Question} from "../models/question.model";
 import {Theme} from "../models/theme.model";
-import {THEME_LIST} from "../mocks/theme-list";
+import { ThemeComponent } from 'src/app/themes/theme/theme.component';
 
 @Injectable({
   providedIn: 'root'
@@ -20,15 +19,16 @@ export class QuizService {
     * The list of quiz.
     * The list is retrieved from the mock.
     */
-  private quizzes: Quiz[] = QUIZ_LIST;
-  private themes: Theme[] = THEME_LIST;
+  private quizzes: Quiz[] = [];
+  private themes: Theme[] = [];
+
 
   /**
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
-  public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(QUIZ_LIST);
-  public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(THEME_LIST);
+  public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
+  public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
 
   private stockURL = 'http://localhost:9428/';
 
@@ -71,12 +71,18 @@ export class QuizService {
   }
 
   deleteQuizzes(quiz:Quiz){
-    this.http.delete(this.stockURL+"api/quizzes/"+quiz.id);
+    console.log(this.stockURL+"api/quizzes/"+quiz.id.toString())
+    this.http.delete(this.stockURL+"api/quizzes/"+quiz.id.toString()).subscribe(() => this.getQuizzes());
   }
 
-  getQuizById(id: string | null): Quiz {
-    const quiz = this.quizzes.find(q => q.id === id)!;
-    return quiz;
+  getQuizById(id: string | null) : Quiz | null{
+    for(let i = 0; i < this.quizzes.length;i++){
+      if(this.quizzes[i].id == id){
+        return this.quizzes[i];
+      }
+    }
+    return null;
+
   }
 
   getQuiz(id: string | null): Observable<Quiz> {
@@ -84,16 +90,13 @@ export class QuizService {
     return of(quiz);
   }
 
-  addQuestion(question:Question,id:string|undefined){
-    let quiz = this.quizzes.find(q => q.id === id)!;
-    quiz.questions.push(question);
 
-   /* this.questions.push(question);
-
-    /* this.questions.push(question);
-    this.questions$.next(this.questions);*/
-    this.quizzes$.next(this.quizzes);
-    this.putQuiz(quiz); //TODO verif
+  addQuestion(question:Question,id:string|null){
+    console.log(this.stockURL+"api/quizzes/" + id + "/questions")
+    this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
+      console.log(question);
+    });
+    
   }
 
   deleteQuestion(question:Question, id:string|undefined){
@@ -106,7 +109,7 @@ export class QuizService {
   }
 
   getThemes(){
-    this.http.get<Theme[]>(this.stockURL).subscribe((themelist) => {
+    this.http.get<Theme[]>(this.stockURL + "api/themes").subscribe((themelist) => {
       this.themes = themelist;
       this.themes$.next(this.themes);
       console.log(themelist);
@@ -121,12 +124,35 @@ export class QuizService {
     })
   }
 
+  getThemeByName(name){
+    for(let i = 0; i < this.themes.length; i++){
+      if ((name == this.themes[i].name)){
+        return this.themes[i]
+      }
+    }
+    return undefined;
+  }
+
   createTheme(theme: string): void
   {
     this.http.post(this.stockURL.toString() + "themes", { name: theme }).subscribe(_ =>
     {
       this.getThemes();
     });
+  }
+
+  addQuizToTheme(quizId:string,theme:Theme):void{
+    theme.idQuizList.push(quizId);
+    this.http.put(this.stockURL+"api/themes/" + theme + "/" + theme.id,theme);
+  }
+
+  deleteQuizToTheme(quizId:string,theme:Theme):void{
+    for(let i = 0; i < theme.idQuizList.length; i++){
+      if(theme.idQuizList[i] == quizId){
+        delete theme.idQuizList[i];
+      }
+    }
+    this.http.put(this.stockURL+"api/themes/" + theme + "/" + theme.id,theme);
   }
 
 }

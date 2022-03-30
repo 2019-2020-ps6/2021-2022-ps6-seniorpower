@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Answer, AnswerFalse, Question} from "../../../models/question.model";
+import {Answer, Question} from "../../../models/question.model";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
-import {QUIZ_vide} from "../../../mocks/quiz-list.mock";
 //TODO rendre fonctionnel
 
 @Component({
@@ -18,8 +17,7 @@ export class PlayQuizComponent implements OnInit {
   selectAnswer = new Map();
   public question: Question | undefined;
   public whoCorrectAnswer: Answer[] = [];
-  public answer: Answer=AnswerFalse;
-  public quiz: Quiz = QUIZ_vide;
+  public quiz: Quiz;
   resultAffiche: boolean = false;
   public id: string | null ="";
 
@@ -29,11 +27,10 @@ export class PlayQuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.quizService.getQuizById(this.id);
+    console.log(this.route.snapshot.paramMap.get('id'))
+    this.quiz = this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
-    console.log(this.quiz.name)
-    console.log(this.quiz.questions.length)
+    console.log(typeof(this.quiz));
   }
 
   isEnd() {

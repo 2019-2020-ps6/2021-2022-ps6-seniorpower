@@ -21,6 +21,7 @@ import {PlayQuizComponent} from "./quizzes/play-quiz/play-quiz.component";
 import {MenuComponent} from "./menu/menu.component";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
+import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,14 +36,9 @@ import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
     QuestionListComponent,
     UserComponent,
     UserFormComponent,
-
+    ThemeViewComponent,
     UserListComponent,
     OptionsComponent,
-
-
-    UserListComponent,
-
-
     UserListComponent,
     PlayQuizComponent,
     OptionsComponent,

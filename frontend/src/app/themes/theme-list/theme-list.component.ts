@@ -2,7 +2,6 @@ import {Component, OnInit} from "@angular/core";
 import {QuizService} from "../../../services/quiz.service";
 import {Theme} from "../../../models/theme.model";
 import {Question} from "../../../models/question.model";
-import {QUESTION_VIDE} from "../../../mocks/quiz-list.mock";
 
 @Component({
   selector: 'app-theme-list',
@@ -11,18 +10,16 @@ import {QUESTION_VIDE} from "../../../mocks/quiz-list.mock";
 })
 export class ThemeListComponent implements OnInit {
 
-  public themeList: Theme[] = [];
-  public question:Question = QUESTION_VIDE;
+  public themeList: Theme[];
+  
   constructor(public quizService: QuizService) {
-    this.quizService.themes$.subscribe((theme) => {
-      this.themeList = theme;
+    this.quizService.themes$.subscribe((themes: Theme[]) => {
+      this.themeList = themes;
     });
+    console.log(this.themeList);
   }
 
   ngOnInit() {
   }
 
-  themeSelected(selected: boolean) {
-    console.log('event received from child:', selected);
-  }
 }

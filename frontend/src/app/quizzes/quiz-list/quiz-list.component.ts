@@ -9,7 +9,7 @@ import { Quiz } from '../../../models/quiz.model';
 })
 export class QuizListComponent implements OnInit {
 
-  public quizList: Quiz[] = [];
+  public quizList: Quiz[];
 
   constructor(public quizService: QuizService) {
     this.quizService.quizzes$.subscribe((quizList) => {
@@ -19,6 +19,7 @@ export class QuizListComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   quizSelected(selected: boolean) {
     console.log('event received from child:', selected);
