@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { FormGroup } from '@angular/forms';
+import { FormBuilder, Validators} from "@angular/forms";
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {Theme} from "../../../models/theme.model";
@@ -29,9 +29,10 @@ export class QuizFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     // Form creation
     this.quizForm = this.formBuilder.group({
-      name: [''],
+      name: [null, Validators.required],
       creationDate: [''],
-      id:['']
+      id:[''],
+      questions:[[]]
     });
 
     this.quizService.themes$.subscribe((themes: Theme[]) => {
