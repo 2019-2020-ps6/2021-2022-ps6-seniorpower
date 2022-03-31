@@ -30,6 +30,7 @@ export class QuizService {
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
 
+
   private stockURL = 'http://localhost:9428/';
 
 
@@ -55,9 +56,9 @@ export class QuizService {
 
   postQuizzes(quiz:Quiz){
       this.http.post(this.stockURL+"api/quizzes",quiz).subscribe((quiz)=>{
-        console.log(quiz);
       });
   }
+
 
   getQuizzes(){
     this.http.get<Quiz[]>(this.stockURL+"api/quizzes").subscribe((quizList) => {
@@ -124,9 +125,10 @@ export class QuizService {
     })
   }
 
+  //a tester
   getThemeByName(name){
     for(let i = 0; i < this.themes.length; i++){
-      if ((name == this.themes[i].name)){
+      if ((name === this.themes[i].name)){
         return this.themes[i]
       }
     }
@@ -135,24 +137,31 @@ export class QuizService {
 
   createTheme(theme: string): void
   {
-    this.http.post(this.stockURL.toString() + "themes", { name: theme }).subscribe(_ =>
+    console.log("create theme")
+    this.http.post(this.stockURL +"api/themes", { "name": theme,"idQuizList":[] } as Theme).subscribe(() =>
     {
       this.getThemes();
     });
   }
 
+
   addQuizToTheme(quizId:string,theme:Theme):void{
     theme.idQuizList.push(quizId);
-    this.http.put(this.stockURL+"api/themes/" + theme + "/" + theme.id,theme);
+    console.log("add quiz to theme")
+    this.http.put(this.stockURL+"api/themes/" +  theme.id,theme).subscribe(() =>
+      {
+        this.getThemes();
+      });
   }
 
+  //a tester
   deleteQuizToTheme(quizId:string,theme:Theme):void{
     for(let i = 0; i < theme.idQuizList.length; i++){
-      if(theme.idQuizList[i] == quizId){
+      if(theme.idQuizList[i] === quizId){
         delete theme.idQuizList[i];
       }
     }
-    this.http.put(this.stockURL+"api/themes/" + theme + "/" + theme.id,theme);
+    this.http.put(this.stockURL+"api/themes/" + theme.id,theme).subscribe();
   }
-
+  
 }

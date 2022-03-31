@@ -5,14 +5,10 @@
       Title <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'name'">
     </label>
-    <label for="title">
-      Date<br>
-      <input class="input-custom" type="text" id="date" [formControlName]="'creationDate'">
-    </label>
     <label for = "theme">
       <br> Thème <br>
-      <select class="input-custom" type = "text" id="theme"  name="theme-list" [formControlName]="'theme'">
-        <option *ngFor = "let currentTheme of THEME_LIST" [value]="currentTheme">
+      <select class="input-custom" type = "text" id="theme"  name="theme-list">
+        <option *ngFor = "let currentTheme of getAllThemeName()" [value]="currentTheme">
           {{currentTheme}}
         </option>
 

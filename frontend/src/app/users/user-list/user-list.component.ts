@@ -12,8 +12,8 @@ export class UserListComponent implements OnInit{
   public userList: User[] = [];
 
   constructor(public userService: UserService) {
-    this.userService.users$.subscribe((userList) => {
-      this.userList = userList;
+    this.userService.users$.subscribe((users) => {
+      this.userList = users;
     });
   }
 
@@ -21,6 +21,7 @@ export class UserListComponent implements OnInit{
   }
 
   deleteUser(user: User){
+    console.log("delete" , user)
     this.userService.deleteUser(user);
     console.log('event deletion',user);
   }

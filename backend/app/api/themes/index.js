@@ -23,8 +23,13 @@ router.get('/:themeId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const user = Theme.create({ ...req.body })
-    res.status(201).json(user)
+    let boolCheckName = true;
+    Theme.get().forEach((theme) => {if (theme.name === req.body.name) {boolCheckName = false} })
+    if(boolCheckName){
+      const theme = Theme.create({ ...req.body })
+      res.status(201).json(theme)
+    }
+    res.status(400).json("theme are already in base")
   } catch (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra)

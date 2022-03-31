@@ -17,6 +17,7 @@ export class UserFormComponent implements OnInit{
     this.userForm = this.formBuilder.group({
       name: [''],
       password: [''],
+      id:['']
     });
   }
 
@@ -24,6 +25,9 @@ export class UserFormComponent implements OnInit{
   }
 
   addUser() {
+    this.userForm.patchValue({
+      id:Date.now()
+    });
     const userToCreate: User = this.userForm.getRawValue() as User;
     console.log('Add User: ', userToCreate);
     this.userService.addUser(userToCreate);
