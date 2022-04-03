@@ -4,8 +4,11 @@
   <main>
     <p>
       Choisissez la taille de la police :
-      <input type="range" value="18" min="1" max="30" oninput="this.nextElementSibling.value = this.value" id ="size" (change) = "applyChange()">
-      <output>18</output>
+      <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applyChange()" id="size">
+        <option *ngFor = "let size of getAllSize()" [value]="size">
+          {{size}}
+        </option>
+      </select>
     </p>
     <p>Choisir la maladie :
       <button class="button-card" (click)="changeFormatClassic()">Aucune</button>

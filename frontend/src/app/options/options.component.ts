@@ -15,6 +15,7 @@ export class OptionsComponent implements OnInit {
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
   formatting:Formatting = CLASSIC_Format;
+  sizes:String[]
 
   constructor(public colorService: ColorService, public formattingService:FormattingService) { //TODO mettre partout où besoin
     this.colorService.getColorStyle().subscribe((color) => {
@@ -23,6 +24,7 @@ export class OptionsComponent implements OnInit {
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
     })
+    this.sizes = ["14","15","16","17","18","19","20"]
   }
 
   ngOnInit() {
@@ -67,6 +69,13 @@ export class OptionsComponent implements OnInit {
   applyChange(){
     const size: string = (document.getElementById('size') as HTMLInputElement).value;
     document.documentElement.style.setProperty(`--font-size`, size + 'px');
+  }
+
+  getSize(){
+    return (document.getElementById('size') as HTMLInputElement).value;
+  }
+  getAllSize(){
+    return this.sizes
   }
 
 }
