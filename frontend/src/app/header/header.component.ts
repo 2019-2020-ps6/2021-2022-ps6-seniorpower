@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ColorStyle} from "../../models/colorstyle.model";
 import {DEFAULT_COLOR} from "../../mocks/colorstyle.mock";
 import {ColorService} from "../../services/color.service";
+import {LoupeService} from "../../services/loupe.service";
 
 @Component({
   selector: 'app-header',
@@ -11,12 +12,17 @@ import {ColorService} from "../../services/color.service";
 export class HeaderComponent implements OnInit {
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
-  constructor(public colorService: ColorService) {
+  constructor(public colorService: ColorService, public loupeService:LoupeService) {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
+
   }
 
   ngOnInit() {
+  }
+
+  public loupe(){
+    this.loupeService.refresh()
   }
 }

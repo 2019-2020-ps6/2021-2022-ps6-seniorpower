@@ -3,6 +3,7 @@ import {Answer, Question} from "../../../models/question.model";
 import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
+import {LoupeService} from "../../../services/loupe.service";
 //TODO rendre fonctionnel
 
 @Component({
@@ -24,6 +25,7 @@ export class PlayQuizComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService,
+    public loupeService:LoupeService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +33,7 @@ export class PlayQuizComponent implements OnInit {
     this.quiz = this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'));
     console.log(this.id);
     console.log(typeof(this.quiz));
+    this.loupeService.setup();
   }
 
   isEnd() {

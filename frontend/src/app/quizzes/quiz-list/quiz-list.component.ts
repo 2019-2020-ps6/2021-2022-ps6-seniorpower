@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
+import {LoupeService} from "../../../services/loupe.service";
 
 @Component({
   selector: 'app-quiz-list',
@@ -11,13 +12,14 @@ export class QuizListComponent implements OnInit {
 
   public quizList: Quiz[];
 
-  constructor(public quizService: QuizService) {
+  constructor(public quizService: QuizService,public loupeService:LoupeService) {
     this.quizService.quizzes$.subscribe((quizList) => {
       this.quizList = quizList;
     });
   }
 
   ngOnInit() {
+    this.loupeService.setup();
   }
 
 

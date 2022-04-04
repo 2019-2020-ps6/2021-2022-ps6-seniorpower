@@ -3,6 +3,7 @@ import { Quiz } from '../../../models/quiz.model';
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {Location} from "@angular/common";
+import {LoupeService} from "../../../services/loupe.service";
 
 @Component({
   selector: 'app-edit-quiz',
@@ -15,11 +16,13 @@ export class EditQuizComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService,
-    private location: Location
+    private location: Location,
+    public loupeService:LoupeService
   ) {}
 
   ngOnInit():void {
     this.getQuiz();
+    this.loupeService.setup();
 
   }
 

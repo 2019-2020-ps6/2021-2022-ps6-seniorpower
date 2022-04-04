@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {Question} from "../../../models/question.model";
+import {LoupeService} from "../../../services/loupe.service";
 
 @Component({
   selector: 'app-question-list',
@@ -14,12 +15,13 @@ export class QuestionListComponent implements OnInit {
 
   public questionList: Question[] | undefined = [];
 
-  constructor(public quizService: QuizService) {
+  constructor(public quizService: QuizService,public loupeService:LoupeService) {
 
   }
 
   ngOnInit() {
     this.questionList = this.quiz?.questions;
+    this.loupeService.setup();
   }
 
   deleteQuestion(question : Question){

@@ -5,6 +5,7 @@ import {DEFAULT_COLOR, DEUTE_COLOR, PROTA_COLOR, TRITA_COLOR} from "../../mocks/
 import {CLASSIC_Format,DMLA_FORMAT,GLAUCOME_FORMAT} from "../../mocks/formatting.mock";
 import {Formatting} from "../../models/formatting.model";
 import {FormattingService} from "../../services/formatting.service";
+import {LoupeService} from "../../services/loupe.service";
 
 @Component({
   selector: 'app-options',
@@ -17,7 +18,7 @@ export class OptionsComponent implements OnInit {
   formatting:Formatting = CLASSIC_Format;
   sizes:String[]
 
-  constructor(public colorService: ColorService, public formattingService:FormattingService) { //TODO mettre partout où besoin
+  constructor(public colorService: ColorService, public formattingService:FormattingService,public loupeService:LoupeService) { //TODO mettre partout où besoin
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
@@ -28,6 +29,7 @@ export class OptionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loupeService.setup();
   }
 
   changeColorDefault(){

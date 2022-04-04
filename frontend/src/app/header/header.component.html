@@ -3,7 +3,8 @@
 
   <nav id="container">
     <a>Polyquiz</a>
-    <a class="loupe button-card" [style.background-color]="colorStyle.font.colorLoupe">Loupe</a><!--TODO-->
+    <a id='hidden-loupe-button' style="display:none" onclick="$('.main').jfMagnify()">jgyuyg</a>
+    <a id='loupe-button' class="loupe button-card" (click)=loupe() [style.background-color]="colorStyle.font.colorLoupe">Loupe</a><!--TODO-->
     <span>
       <a routerLink="" class="button-card right">Menu Principal</a>
       <a routerLink="/quiz-list" class="button-card right">Quiz</a>

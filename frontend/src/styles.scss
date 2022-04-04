@@ -9,7 +9,7 @@ html {
 body {
   margin: 0;
   background-color: $app-background-color;
-  
+
 }
 body{
   margin: 0;
@@ -29,6 +29,29 @@ body{
 
 }
 **/
+app-root{
+  display: block;
+  min-height: 100vh;
+}
 
 
+//Pour contour loupe
+.magnify_glass {
+  z-index: 300;
+  position: absolute;
+  border: 4px solid #CCC;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  overflow:hidden;
+}
+
+
+.element_to_magnify {
+  position: relative;
+}
+//css du clone
+.magnified_element{
+
+}
 

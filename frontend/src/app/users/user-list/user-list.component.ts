@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
+import {LoupeService} from "../../../services/loupe.service";
 
 @Component({
   selector: 'app-user-list',
@@ -11,13 +12,14 @@ import {UserService} from "../../../services/user.service";
 export class UserListComponent implements OnInit{
   public userList: User[] = [];
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, public loupeService:LoupeService) {
     this.userService.users$.subscribe((users) => {
       this.userList = users;
     });
   }
 
   ngOnInit() {
+    this.loupeService.setup();
   }
 
   deleteUser(user: User){

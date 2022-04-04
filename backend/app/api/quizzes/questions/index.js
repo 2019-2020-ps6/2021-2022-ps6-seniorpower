@@ -2,6 +2,7 @@ const { Router } = require('express')
 
 const { Answer, Quiz, Question } = require('../../../models')
 const AnswersRouter = require('./answers')
+
 const router = new Router({ mergeParams: true })
 
 const filterQuestionsFromQuizz = (quizId) => {
@@ -38,7 +39,7 @@ router.post('/', (req, res) => {
     // If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
-      question = {...question, answers}
+      question = { ...question, answers }
     }
     res.status(201).json(question)
   } catch (err) {
@@ -48,7 +49,7 @@ router.post('/', (req, res) => {
 
 router.delete('/:questionId', (req, res) => {
   try {
-    Answer.get().forEach((answer) => {if(parseInt(answer.questionId) === parseInt(req.params.questionId)){Answer.delete(answer.id)}})
+    Answer.get().forEach((answer) => { if (parseInt(answer.questionId) === parseInt(req.params.questionId)) { Answer.delete(answer.id) } })
     res.status(200).json(Question.delete(req.params.questionId))
   } catch (err) {
     res.status(500).json(err)

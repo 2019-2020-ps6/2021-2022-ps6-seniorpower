@@ -1,9 +1,13 @@
 @import '../styles/card.scss';
 
 .main-content {
-    padding: 0 1em 0 1em;
-
+  padding: 0 1em 0 1em;
 }
+.main {
+  display: block;
+  min-height: 100vh;
+}
+
 .a{
   margin:0;
   padding: 0;
