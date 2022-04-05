@@ -38,10 +38,9 @@ router.get('/:quizId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const quiz = Quiz.create({ ...req.body })
+    const quiz = Quiz.create({ ...req.body,questions:[]})
     if (req.body.questions && req.body.questions.length > 0) {
-      const questions = req.body.questions.map((question) => Question.create({ ...question, quizId: quiz.id }))
-      quiz = {...quiz, questions}
+      req.body.questions.forEach((question) => {question.id = Date.now(),console.log({ ...question, quizId: quiz.id,answers:[]}),Question.create({ ...question, quizId: quiz.id,answers:[]}),question.answers.forEach((answer) => {answer.questionId = question.id,console.log(answer),Answer.create(answer)})})
     }
     res.status(201).json(quiz)
   } catch (err) {
