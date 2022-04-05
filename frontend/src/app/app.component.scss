@@ -16,14 +16,17 @@
 .main{
   display:flex;
   flex-direction:column;
-  .content{
-      display:flex;
-  }
-
 }
+.content{
+   display:flex;
+   flex-wrap: wrap;
+ }
 .changement{
   padding-top: 2vh;
   padding-left: 2vh;
+  flex: 1;
+  width: 100%;
+
 }
 /*div{
       grid-template:

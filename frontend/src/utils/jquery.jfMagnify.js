@@ -21,7 +21,7 @@
 
         var defaults = {
             center: true,
-            scale:4,
+            scale:2.5,
             scaleGlass:false,
             containment:element,
             magnifyGlass : '.magnify_glass',
