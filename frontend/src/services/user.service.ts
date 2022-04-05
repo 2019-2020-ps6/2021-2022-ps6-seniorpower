@@ -10,6 +10,8 @@ export class UserService {
 
   private users: User[] = [];
   public users$: BehaviorSubject<User[]> = new BehaviorSubject(this.users);
+  private userSelected: User = {name: "",password:""} as User;
+  public userSelected$: BehaviorSubject<User> = new BehaviorSubject(this.userSelected);
   private stockURL = 'http://localhost:9428/';
 
   constructor(private http: HttpClient) {
@@ -49,5 +51,11 @@ export class UserService {
   deleteUsers(user:User){
     console.log(this.stockURL+"api/users/"+user.id.toString())
     this.http.delete(this.stockURL+"api/users/" + user.id.toString()).subscribe(() => this.getUsers());
+  }
+
+  setSelectedQuiz(userId: string) {
+    this.http.get<User>(this.stockURL + "api/users" + userId).subscribe((quiz) => {
+      this.userSelected$.next(quiz);
+    });
   }
 }

@@ -20,6 +20,7 @@ export class QuestionFormComponent implements OnInit {
 
   constructor(public formBuilder:FormBuilder, public quizService: QuizService,
     private route: ActivatedRoute,) {
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
     //Form creation
     this.questionForm = this.formBuilder.group(
       {
@@ -29,7 +30,7 @@ export class QuestionFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quiz = this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
+    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
   }
 
   get answers(){

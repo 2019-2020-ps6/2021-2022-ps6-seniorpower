@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { Quiz } from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
+import { Question } from '../../../models/question.model';
 
 @Component({
   selector: 'app-quiz',
@@ -21,10 +22,16 @@ export class QuizComponent implements OnInit {
   @Output()
   quizSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  public questionList: Question[];
+
   constructor(public quizService: QuizService) {
+    this.quizService.questions$.subscribe((questionList) => {
+      this.questionList = questionList;
+    });
   }
 
   ngOnInit() {
+    this.quizService.getQuestions(this.quiz.id)
   }
 
   selectQuiz() {
@@ -35,4 +42,5 @@ export class QuizComponent implements OnInit {
     console.log(quiz)
     this.quizService.deleteQuiz(quiz);
   }
+
 }
