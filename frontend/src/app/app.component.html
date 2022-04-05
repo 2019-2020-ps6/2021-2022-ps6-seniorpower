@@ -1,10 +1,12 @@
 <div class="main" id="main">
   <div class = "element_to_magnify" id="element_to_magnify">
     <app-header></app-header>
-    <br><br> <!-- TODO corriger decalage lié au x2-->
+
     <div class="content">
-      <app-aside></app-aside>
-      <router-outlet></router-outlet>
+      <app-aside></app-aside><br><br>
+      <span class="changement">
+        <router-outlet></router-outlet>
+      </span>
     </div>
   </div>
 </div>

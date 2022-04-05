@@ -97,7 +97,7 @@ export class QuizService {
     this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
       console.log(question);
     });
-    
+
   }
 
   deleteQuestion(question:Question, id:string|undefined){
@@ -163,5 +163,4 @@ export class QuizService {
     }
     this.http.put(this.stockURL+"api/themes/" + theme.id,theme).subscribe();
   }
-  
 }
