@@ -10,7 +10,7 @@ import {LoupeService} from "../../../services/loupe.service";
 })
 
 export class UserListComponent implements OnInit{
-  public userList: User[] = [];
+  public userList: User[];
 
   constructor(public userService: UserService, public loupeService:LoupeService) {
     this.userService.users$.subscribe((users) => {
@@ -20,6 +20,7 @@ export class UserListComponent implements OnInit{
 
   ngOnInit() {
     this.loupeService.setup();
+    
   }
 
   deleteUser(user: User){

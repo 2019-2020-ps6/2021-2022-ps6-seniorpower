@@ -18,8 +18,6 @@ export class UserService {
   }
 
   addUser(user: User) {
-    this.users.push(user);
-    this.users$.next(this.users);
     this.postUsers(user);
     // You need here to update the list of user and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
@@ -33,8 +31,7 @@ export class UserService {
   }
 
   postUsers(user:User){
-      this.http.post(this.stockURL+"api/users",user).subscribe((user)=>{
-      });
+      this.http.post(this.stockURL+"api/users",user).subscribe((user)=>{this.getUsers()});
   }
 
 
