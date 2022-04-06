@@ -18,7 +18,9 @@ export class EditQuizComponent implements OnInit {
     private quizService: QuizService,
     private location: Location,
     public loupeService:LoupeService
-  ) {}
+  ) {
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+  }
 
   ngOnInit():void {
     this.getQuiz();
@@ -28,8 +30,7 @@ export class EditQuizComponent implements OnInit {
 
   getQuiz(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
-    this.quizService.getQuiz(id)
-      .subscribe(quiz => this.quiz = quiz);
+    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
   }
 
   goBack(): void {

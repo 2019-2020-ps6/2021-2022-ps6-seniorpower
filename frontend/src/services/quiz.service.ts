@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
+import {BehaviorSubject, Observable, of, throwError, Subject} from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import {Question} from "../models/question.model";
 import {Theme} from "../models/theme.model";
@@ -21,6 +21,7 @@ export class QuizService {
     */
   private quizzes: Quiz[] = [];
   private themes: Theme[] = [];
+  private questions: Question[] = [];
 
 
   /**
@@ -29,6 +30,9 @@ export class QuizService {
    */
   public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
   public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
+  public questions$:BehaviorSubject<Question[]> = new BehaviorSubject(this.questions);
+  public quizSelected$: Subject<Quiz> = new Subject();
+
 
 
   private stockURL = 'http://localhost:9428/';
@@ -67,6 +71,13 @@ export class QuizService {
     });
   }
 
+  getQuestions(id:string){
+    this.http.get<Question[]>(this.stockURL+"api/quizzes/" + id + "/questions").subscribe((questionList) => {
+      this.questions = questionList;
+      this.questions$.next(this.questions);
+    });
+  }
+
   putQuiz(quiz:Quiz){
     this.http.put(this.stockURL+"api/quizzes/"+quiz.id,quiz);
   }
@@ -76,19 +87,16 @@ export class QuizService {
     this.http.delete(this.stockURL+"api/quizzes/"+quiz.id.toString()).subscribe(() => this.getQuizzes());
   }
 
-  getQuizById(id: string | null) : Quiz | null{
-    for(let i = 0; i < this.quizzes.length;i++){
-      if(this.quizzes[i].id == id){
-        return this.quizzes[i];
-      }
-    }
-    return null;
-
+  getQuizById(quizId: string) {
+    const urlWithId = this.stockURL + "api/quizzes/" + quizId;
+    this.http.get<Quiz>(urlWithId).subscribe((quiz) => {
+      this.quizSelected$.next(quiz);
+    });
   }
 
-  getQuiz(id: string | null): Observable<Quiz> {
+  getQuiz(id: string | null): Quiz {
     const quiz = this.quizzes.find(q => q.id === id)!;
-    return of(quiz);
+    return quiz;
   }
 
 
@@ -126,7 +134,7 @@ export class QuizService {
   }
 
   //a tester
-  getThemeByName(name){
+  getThemeByName(name:string){
     for(let i = 0; i < this.themes.length; i++){
       if ((name === this.themes[i].name)){
         return this.themes[i]
@@ -163,4 +171,6 @@ export class QuizService {
     }
     this.http.put(this.stockURL+"api/themes/" + theme.id,theme).subscribe();
   }
+
+
 }

@@ -1,3 +1,4 @@
+<div *ngIf="quiz">
 <span>{{quiz.questions.length}}</span>
 <div *ngIf="!isEnd()" class="card">
   <div class="result">
@@ -20,9 +21,10 @@
     </div>
   <div *ngIf="resultAffiche">
     <div class="row">
-      <div class="column">
-        <div class="text_reult"> {{getCorrectAnswer().values}}</div>
+      <div class="column" *ngIf="getCorrectAnswer()">
+        <div class="text_reult"> {{getCorrectAnswer()}}</div>
         </div>
     </div>
   </div>
+</div>
 </div>

@@ -4,6 +4,8 @@ import {Quiz} from "../../../models/quiz.model";
 import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {LoupeService} from "../../../services/loupe.service";
+import {VariableService} from "../../../services/variable.service";
+import {Variable} from "../../../models/variable.model";
 //TODO rendre fonctionnel
 
 @Component({
@@ -14,10 +16,8 @@ import {LoupeService} from "../../../services/loupe.service";
 
 export class PlayQuizComponent implements OnInit {
   indexQuiz: number = 0;
-  nbCorrectAnswer: number = 0;
   selectAnswer = new Map();
   public question: Question | undefined;
-  public whoCorrectAnswer: Answer[] = [];
   public quiz: Quiz;
   resultAffiche: boolean = false;
   public id: string | null ="";
@@ -25,37 +25,46 @@ export class PlayQuizComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService,
-    public loupeService:LoupeService
-  ) {}
+    public loupeService:LoupeService,
+    public variableService: VariableService)
+    {
+    //   this.variableService.variable$.subscribe((variable) => {
+    //   this.variable = variable;
+    // });
+    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+    }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.paramMap.get('id'))
-    this.quiz = this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'));
+    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id')) //recup le quiz lié a l'id
     console.log(this.id);
-    console.log(typeof(this.quiz));
+    console.log(this.quiz);
+    
     this.loupeService.setup();
   }
+
 
   isEnd() {
     return this.indexQuiz >= this.quiz.questions.length;
   }
 
   getCorrectAnswer(){
-    for (let i = 0; this.quiz.questions[this.indexQuiz].answers.length; i++) {
+    let correctAnswer = [];
+    for (let i = 0; i < this.quiz.questions[this.indexQuiz].answers.length; i++) {
       if (this.quiz.questions[this.indexQuiz].answers[i].isCorrect) {
-        this.whoCorrectAnswer.push(this.quiz.questions[this.indexQuiz].answers[i]);
+        correctAnswer.push(this.quiz.questions[this.indexQuiz].answers[i]);
       }
-    }return this.whoCorrectAnswer;
-  };
+    }
+    return correctAnswer;
+  }
 
   incrementCorrect(answer:Answer){
-    for (let i=0; this.getCorrectAnswer();i++){
-      if(this.whoCorrectAnswer[i].value===answer.value){
-        this.nbCorrectAnswer++;
+    for (let i=0; i < this.getCorrectAnswer().length;i++){
+      if(this.getCorrectAnswer()[i].value===answer.value){
+        this.variableService.tempResultat++;
+      }
     }
-
-    }
-  this.resultAffiche=true;
+    this.resultAffiche=true;
     this.selectAnswer.set(this.indexQuiz,answer);
     setTimeout(()=>{this.resultAffiche=false;this.indexQuiz++; console.log(this.indexQuiz);}
   ,1000);
