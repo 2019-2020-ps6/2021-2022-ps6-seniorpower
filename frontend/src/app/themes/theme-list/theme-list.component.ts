@@ -22,6 +22,7 @@ export class ThemeListComponent implements OnInit {
 
   ngOnInit() {
     this.loupeService.setup();
+    this.quizService.getThemes();
   }
 
 }

@@ -20,6 +20,7 @@ export class QuizListComponent implements OnInit {
 
   ngOnInit() {
     this.loupeService.setup();
+    this.quizService.getQuizzes();
   }
 
 
