@@ -1,22 +1,22 @@
-6<div class="card">
-  <h2>Create a new Question</h2>
+<div class="card">
+  <h2>Ajouter une question</h2>
   <form class="question-form" [formGroup]="questionForm">
     <label for="name">
       Enoncé <br>
       <input class="input-custom" type="text" id="name" [formControlName]="'label'">
     </label>
     <br>
-  <button class="button-card" (click)="addAnswer()">Add Answer</button>
+  <button class="button-card" (click)="addAnswer()">Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <div *ngFor="let address of answers.controls;let i=index">
         <div class="answer-form" [formGroupName]="i">
           <label for="value">
-            Answer
+            Réponse
             <input class="input-custom" id="value" [formControlName]="'value'">
           </label>
             <br>
           <label for="isCorrect">
-          Correct
+          Correct ?
           <input type="checkbox" class="input-custom" id="isCorrect" [formControlName]="'isCorrect'">
         </label>
       </div>
@@ -24,9 +24,9 @@
     </div>
     <br>
 
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
+    <button type="submit" class="button-card" (click)="addQuestion()">Créer</button>
   </form>
 </div>
-<!-- Uncomment below to see your form structure and how it changes-->
-<br><br>{{questionForm.getRawValue() | json}}
+<!-- Uncomment below to see your form structure and how it changes
+<br><br>{{questionForm.getRawValue() | json}}-->
 

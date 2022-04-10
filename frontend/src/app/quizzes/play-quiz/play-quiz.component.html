@@ -1,5 +1,4 @@
 <div *ngIf="quiz">
-<span>{{quiz.questions.length}}</span>
 <div *ngIf="!isEnd()" class="card">
   <div class="result">
   </div>
@@ -19,11 +18,29 @@
         </div>
       </div>
     </div>
-  <div *ngIf="resultAffiche">
+
+
+  <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
     <div class="row">
-      <div class="column" *ngIf="getCorrectAnswer()">
-        <div class="text_reult"> {{getCorrectAnswer()}}</div>
+      <div class="column" *ngFor="let answer of quiz.questions[indexQuiz].answers;">
+
+        <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
+        //  Le contenu saisi ici sera ignoré.
         </div>
+
+        <ng-template #contenu_bon>
+          <button class="button-card" [style.background-color]="colorStyle.font.colorTrue">
+            {{answer.value}}
+          </button>
+        </ng-template>
+
+        <ng-template #contenu_pas_bon>
+          <button class="button-card" [style.background-color]="colorStyle.font.colorFalse">
+            {{answer.value}}
+          </button>
+        </ng-template>
+
+      </div>
     </div>
   </div>
 </div>

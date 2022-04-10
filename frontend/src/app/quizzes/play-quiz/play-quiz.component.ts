@@ -6,6 +6,9 @@ import {QuizService} from "../../../services/quiz.service";
 import {LoupeService} from "../../../services/loupe.service";
 import {VariableService} from "../../../services/variable.service";
 import {Variable} from "../../../models/variable.model";
+import {ColorService} from "../../../services/color.service";
+import {ColorStyle} from "../../../models/colorstyle.model";
+import {DEFAULT_COLOR} from "../../../mocks/colorstyle.mock";
 //TODO rendre fonctionnel
 
 @Component({
@@ -21,17 +24,24 @@ export class PlayQuizComponent implements OnInit {
   public quiz: Quiz;
   resultAffiche: boolean = false;
   public id: string | null ="";
+  colorStyle:ColorStyle = DEFAULT_COLOR;
+
 
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService,
     public loupeService:LoupeService,
-    public variableService: VariableService)
+    public variableService: VariableService,
+    public colorService: ColorService)
     {
     //   this.variableService.variable$.subscribe((variable) => {
     //   this.variable = variable;
     // });
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+
+      this.colorService.getColorStyle().subscribe((color) => {
+        this.colorStyle = color;
+      });
     }
 
   ngOnInit(): void {
@@ -39,7 +49,7 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.getQuizById(this.route.snapshot.paramMap.get('id')) //recup le quiz lié a l'id
     console.log(this.id);
     console.log(this.quiz);
-    
+
     this.loupeService.setup();
   }
 
@@ -67,8 +77,8 @@ export class PlayQuizComponent implements OnInit {
     this.resultAffiche=true;
     this.selectAnswer.set(this.indexQuiz,answer);
     setTimeout(()=>{this.resultAffiche=false;this.indexQuiz++; console.log(this.indexQuiz);}
-  ,1000);
+  ,2000);
   }
 
-
 }
+

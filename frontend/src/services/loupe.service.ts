@@ -5,7 +5,7 @@ import {Injectable} from "@angular/core";
 })
 export class LoupeService {
 
-  loupeOn:boolean
+  loupeOn:boolean;
 
   constructor() {
   }

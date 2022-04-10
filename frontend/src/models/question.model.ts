@@ -9,6 +9,6 @@ export interface Answer {
 export interface Question {
     id: string;
     label: string;
-    quizId: string[];
+    quizId: string;
     answers: Answer[];
 }
