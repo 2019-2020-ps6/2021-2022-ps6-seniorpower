@@ -23,26 +23,25 @@ export class PlayQuizComponent implements OnInit {
   public question: Question | undefined;
   public quiz: Quiz;
   resultAffiche: boolean = false;
-  public id: string | null ="";
-  colorStyle:ColorStyle = DEFAULT_COLOR;
-
+  public id: string | null = "";
+  colorStyle: ColorStyle = DEFAULT_COLOR
+  answer: Answer;
 
   constructor(
     private route: ActivatedRoute,
     private quizService: QuizService,
-    public loupeService:LoupeService,
+    public loupeService: LoupeService,
     public variableService: VariableService,
-    public colorService: ColorService)
-    {
+    public colorService: ColorService) {
     //   this.variableService.variable$.subscribe((variable) => {
     //   this.variable = variable;
     // });
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
 
-      this.colorService.getColorStyle().subscribe((color) => {
-        this.colorStyle = color;
-      });
-    }
+    this.colorService.getColorStyle().subscribe((color) => {
+      this.colorStyle = color;
+    });
+  }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.paramMap.get('id'))
@@ -58,7 +57,7 @@ export class PlayQuizComponent implements OnInit {
     return this.indexQuiz >= this.quiz.questions.length;
   }
 
-  getCorrectAnswer(){
+  getCorrectAnswer() {
     let correctAnswer = [];
     for (let i = 0; i < this.quiz.questions[this.indexQuiz].answers.length; i++) {
       if (this.quiz.questions[this.indexQuiz].answers[i].isCorrect) {
@@ -68,17 +67,25 @@ export class PlayQuizComponent implements OnInit {
     return correctAnswer;
   }
 
-  incrementCorrect(answer:Answer){
-    for (let i=0; i < this.getCorrectAnswer().length;i++){
-      if(this.getCorrectAnswer()[i].value===answer.value){
+  incrementCorrect(answer: Answer) {
+    for (let i = 0; i < this.getCorrectAnswer().length; i++) {
+      if (this.getCorrectAnswer()[i].value === answer.value) {
         this.variableService.tempResultat++;
       }
     }
-    this.resultAffiche=true;
-    this.selectAnswer.set(this.indexQuiz,answer);
-    setTimeout(()=>{this.resultAffiche=false;this.indexQuiz++; console.log(this.indexQuiz);}
-  ,2000);
+    this.resultAffiche = true;
+    this.selectAnswer.set(this.indexQuiz, answer);
+    setTimeout(() => {
+        this.resultAffiche = false;
+        this.indexQuiz++;
+        console.log(this.indexQuiz);
+      }
+      , 2000);
+  }
+
+  getCorrectresult(answer: Answer) {
+    return this.getCorrectAnswer().length
+
   }
 
 }
-
