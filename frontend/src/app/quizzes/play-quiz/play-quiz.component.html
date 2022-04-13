@@ -16,7 +16,7 @@
 
 
   <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
-    <div class="option-container">
+    <div class="option-container" [style.background-color]="colorStyle.font.colorScript">
       <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
 
         <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
@@ -38,9 +38,9 @@
       </div>
   </div>
     <div class="navigation">
-  <button class="next">Next</button>
+  <button class="next" [style.background-color]="colorStyle.font.colorNext">Next</button>
     <div *ngIf="isEnd()"></div>
-    <button class="AfficherR">AfficherResultat   </button>
+    <button class="AfficherR" [style.background-color]="colorStyle.font.colorAfficher">AfficherResultat   </button>
   </div>
 </div>
 </div>
