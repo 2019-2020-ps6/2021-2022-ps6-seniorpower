@@ -4,12 +4,39 @@ body{
   width:100vw;
   height: 100vh;
 }
+.question-number{
+  margin: 10px;
+  padding: 25px;
+  width: 80vw;
+  height: 10vh;
+  font-size: xx-large;
+  text-align: center;
+}
 .panel{
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+}
+.question-script{
+  margin: 10px;
+  padding: 25px;
+  width: 80vw;
+  height: 10vh;
+  background-color: #d0d3f1;
+  font-size: xx-large;
+  text-align: center;
+
+}
+.result{
+  margin: 10px;
+  padding: 5px;
+  width:80vw;
+  height: 10vh;
+  text-align: center;
+  font-size: 50px;
+
 }
 .question-number{
   margin: 10px;
@@ -20,15 +47,7 @@ body{
   text-align: center;
 
 }
-.question-script{
-  margin: 15px;
-  padding: 5px;
-  width:50vw;
-  height: 15px;
-  text-align: center;
-  font-size: 50px;
 
-}
 .card{
   margin: 15px;
   padding: 5px;
@@ -40,22 +59,15 @@ body{
 }
 .option-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin: 10px;
   padding: 5px;
   width: 80vw;
   height: 20vh;
 
+
 }
 
-.column{
-  width: 80vw;
-  height: 10vh;
-  margin: 10px;
-  padding: 5px;
-  display: flex;
-  justify-content: space-around;
-}
 
 .card{
   width:30vw;
@@ -63,12 +75,37 @@ body{
   padding: 5px;
   font-size: larger;
 }
-.evaluate{
+.option{
+  padding: 10px;
+  width: 15vw;
+  height: 10vh;
+  font-size: larger;
+  background-color: lightskyblue;
+  border-radius: 25%;
+
+}
+.option:hover{
+  background-color: lightgoldenrodyellow;
+}
+.AfficherR,.next{
+  width:30vw;
+  height: 8vh;
+  padding: 5px;
+  font-size: larger;
+}
+.AfficherR{
 
   background-color: #50DBB4;
 }
 .next{
-  color: white;
+  color: black;
   background-color: #ff8a66;
-  position: relative;
+}
+.navigation{
+  width: 80vw;
+  height: 10vh;
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-around;
 }

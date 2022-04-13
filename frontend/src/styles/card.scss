@@ -21,6 +21,25 @@
   padding: 0.5em 1em;
   text-align: center;
 }
+.column{
+  background-color: #ff1e00;
+  color: #178000;
+  font-weight: bold;
+  position: absolute;
+  margin: 5px;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+.row{
+  background-color: #ff1e00;
+  color: black;
+  font-weight: bold;
+  position: absolute;
+  margin: 5px;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
 
 .button-card:hover {
   cursor: pointer;

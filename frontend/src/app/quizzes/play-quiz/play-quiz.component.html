@@ -1,19 +1,13 @@
 <div *ngIf="quiz">
 <div *ngIf="!isEnd()" class="card">
-
   <div class="result">
   </div>
-  <span class="question-number" >
-    <div class="left" >  Question{{indexQuiz+1}} / {{quiz.questions.length}}</div>
-    <br> {{quiz.name}}
-  </span>
-  <br><br>
-
+    <div class="question-number" >  Question{{indexQuiz+1}} / {{quiz.questions.length}}</div>
   <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
-      <div class="row">
-        <div class="column" *ngFor="let answer of quiz.questions[indexQuiz].answers;">
-          <button class="button-card" (click)="incrementCorrect(answer)" >
+      <div class="option-container">
+        <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
+          <button class="option"(click)="incrementCorrect(answer)" >
             {{answer.value}}
           </button>
         </div>
@@ -22,29 +16,32 @@
 
 
   <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
-    <div class="row">
-      <div class="column" *ngFor="let answer of quiz.questions[indexQuiz].answers;">
+    <div class="option-container">
+      <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
 
         <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
         //  Le contenu saisi ici sera ignoré.
         </div>
 
         <ng-template #contenu_bon>
-          <button class="button-card" [style.background-color]="colorStyle.font.colorTrue">
+          <button class="option"[style.background-color]="colorStyle.font.colorTrue">
             {{answer.value}}
           </button>
         </ng-template>
 
         <ng-template #contenu_pas_bon>
-          <button class="button-card" [style.background-color]="colorStyle.font.colorFalse">
+          <button class="option" [style.background-color]="colorStyle.font.colorFalse">
             {{answer.value}}
           </button>
         </ng-template>
 
       </div>
-    </div>
   </div>
+    <div class="navigation">
   <button class="next">Next</button>
+    <div *ngIf="isEnd()"></div>
+    <button class="AfficherR">AfficherResultat   </button>
+  </div>
 </div>
 </div>
-
+</div>

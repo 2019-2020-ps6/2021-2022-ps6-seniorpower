@@ -7,12 +7,10 @@
     </label>
     <label for = "theme">
       <br> Thème <br>
-      <select class="input-custom" type = "text" id="theme"  name="theme-list">
+      <input class="input-custom" type = "text" id="theme"  name="theme-list">
         <option *ngFor = "let currentTheme of getAllThemeName()" [value]="currentTheme">
           {{currentTheme}}
-        </option>
-
-      </select>
+       </option>
     </label>
     <br>
     <h4>

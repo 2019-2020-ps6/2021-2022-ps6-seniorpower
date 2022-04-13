@@ -26,6 +26,7 @@ export class PlayQuizComponent implements OnInit {
   public id: string | null = "";
   colorStyle: ColorStyle = DEFAULT_COLOR
   answer: Answer;
+  Text: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -82,10 +83,7 @@ export class PlayQuizComponent implements OnInit {
       }
       , 2000);
   }
-
-  getCorrectresult(answer: Answer) {
-    return this.getCorrectAnswer().length
-
-  }
-
+getresultnb(){
+    return this.variableService.tempResultat;
+}
 }
