@@ -3,7 +3,7 @@ import {Formatting} from "../models/formatting.model";
 export const CLASSIC_Format:Formatting = {
   marginLeft: "none",
   marginRight: "none",
-  width:"100%"
+  width: "auto"
 }
 
 export const DMLA_FORMAT:Formatting = {

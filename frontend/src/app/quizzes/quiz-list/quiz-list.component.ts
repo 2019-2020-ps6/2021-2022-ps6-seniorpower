@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {LoupeService} from "../../../services/loupe.service";
+import {Formatting} from "../../../models/formatting.model";
+import {FormattingService} from "../../../services/formatting.service";
 
 @Component({
   selector: 'app-quiz-list',
@@ -11,11 +13,15 @@ import {LoupeService} from "../../../services/loupe.service";
 export class QuizListComponent implements OnInit {
 
   public quizList: Quiz[];
+  formatting:Formatting;
 
-  constructor(public quizService: QuizService,public loupeService:LoupeService) {
+  constructor(public quizService: QuizService,public loupeService:LoupeService, private formattingService:FormattingService) {
     this.quizService.quizzes$.subscribe((quizList) => {
       this.quizList = quizList;
     });
+    this.formattingService.getFormatting().subscribe((format)=> {
+      this.formatting = format;
+    })
   }
 
   ngOnInit() {

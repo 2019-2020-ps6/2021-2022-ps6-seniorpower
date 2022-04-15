@@ -4,6 +4,8 @@ import { FormBuilder, Validators} from "@angular/forms";
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {Theme} from "../../../models/theme.model";
+import {Formatting} from "../../../models/formatting.model";
+import {FormattingService} from "../../../services/formatting.service";
 
 @Component({
   selector: 'app-quiz-form',
@@ -25,8 +27,8 @@ export class QuizFormComponent implements OnInit {
    * More information about Reactive Forms: https://angular.io/guide/reactive-forms#step-1-creating-a-formgroup-instance
    */
   public quizForm: FormGroup;
-
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+  formatting:Formatting;
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, private formattingService:FormattingService) {
     // Form creation
     this.quizForm = this.formBuilder.group({
       name: [null, Validators.required],
@@ -42,12 +44,13 @@ export class QuizFormComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;
     });
-    // You can also add validators to your inputs such as required, maxlength or even create your own validator!
-    // More information: https://angular.io/guide/reactive-forms#simple-form-validation
-    // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
+
+    this.formattingService.getFormatting().subscribe((format)=> {
+      this.formatting = format;
+    })
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
   addQuiz() {
@@ -74,6 +77,6 @@ export class QuizFormComponent implements OnInit {
     return themeNameList;
   }
 
-  
+
 
 }

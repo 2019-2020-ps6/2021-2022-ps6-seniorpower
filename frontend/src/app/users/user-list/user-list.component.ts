@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
 import {LoupeService} from "../../../services/loupe.service";
+import {Formatting} from "../../../models/formatting.model";
+import {FormattingService} from "../../../services/formatting.service";
 
 @Component({
   selector: 'app-user-list',
@@ -11,16 +13,18 @@ import {LoupeService} from "../../../services/loupe.service";
 
 export class UserListComponent implements OnInit{
   public userList: User[];
-
-  constructor(public userService: UserService, public loupeService:LoupeService) {
+  formatting:Formatting;
+  constructor(public userService: UserService, public loupeService:LoupeService, private formattingService:FormattingService) {
     this.userService.users$.subscribe((users) => {
       this.userList = users;
     });
+    this.formattingService.format$.subscribe((format)=>{
+      this.formatting = format;
+    })
   }
 
   ngOnInit() {
     this.loupeService.setup();
-    
   }
 
   deleteUser(user: User){

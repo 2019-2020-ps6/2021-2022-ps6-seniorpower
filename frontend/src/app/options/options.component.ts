@@ -55,17 +55,17 @@ export class OptionsComponent implements OnInit {
 
   changeFormatClassic(){
     this.formatting = CLASSIC_Format;
-    this.colorService.colorUpdate(this.colorStyle);
+    this.formattingService.formattingUpdate(this.formatting);
   }
 
   changeFormatDMLA(){
     this.formatting = DMLA_FORMAT;
-    this.colorService.colorUpdate(this.colorStyle);
+    this.formattingService.formattingUpdate(this.formatting);
   }
 
   changeFormatGlaucome(){
     this.formatting = GLAUCOME_FORMAT;
-    this.colorService.colorUpdate(this.colorStyle);
+    this.formattingService.formattingUpdate(this.formatting);
   }
 
   applyChange(){
@@ -73,9 +73,6 @@ export class OptionsComponent implements OnInit {
     document.documentElement.style.setProperty(`--font-size`, size + 'px');
   }
 
-  getSize(){
-    return (document.getElementById('size') as HTMLInputElement).value;
-  }
   getAllSize(){
     return this.sizes
   }

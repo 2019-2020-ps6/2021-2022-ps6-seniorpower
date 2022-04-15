@@ -54,4 +54,8 @@ export class QuestionFormComponent implements OnInit {
     console.log('Add question: ', questionToCreate);
     this.quizService.addQuestion(questionToCreate, this.quiz.id);
   }
+
+  deleteAnswer(){
+    this.answers.removeAt(this.answers.length-1);
+  }
 }
