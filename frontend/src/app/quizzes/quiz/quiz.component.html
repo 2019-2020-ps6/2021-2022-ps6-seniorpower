@@ -7,7 +7,7 @@
 
   <h3>
     <i *ngIf="quiz.creationDate !== undefined">Date de création : </i><br>
-    Nombre de questions : {{this.questionList.length}}</h3>
+    Nombre de questions : {{this.quiz.questions.length}}</h3>
   <nav>
     <button class="button-card" routerLink="/play-quiz/{{quiz.id}}">Jouer</button>
     <button class="button-card" (click) ="deleteQuiz(quiz)">Supprimer</button>
