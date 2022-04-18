@@ -59,7 +59,7 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.getQuizById(this.route.snapshot.paramMap.get('id')) //recup le quiz lié a l'id
     console.log(this.id);
     console.log(this.quiz);
-
+    this.quizService.score = 0;
     this.loupeService.setup();
   }
 
@@ -81,19 +81,29 @@ export class PlayQuizComponent implements OnInit {
   incrementCorrect(answer: Answer) {
     for (let i = 0; i < this.getCorrectAnswer().length; i++) {
       if (this.getCorrectAnswer()[i].value === answer.value) {
-        this.variableService.tempResultat++;
+        this.quizService.score +=1;
       }
     }
     this.resultAffiche = true;
     this.selectAnswer.set(this.indexQuiz, answer);
-    setTimeout(() => {
-        this.resultAffiche = false;
-        this.indexQuiz++;
-        console.log(this.indexQuiz);
-      }
-      , 2000);
   }
 getresultnb(){
     return this.variableService.tempResultat;
 }
+
+  nextButton(){
+    this.resultAffiche = false;
+    if(this.quiz.questions[this.indexQuiz].answers)
+    this.indexQuiz++;
+    console.log(this.indexQuiz);
+  }
+
+  afficheButton(){
+    this.indexQuiz++;
+    console.log(this.indexQuiz === this.quiz.questions.length);
+  }
+
+  score(){
+    return this.quizService.score;
+  }
 }

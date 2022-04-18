@@ -24,7 +24,7 @@
         </div>
 
         <ng-template #contenu_bon>
-          <button class="option"[style.background-color]="colorStyle.font.colorTrue">
+          <button  class="option"[style.background-color]="colorStyle.font.colorTrue">
             {{answer.value}}
           </button>
         </ng-template>
@@ -38,10 +38,13 @@
       </div>
   </div>
     <div class="navigation">
-  <button class="next" [style.background-color]="colorStyle.font.colorNext">Next</button>
+  <button *ngIf="this.indexQuiz <= this.quiz.questions.length-2" class="next" [style.background-color]="colorStyle.font.colorNext" (click) = "nextButton()" >Next</button>
     <div *ngIf="isEnd()"></div>
-    <button class="AfficherR" [style.background-color]="colorStyle.font.colorAfficher">AfficherResultat   </button>
+    <button *ngIf="this.indexQuiz === this.quiz.questions.length-1" class="AfficherR" [style.background-color]="colorStyle.font.colorAfficher" (click) = "afficheButton()">AfficherResultat   </button>
   </div>
 </div>
+</div>
+<div *ngIf="this.indexQuiz === this.quiz.questions.length">
+  Votre score est : {{score()}}
 </div>
 </div>

@@ -32,7 +32,7 @@ export class QuizService {
   public themes$:BehaviorSubject<Theme[]> = new BehaviorSubject(this.themes);
   public questions$:BehaviorSubject<Question[]> = new BehaviorSubject(this.questions);
   public quizSelected$: Subject<Quiz> = new Subject();
-
+  public score = 0;
 
 
   private stockURL = 'http://localhost:9428/';
