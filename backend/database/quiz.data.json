@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1649874647268,
+    "name": "football",
+    "creationDate": "date",
+    "questions": [
+      {
+        "id": 1649874712707,
+        "label": "Qui est le vainqueur de la coupe du monde 2018",
+        "quizId": 1649874647268,
+        "answers": [
+          {
+            "id": 1649874712707,
+            "value": "France",
+            "isCorrect": true,
+            "questionId": 1649874712707
+          },
+          {
+            "id": 1649874712708,
+            "value": "Allemagne",
+            "isCorrect": false,
+            "questionId": 1649874712707
+          },
+          {
+            "id": 1649874712708,
+            "value": "Chine",
+            "isCorrect": false,
+            "questionId": 1649874712707
+          },
+          {
+            "id": 1649874712708,
+            "value": "Argentine",
+            "isCorrect": false,
+            "questionId": 1649874712707
+          }
+        ]
+      },
+      {
+        "id": 1649874754758,
+        "label": "Qui est le vainqueur de la coupe du monde 2014",
+        "quizId": 1649874647268,
+        "answers": [
+          {
+            "id": 1649874754758,
+            "value": "Espagne",
+            "isCorrect": false,
+            "questionId": 1649874754758
+          },
+          {
+            "id": 1649874754758,
+            "value": "Allemagne",
+            "isCorrect": true,
+            "questionId": 1649874754758
+          },
+          {
+            "id": 1649874754759,
+            "value": "Chine",
+            "isCorrect": false,
+            "questionId": 1649874754758
+          },
+          {
+            "id": 1649874754759,
+            "value": "Chili",
+            "isCorrect": false,
+            "questionId": 1649874754758
+          }
+        ]
+      }
+    ]
+  }
+]
