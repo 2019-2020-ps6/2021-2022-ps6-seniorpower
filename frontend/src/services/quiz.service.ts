@@ -105,14 +105,18 @@ export class QuizService {
     this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
       console.log(question);
     });
+    this.questions.push(question);
+    this.questions$.next(this.questions);
 
   }
 
-  deleteQuestion(question:Question, id:string|undefined){
-    let quiz = this.quizzes.find(q => q.id === id)!;
-    let index = quiz.questions.indexOf(question);
-    let indexQuiz = this.quizzes.indexOf(quiz)
+  deleteQuestion(question:Question, Quizid:string|undefined){
+    let quiz = this.getQuiz(Quizid);
+    const index = quiz.questions.indexOf(question);
+    const indexQuiz = this.quizzes.indexOf(quiz)
+
     this.quizzes[indexQuiz].questions.splice(index,1);
+    quiz = this.quizzes[indexQuiz];
     this.quizzes$.next(this.quizzes);
     this.putQuiz(quiz); //TODO verif
   }

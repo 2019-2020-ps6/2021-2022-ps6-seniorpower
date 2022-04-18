@@ -6,6 +6,7 @@ import {LoupeService} from "../../../services/loupe.service";
 import {CLASSIC_Format} from "../../../mocks/formatting.mock";
 import {Formatting} from "../../../models/formatting.model";
 import {FormattingService} from "../../../services/formatting.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-question-list',
@@ -17,21 +18,21 @@ export class QuestionListComponent implements OnInit {
   quiz:Quiz|undefined;
   formatting:Formatting = CLASSIC_Format;
   public questionList: Question[] | undefined = [];
+  id:string|null;
 
-  constructor(private quizService: QuizService,private loupeService:LoupeService, private formattingService:FormattingService) {
+  constructor(private route: ActivatedRoute, private quizService: QuizService,private loupeService:LoupeService, private formattingService:FormattingService) {
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
     })
+    this.quizService.questions$.subscribe((questionList) => {
+      this.questionList = questionList;
+    });
   }
 
   ngOnInit() {
-    this.questionList = this.quiz?.questions;
     this.loupeService.setup();
-  }
-
-  deleteQuestion(question : Question){
-    this.quizService.deleteQuestion(question,this.quiz?.id);
-    console.log('event deletion',question);
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.quizService.getQuestions(this.id);
   }
 
 }

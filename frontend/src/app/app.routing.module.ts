@@ -11,9 +11,8 @@ import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
 import {PlayQuizComponent} from "./quizzes/play-quiz/play-quiz.component";
 const routes: Routes = [
   {path:'themes',component:ThemeListComponent},
-  {path:'themes/:name', component: ThemeViewComponent}, 
+  {path:'themes/:name', component: ThemeViewComponent},
   {path:'quiz-list', component: QuizListComponent},
-  {path: 'edit-quiz', component: EditQuizComponent},
   { path: 'menu', component: MenuComponent },
   { path: '', redirectTo: '/menu', pathMatch: 'full' },
   { path: 'detail/:id', component: EditQuizComponent },//Permet de relier à la page details
