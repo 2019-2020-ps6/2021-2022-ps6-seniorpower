@@ -6,8 +6,9 @@ export const DEFAULT_COLOR:ColorStyle = {
     colorTrue: "#92C746", //ou #74A529
     colorFalse: "#ea9999" ,//ou #D12F11 ou #FF6119
     colorScript: "#c8cbee",
-    colorNext:"#ff8a66",
+    colorNext:"white",
     colorAfficher:"#50DBB4",
+    colorText: "black"
   },
 }
 
@@ -17,8 +18,9 @@ export const PROTA_COLOR:ColorStyle = {
     colorTrue: "#ff9900",
     colorFalse: "#8eaff6",
     colorScript:"#c8cbee",
-    colorNext:"#ff8a66",
-    colorAfficher:"#50DBB4"
+    colorNext:"white",
+    colorAfficher:"black",
+    colorText: "black"
   },
 }
 
@@ -28,8 +30,9 @@ export const TRITA_COLOR:ColorStyle = {
     colorTrue: "#7fd3ec",
     colorFalse: "#e55f5f",
     colorScript:"#c8cbee",
-    colorNext:"#f1d0ed",
-    colorAfficher:"#50DBB4"
+    colorNext:"white",
+    colorAfficher:"black",
+    colorText: "black"
   },
 }
 
@@ -39,7 +42,8 @@ export const DEUTE_COLOR:ColorStyle = {
     colorTrue: "#ff9900",
     colorFalse: "#8eaff6",
     colorScript:"#c8cbee",
-    colorNext:"#ff8a66",
-    colorAfficher:"#50DBB4"
+    colorNext:"white",
+    colorAfficher:"black",
+    colorText: "black"
   },
 }
