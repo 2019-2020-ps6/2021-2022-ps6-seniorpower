@@ -11,8 +11,7 @@ import {ColorStyle} from "../../../models/colorstyle.model";
 import {DEFAULT_COLOR} from "../../../mocks/colorstyle.mock";
 import {PoliceStyle} from "../../../models/PoliceStyle.model";
 import {CLASSIC_Police} from "../../../mocks/PoliceStyle.mock";
-import {PoliceStyleService} from "../../../services/PoliceStyle.service";
-//TODO rendre fonctionnel
+import {PoliceStyleService} from "../../../services/policeStyle.service";
 
 @Component({
   selector: 'app-play-quiz',
@@ -28,8 +27,7 @@ export class PlayQuizComponent implements OnInit {
   resultAffiche: boolean = false;
   public id: string | null = "";
   colorStyle: ColorStyle = DEFAULT_COLOR
-  answer: Answer;
-  Text: string;
+  quizEnd: boolean = false;
   public  police: PoliceStyle = CLASSIC_Police
 
   constructor(
@@ -39,7 +37,7 @@ export class PlayQuizComponent implements OnInit {
     public variableService: VariableService,
     public colorService: ColorService,
     public policeStyleService:PoliceStyleService
-   ){
+  ){
     //   this.variableService.variable$.subscribe((variable) => {
     //   this.variable = variable;
     // });
@@ -86,14 +84,16 @@ export class PlayQuizComponent implements OnInit {
     }
     this.resultAffiche = true;
     this.selectAnswer.set(this.indexQuiz, answer);
-    setTimeout(() => {
-        this.resultAffiche = false;
-        this.indexQuiz++;
-        console.log(this.indexQuiz);
-      }
-      , 2000);
   }
-getresultnb(){
+  getresultnb(){
     return this.variableService.tempResultat;
-}
+  }
+
+  next(){
+    this.resultAffiche = false;
+    this.indexQuiz++;
+    if (this.isEnd()){
+      this.quizEnd = true;
+    }
+  }
 }

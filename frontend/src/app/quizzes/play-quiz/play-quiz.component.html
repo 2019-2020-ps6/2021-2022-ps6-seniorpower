@@ -1,9 +1,9 @@
 <div *ngIf="quiz">
-<div *ngIf="!isEnd()" class="card">
-  <div class="result">
-  </div>
-    <div class="question-number" >  Question{{indexQuiz+1}} / {{quiz.questions.length}}</div>
-  <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
+  <div *ngIf="!isEnd()" class="card2">
+    <div class="result">
+    </div>
+    <div class="question-number" >Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
+    <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
       <div class="option-container">
         <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
@@ -15,33 +15,35 @@
     </div>
 
 
-  <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
-    <div class="option-container" [style.background-color]="colorStyle.font.colorScript">
-      <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
+    <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
+      <div class="option-container" >
+        <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
 
-        <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
-        //  Le contenu saisi ici sera ignoré.
+          <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
+            //  Le contenu saisi ici sera ignoré.
+          </div>
+
+          <ng-template #contenu_bon>
+            <button class="option"[style.background-color]="colorStyle.font.colorTrue">
+              {{answer.value}}
+            </button>
+          </ng-template>
+
+          <ng-template #contenu_pas_bon>
+            <button class="option" [style.background-color]="colorStyle.font.colorFalse" >
+              {{answer.value}}
+            </button>
+          </ng-template>
+
         </div>
-
-        <ng-template #contenu_bon>
-          <button class="option"[style.background-color]="colorStyle.font.colorTrue">
-            {{answer.value}}
-          </button>
-        </ng-template>
-
-        <ng-template #contenu_pas_bon>
-          <button class="option" [style.background-color]="colorStyle.font.colorFalse" >
-            {{answer.value}}
-          </button>
-        </ng-template>
-
       </div>
+      <div class="navigation">
+        <button class="next" [style.background-color]="colorStyle.font.colorNext" [style.color]="colorStyle.font.colorText" (click)="next()">Suivant</button>   </div>
+    </div>
   </div>
-    <div class="navigation">
-  <button class="next" [style.background-color]="colorStyle.font.colorNext">Next</button>
-    <div *ngIf="isEnd()"></div>
-    <button class="AfficherR" [style.background-color]="colorStyle.font.colorAfficher">AfficherResultat   </button>
-  </div>
-</div>
-</div>
+  <div *ngIf="quizEnd">
+    <div class="question-number" >Le quiz est fini !</div>
+    <div class="question-number" >Votre score est : {{variableService.tempResultat}} / {{quiz.questions.length}}</div>
+    <button class="button-card" routerLink="/quiz-list">Retour à la sélection de quiz</button>
+  </div>   <!-- <button class="AfficherR" [style.background-color]="colorStyle.font.colorAfficher" [style.color]="colorStyle.font.colorText">Afficher toutes les réponses choisies</button>-->
 </div>
