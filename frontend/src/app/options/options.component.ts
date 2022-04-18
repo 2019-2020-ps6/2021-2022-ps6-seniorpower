@@ -8,7 +8,7 @@ import {FormattingService} from "../../services/formatting.service";
 import {LoupeService} from "../../services/loupe.service";
 import {PoliceStyle} from "../../models/PoliceStyle.model";
 import {Arial_Police, CLASSIC_Police, Verdana_Police} from "../../mocks/PoliceStyle.mock";
-import {PoliceStyleService} from "../../services/PoliceStyle.service";
+import {PoliceStyleService} from "../../services/policeStyle.service";
 
 @Component({
   selector: 'app-options',
@@ -20,7 +20,9 @@ export class OptionsComponent implements OnInit {
   colorStyle:ColorStyle = DEFAULT_COLOR;
   formatting:Formatting = CLASSIC_Format;
   police: PoliceStyle = CLASSIC_Police;
-  sizes:String[]
+  sizes:String[];
+  colorList:String[];
+  illnessList:String[];
 
   constructor(public colorService: ColorService, public formattingService:FormattingService,public loupeService:LoupeService,public policeStyleService:PoliceStyleService) { //TODO mettre partout où besoin
     this.colorService.getColorStyle().subscribe((color) => {
@@ -32,7 +34,9 @@ export class OptionsComponent implements OnInit {
     this.policeStyleService.getPoliceStyle().subscribe((police) => {
       this.police = police;
     });
-    this.sizes = ["14","15","16","17","18","19","20"]
+    this.sizes = ["15","16","17","18","19","20","21","22"];
+    this.colorList = ["Aucun","Protanopie","Tritanopie","Deutéranopie"];
+    this.illnessList = ["Aucune","DMLA","Glaucome"];
   }
 
   ngOnInit() {
@@ -58,7 +62,6 @@ export class OptionsComponent implements OnInit {
     this.colorStyle = DEUTE_COLOR;
     this.colorService.colorUpdate(this.colorStyle);
   }
-  // [style.color]="theme.font.color" pour changer le style-->
 
   changeFormatClassic(){
     this.formatting = CLASSIC_Format;
@@ -75,7 +78,7 @@ export class OptionsComponent implements OnInit {
     this.formattingService.formattingUpdate(this.formatting);
   }
 
-  applyChange(){
+  applySizeChange(){
     const size: string = (document.getElementById('size') as HTMLInputElement).value;
     document.documentElement.style.setProperty(`--font-size`, size + 'px');
   }
@@ -86,11 +89,57 @@ export class OptionsComponent implements OnInit {
   changeArial(){
     this.police=Arial_Police;
     this.policeStyleService.PoliceUpdate(this.police)
-}
-changeVerdana(){
-  this.police=Verdana_Police;
-  this.policeStyleService.PoliceUpdate(this.police)
-}
+  }
+  changeVerdana(){
+    this.police=Verdana_Police;
+    this.policeStyleService.PoliceUpdate(this.police)
+  }
 
+  getAllColors(){
+    return this.colorList;
+  }
 
+  applyColorChange(){
+    const color: string = (document.getElementById('color') as HTMLInputElement).value;
+    switch (color){
+      case "Aucun":{
+        this.changeColorDefault();
+        break;
+      }
+      case "Protanopie":{
+        this.changeColorProta();
+        break;
+      }
+      case "Tritanopie":{
+        this.changeColorTrita();
+        break;
+      }
+      case "Deutéranopie":{
+        this.changeColorDeute();
+        break;
+      }
+    }
+  }
+
+  getAllIllness(){
+    return this.illnessList;
+  }
+
+  applyIllnessChange(){
+    const illness: string = (document.getElementById('illness') as HTMLInputElement).value;
+    switch (illness){
+      case "Aucune":{
+        this.changeFormatClassic();
+        break;
+      }
+      case "DMLA":{
+        this.changeFormatDMLA();
+        break;
+      }
+      case "Glaucome":{
+        this.changeFormatGlaucome();
+        break;
+      }
+    }
+  }
 }

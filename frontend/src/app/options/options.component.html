@@ -3,27 +3,29 @@
   <main>
     <p>
       Choisissez la taille de la police :
-      <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applyChange()" id="size">
+      <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applySizeChange()" id="size">
         <option *ngFor = "let size of getAllSize()" [value]="size">
           {{size}}
         </option>
       </select>
     </p>
     <p>Choisir la maladie :
-      <button class="button-card" (click)="changeFormatClassic()">Aucune</button>
-      <button class="button-card" (click)="changeFormatDMLA()">DMLA</button>
-      <button class="button-card" (click)="changeFormatGlaucome()">Glaucome</button>
+      <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applyIllnessChange()" id="illness">
+        <option *ngFor = "let illness of getAllIllness()" [value]="illness">
+          {{illness}}
+        </option>
+      </select>
     </p>
-    <p>choisir police:
+    <!--<p>Choisir la police d'écriture :
     <button class="button-card"(click)="changeArial() ">Arial</button>
-    <button class="button-card"(click)="changeVerdana()" >Verdana</button> </p>
+    <button class="button-card"(click)="changeVerdana()" >Verdana</button> </p>-->
     <p>Changer le daltonisme :
-    <button class="button-card" (click)="changeColorDefault()">Aucun</button>
-    <button class="button-card" (click)="changeColorProta()">Protanopie</button>
-    <button class="button-card" (click)="changeColorTrita()">Tritanopie</button>
-    <button class="button-card" (click)="changeColorDeute()">Deutéranopie</button>
+      <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applyColorChange()" id="color">
+        <option *ngFor = "let color of getAllColors()" [value]="color">
+          {{color}}
+        </option>
+      </select>
   </p>
-<!-- TODO Ajouter boutton avec exemples de couleurs ? -->
   </main>
 
 </div>
