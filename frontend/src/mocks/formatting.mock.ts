@@ -10,6 +10,7 @@ export const DMLA_FORMAT:Formatting = {
   marginLeft: "none",
   marginRight: "none",
   width:"100%"
+
 }
 
 export const GLAUCOME_FORMAT:Formatting = {

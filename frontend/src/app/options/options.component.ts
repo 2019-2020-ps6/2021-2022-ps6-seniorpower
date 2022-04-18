@@ -6,6 +6,9 @@ import {CLASSIC_Format,DMLA_FORMAT,GLAUCOME_FORMAT} from "../../mocks/formatting
 import {Formatting} from "../../models/formatting.model";
 import {FormattingService} from "../../services/formatting.service";
 import {LoupeService} from "../../services/loupe.service";
+import {PoliceStyle} from "../../models/PoliceStyle.model";
+import {Arial_Police, CLASSIC_Police, Verdana_Police} from "../../mocks/PoliceStyle.mock";
+import {PoliceStyleService} from "../../services/PoliceStyle.service";
 
 @Component({
   selector: 'app-options',
@@ -16,15 +19,19 @@ export class OptionsComponent implements OnInit {
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
   formatting:Formatting = CLASSIC_Format;
+  police: PoliceStyle = CLASSIC_Police;
   sizes:String[]
 
-  constructor(public colorService: ColorService, public formattingService:FormattingService,public loupeService:LoupeService) { //TODO mettre partout où besoin
+  constructor(public colorService: ColorService, public formattingService:FormattingService,public loupeService:LoupeService,public policeStyleService:PoliceStyleService) { //TODO mettre partout où besoin
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
     })
+    this.policeStyleService.getPoliceStyle().subscribe((police) => {
+      this.police = police;
+    });
     this.sizes = ["14","15","16","17","18","19","20"]
   }
 
@@ -76,5 +83,14 @@ export class OptionsComponent implements OnInit {
   getAllSize(){
     return this.sizes
   }
+  changeArial(){
+    this.police=Arial_Police;
+    this.policeStyleService.PoliceUpdate(this.police)
+}
+changeVerdana(){
+  this.police=Verdana_Police;
+  this.policeStyleService.PoliceUpdate(this.police)
+}
+
 
 }
