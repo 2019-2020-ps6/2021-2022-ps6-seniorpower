@@ -1,12 +1,11 @@
 import {Formatting} from "../models/formatting.model";
 
 export const CLASSIC_Format:Formatting = {
-  width: "70%",
-  textAlign:"center"
+  textAlign:"center",
   marginLeft: "none",
   marginRight: "none",
   width: "auto",
-  justifyContent: "space-between",
+  justifyContent: "space-between"
 }
 
 export const DMLA_FORMAT:Formatting = {
