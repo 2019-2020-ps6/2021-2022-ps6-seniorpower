@@ -4,4 +4,17 @@
     <!--More information: https://angular.io/guide/component-interaction-->
     <app-theme [theme]="theme"></app-theme>
   </div>
+  <div class = "card">
+    <form class="theme-form" [formGroup]="themeForm">
+      <label for = "theme" >
+        <h2>
+        <i class="fab fa-leanpub">
+        Ajouter un theme :</i></h2>
+        <input class="input-custom" type = "text" id="name"  name="theme" formControlName="name">
+        <br>
+        <button class="button-card" (click) = "addTheme()">Ajouter un theme</button>
+      </label>
+    </form>
+    
+  </div>
 </div>

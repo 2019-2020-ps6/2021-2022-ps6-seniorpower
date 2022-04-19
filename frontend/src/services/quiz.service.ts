@@ -156,6 +156,15 @@ export class QuizService {
     });
   }
 
+  addTheme(theme: Theme): void
+  {
+    console.log("create theme")
+    this.http.post(this.stockURL +"api/themes", theme as Theme).subscribe(() =>
+    {
+      this.getThemes();
+    });
+  }
+
 
   addQuizToTheme(quizId:string,theme:Theme):void{
     theme.idQuizList.push(quizId);
