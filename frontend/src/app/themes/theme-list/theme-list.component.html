@@ -4,7 +4,7 @@
     <!--More information: https://angular.io/guide/component-interaction-->
     <app-theme [theme]="theme"></app-theme>
   </div>
-  <div class = "card">
+  <div *ngIf="this.userService.isAdmin()" class = "card">
     <form class="theme-form" [formGroup]="themeForm">
       <label for = "theme" >
         <h2>

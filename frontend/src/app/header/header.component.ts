@@ -3,6 +3,8 @@ import {ColorStyle} from "../../models/colorstyle.model";
 import {DEFAULT_COLOR} from "../../mocks/colorstyle.mock";
 import {ColorService} from "../../services/color.service";
 import {LoupeService} from "../../services/loupe.service";
+import { UserService } from 'src/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,7 @@ import {LoupeService} from "../../services/loupe.service";
 export class HeaderComponent implements OnInit {
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
-  constructor(public colorService: ColorService, public loupeService:LoupeService) {
+  constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router) {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
@@ -24,5 +26,18 @@ export class HeaderComponent implements OnInit {
 
   public loupe(){
     this.loupeService.refresh()
+  }
+
+  logOut(){
+    this.userService.userEnter = undefined;
+    this.router.navigate(['/authentification']);
+  }
+
+  show(){
+    if(!(this.router.url == "/authentification")){
+      return true;
+    }
+    return false
+    
   }
 }

@@ -1,0 +1,28 @@
+<div *ngIf="!connexion && !inscription">
+  <button (click) = "inscription = true" class="button-card" >Inscription</button>
+  <button (click) = "connexion = true" class="button-card" >Connexion</button>
+</div>
+<div *ngIf="!auth && connexion" >
+<div  class = "card">
+  <form class="authentification-form" [formGroup]="authentificationForm">
+    <label for="nom">
+      <h2><i class="fab fa-leanpub">
+        Nom d'utilisateur :</i></h2>
+        <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="name">
+        <br>
+      </label>
+    <label for="mdp">
+      <h2><i class="fab fa-leanpub">
+        Mot de passe :</i></h2>
+        <input class="input-custom" type = "text" id="mdp"  name="authentification" formControlName="password">
+        <br>
+      </label>
+      <button (click) = "addUser()" class="button-card" >Connexion</button>
+  </form>
+</div>
+<button (click) = "connexion = false" class ="button-card">Retour</button>
+</div>
+<div *ngIf="inscription">
+  <app-user-form></app-user-form>
+  <button (click) = "inscription = false" class ="button-card">Retour</button>
+</div>

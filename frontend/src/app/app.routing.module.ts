@@ -7,6 +7,8 @@ import {OptionsComponent} from "./options/options.component";
 import {MenuComponent} from "./menu/menu.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
 import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
+import {AuthentificationComponent } from './authentification/authentification.component';
+
 
 import {PlayQuizComponent} from "./quizzes/play-quiz/play-quiz.component";
 const routes: Routes = [
@@ -14,7 +16,8 @@ const routes: Routes = [
   {path:'themes/:name', component: ThemeViewComponent},
   {path:'quiz-list', component: QuizListComponent},
   { path: 'menu', component: MenuComponent },
-  { path: '', redirectTo: '/menu', pathMatch: 'full' },
+  { path: 'authentification', component: AuthentificationComponent },
+  { path: '', redirectTo: '/authentification', pathMatch: 'full' },
   { path: 'detail/:id', component: EditQuizComponent },//Permet de relier à la page details
   {path:'user-list',component: UserListComponent},
   {path:'options',component:OptionsComponent},
