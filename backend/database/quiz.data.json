@@ -5,67 +5,30 @@
     "creationDate": "date",
     "questions": [
       {
-        "id": 1649874712707,
-        "label": "Qui est le vainqueur de la coupe du monde 2018",
+        "id": 1650349960833,
+        "label": "aaa",
         "quizId": 1649874647268,
         "answers": [
           {
-            "id": 1649874712707,
-            "value": "France",
+            "id": 1650349960840,
+            "value": "valueTest1",
             "isCorrect": true,
-            "questionId": 1649874712707
-          },
-          {
-            "id": 1649874712708,
-            "value": "Allemagne",
-            "isCorrect": false,
-            "questionId": 1649874712707
-          },
-          {
-            "id": 1649874712708,
-            "value": "Chine",
-            "isCorrect": false,
-            "questionId": 1649874712707
-          },
-          {
-            "id": 1649874712708,
-            "value": "Argentine",
-            "isCorrect": false,
-            "questionId": 1649874712707
-          }
-        ]
-      },
-      {
-        "id": 1649874754758,
-        "label": "Qui est le vainqueur de la coupe du monde 2014",
-        "quizId": 1649874647268,
-        "answers": [
-          {
-            "id": 1649874754758,
-            "value": "Espagne",
-            "isCorrect": false,
-            "questionId": 1649874754758
-          },
-          {
-            "id": 1649874754758,
-            "value": "Allemagne",
-            "isCorrect": true,
-            "questionId": 1649874754758
-          },
-          {
-            "id": 1649874754759,
-            "value": "Chine",
-            "isCorrect": false,
-            "questionId": 1649874754758
-          },
-          {
-            "id": 1649874754759,
-            "value": "Chili",
-            "isCorrect": false,
-            "questionId": 1649874754758
+            "questionId": 1650349960833
           }
         ]
       }
     ]
+  },
+  {
+    "id": 1650358641950,
+    "name": "b",
+    "creationDate": "date",
+    "questions": []
+  },
+  {
+    "id": 1650358643388,
+    "name": "b",
+    "creationDate": "date",
+    "questions": []
   }
 ]
