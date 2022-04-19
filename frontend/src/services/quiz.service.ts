@@ -47,8 +47,6 @@ export class QuizService {
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
     this.postQuizzes(quiz);
-    // You need here to update the list of quiz and then update our observable (Subject) with the new list
-    // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
   }
 
   deleteQuiz(quiz: Quiz){
@@ -101,24 +99,19 @@ export class QuizService {
 
 
   addQuestion(question:Question,id:string|null){
-    console.log(this.stockURL+"api/quizzes/" + id + "/questions")
     this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
       console.log(question);
     });
+    question.quizId = id;
     this.questions.push(question);
     this.questions$.next(this.questions);
 
   }
 
-  deleteQuestion(question:Question, Quizid:string|undefined){
-    let quiz = this.getQuiz(Quizid);
-    const index = quiz.questions.indexOf(question);
-    const indexQuiz = this.quizzes.indexOf(quiz)
-
-    this.quizzes[indexQuiz].questions.splice(index,1);
-    quiz = this.quizzes[indexQuiz];
-    this.quizzes$.next(this.quizzes);
-    this.putQuiz(quiz); //TODO verif
+  deleteQuestion(question:Question){
+    const quizId = question.quizId;
+    console.log(question);
+    this.http.delete(this.stockURL+"api/quizzes/"+quizId+ "/questions/" + question.id).subscribe(() => this.getQuestions(quizId));
   }
 
   getThemes(){
@@ -151,6 +144,15 @@ export class QuizService {
   {
     console.log("create theme")
     this.http.post(this.stockURL +"api/themes", { "name": theme,"idQuizList":[] } as Theme).subscribe(() =>
+    {
+      this.getThemes();
+    });
+  }
+
+  addTheme(theme: Theme): void
+  {
+    console.log("create theme")
+    this.http.post(this.stockURL +"api/themes", theme as Theme).subscribe(() =>
     {
       this.getThemes();
     });

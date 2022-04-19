@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'starter-quiz';
+  constructor() {
+    document.documentElement.style.setProperty(`--font-size`, 22 + 'px');
+  }
 }

@@ -1,20 +1,22 @@
 <div class="card">
-  <h2>Créer un quiz</h2>
+  <h2>Create a new Quiz</h2>
   <form class="quiz-form" [formGroup]="quizForm">
-    <span>
-      Titre <br>
+    <label for="title">
+      Title <br>
       <input class="input-custom" type="text" id="name" formControlName="name">
-    </span>
+    </label>
     <label for = "theme">
-      <br> Thème <br>
-      <input class="input-custom" type = "text" id="theme"  name="theme-list">
+      <br> Theme <br>
+      <select class="input-custom" type = "text" id="theme"  name="theme-list">
         <option *ngFor = "let currentTheme of getAllThemeName()" [value]="currentTheme">
           {{currentTheme}}
-       </option>
+        </option>
+
+      </select>
     </label>
     <br>
     <h4>
-    <button type="submit" class="button-card" [disabled]="quizForm.invalid" (click)="addQuiz()">Créer</button>
+    <button type="submit" class="button-card" [disabled]="quizForm.invalid" (click)="addQuiz()">Create</button>
     </h4>
   </form>
 </div>

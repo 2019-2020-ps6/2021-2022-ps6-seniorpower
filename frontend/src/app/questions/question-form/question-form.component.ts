@@ -24,13 +24,14 @@ export class QuestionFormComponent implements OnInit {
     //Form creation
     this.questionForm = this.formBuilder.group(
       {
+        id:[''],
         label:[''],
         answers: this.formBuilder.array([])
       });
   }
 
   ngOnInit() {
-    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
+    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'));
   }
 
   get answers(){
@@ -50,6 +51,9 @@ export class QuestionFormComponent implements OnInit {
   }
 
   addQuestion() {
+    this.questionForm.patchValue({
+      id:Date.now(),
+    });
     const questionToCreate: Question = this.questionForm.getRawValue() as Question;
     console.log('Add question: ', questionToCreate);
     this.quizService.addQuestion(questionToCreate, this.quiz.id);

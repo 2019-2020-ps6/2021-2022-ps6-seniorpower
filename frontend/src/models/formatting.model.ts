@@ -5,5 +5,7 @@ export interface Formatting {
   textAlign?:string,
   flexWrap?:string,
   justifyContent?:string,
-  size?:string
+  size?:string,
+
+
 }

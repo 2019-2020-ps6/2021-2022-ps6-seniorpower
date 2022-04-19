@@ -12,6 +12,9 @@ import {DEFAULT_COLOR} from "../../../mocks/colorstyle.mock";
 import {PoliceStyle} from "../../../models/PoliceStyle.model";
 import {CLASSIC_Police} from "../../../mocks/PoliceStyle.mock";
 import {PoliceStyleService} from "../../../services/policeStyle.service";
+import {FormattingService} from "../../../services/formatting.service";
+import {Formatting} from "../../../models/formatting.model";
+import {CLASSIC_Format} from "../../../mocks/formatting.mock";
 
 @Component({
   selector: 'app-play-quiz',
@@ -29,6 +32,7 @@ export class PlayQuizComponent implements OnInit {
   colorStyle: ColorStyle = DEFAULT_COLOR
   quizEnd: boolean = false;
   public  police: PoliceStyle = CLASSIC_Police
+  format:Formatting = CLASSIC_Format
 
   constructor(
     private route: ActivatedRoute,
@@ -36,7 +40,8 @@ export class PlayQuizComponent implements OnInit {
     public loupeService: LoupeService,
     public variableService: VariableService,
     public colorService: ColorService,
-    public policeStyleService:PoliceStyleService
+    public policeStyleService:PoliceStyleService,
+    public formattingService: FormattingService
   ){
     //   this.variableService.variable$.subscribe((variable) => {
     //   this.variable = variable;
@@ -50,6 +55,9 @@ export class PlayQuizComponent implements OnInit {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
+    this.formattingService.getFormatting().subscribe((format)=>{
+      this.format = format;
+    });
   }
 
   ngOnInit(): void {
@@ -57,7 +65,7 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.getQuizById(this.route.snapshot.paramMap.get('id')) //recup le quiz lié a l'id
     console.log(this.id);
     console.log(this.quiz);
-
+    this.variableService.tempResultat =0;
     this.loupeService.setup();
   }
 
@@ -77,10 +85,9 @@ export class PlayQuizComponent implements OnInit {
   }
 
   incrementCorrect(answer: Answer) {
-    for (let i = 0; i < this.getCorrectAnswer().length; i++) {
-      if (this.getCorrectAnswer()[i].value === answer.value) {
+
+      if (answer.isCorrect) {
         this.variableService.tempResultat++;
-      }
     }
     this.resultAffiche = true;
     this.selectAnswer.set(this.indexQuiz, answer);

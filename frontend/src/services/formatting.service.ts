@@ -7,8 +7,13 @@ import {CLASSIC_Format} from "../mocks/formatting.mock";
   providedIn: 'root'
 })
 export class FormattingService {
-  private format: Formatting = CLASSIC_Format;
+  currentSize:string = "22";
+  private currentSize$: BehaviorSubject<string> = new BehaviorSubject("22");
 
+  currentIllness:string = "Aucune";
+  private currentIllness$: BehaviorSubject<string> = new BehaviorSubject("Aucune");
+
+  private format: Formatting = CLASSIC_Format;
   public format$: BehaviorSubject<Formatting> = new BehaviorSubject(CLASSIC_Format);
 
   getFormatting(): Observable<Formatting> {
@@ -18,5 +23,23 @@ export class FormattingService {
   formattingUpdate(format:Formatting){
     this.format = format;
     this.format$.next(this.format);
+  }
+
+  getCurrentSize(): Observable<string> {
+    return this.currentSize$;
+  }
+
+  changeSize(size:string){
+    this.currentSize = size;
+    this.currentSize$.next(this.currentSize);
+  }
+
+  getCurrentIllness(): Observable<string>{
+    return this.currentIllness$;
+  }
+
+  changeIllness(illness:string){
+    this.currentIllness = illness;
+    this.currentIllness$.next(this.currentIllness);
   }
 }
