@@ -99,39 +99,19 @@ export class QuizService {
 
 
   addQuestion(question:Question,id:string|null){
-    console.log(this.stockURL+"api/quizzes/" + id + "/questions");
     this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
       console.log(question);
     });
+    question.quizId = id;
     this.questions.push(question);
     this.questions$.next(this.questions);
 
   }
 
-  deleteQuestion(question:Question, quiz:Quiz){
-    console.log(this.stockURL+"api/quizzes/" + quiz.id + "/questions");
-    //this.http.delete<Question>(this.stockURL+"api/quizzes/" + quiz.id + "/questions/" + question.id);
-    let quizModif = this.quizzes.find((quizz)=> quizz.id ===quiz.id);
-    let index = this.questions.indexOf(question);
-    console.log("index = " + index.toString());
-    console.log("La question = " + quizModif.questions[index]);
-
-    quizModif.questions.splice(index,1);
-    this.questions.splice(index,1);
-    this.questions$.next(this.questions);
-
-    console.log("Quiz modifié = " + quizModif.questions[index]);
-
-    this.http.put<Quiz>(this.stockURL+"api/quizzes/" + quiz.id,quizModif);
-
-   /* let quiz = this.getQuiz(Quizid);
-    const index = quiz.questions.indexOf(question);
-    const indexQuiz = this.quizzes.indexOf(quiz)
-
-    this.quizzes[indexQuiz].questions.splice(index,1);
-    quiz = this.quizzes[indexQuiz];
-    this.quizzes$.next(this.quizzes);
-    this.putQuiz(quiz); */
+  deleteQuestion(question:Question){
+    const quizId = question.quizId;
+    console.log(question);
+    this.http.delete(this.stockURL+"api/quizzes/"+quizId+ "/questions/" + question.id).subscribe(() => this.getQuestions(quizId));
   }
 
   getThemes(){

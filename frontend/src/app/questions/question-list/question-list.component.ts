@@ -35,7 +35,4 @@ export class QuestionListComponent implements OnInit {
     this.quizService.getQuestions(this.id);
   }
 
-  deleteQuestion(selected:Question){
-    this.quizService.deleteQuestion(selected,this.quiz);
-  }
 }
