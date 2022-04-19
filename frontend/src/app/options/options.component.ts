@@ -20,9 +20,12 @@ export class OptionsComponent implements OnInit {
   colorStyle:ColorStyle = DEFAULT_COLOR;
   formatting:Formatting = CLASSIC_Format;
   police: PoliceStyle = CLASSIC_Police;
-  sizes:String[];
-  colorList:String[];
-  illnessList:String[];
+  sizes:String[] = ["15","16","17","18","19","20","21","22"];
+  colorList:String[] = ["Aucun","Protanopie","Tritanopie","Deutéranopie"];
+  illnessList:String[] = ["Aucune","DMLA","Glaucome"];
+  currentSize:string;
+  currentIllness:string;
+  currentColor:string;
 
   constructor(public colorService: ColorService, public formattingService:FormattingService,public loupeService:LoupeService,public policeStyleService:PoliceStyleService) { //TODO mettre partout où besoin
     this.colorService.getColorStyle().subscribe((color) => {
@@ -30,13 +33,19 @@ export class OptionsComponent implements OnInit {
     });
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
-    })
+    });
     this.policeStyleService.getPoliceStyle().subscribe((police) => {
       this.police = police;
     });
-    this.sizes = ["15","16","17","18","19","20","21","22"];
-    this.colorList = ["Aucun","Protanopie","Tritanopie","Deutéranopie"];
-    this.illnessList = ["Aucune","DMLA","Glaucome"];
+    this.colorService.getCurrentColor().subscribe((current)=>{
+      this.currentColor = current;
+    });
+    this.formattingService.getCurrentSize().subscribe((size)=>{
+      this.currentSize = size;
+    });
+    this.formattingService.getCurrentIllness().subscribe((illness)=>{
+      this.currentIllness = illness;
+    });
   }
 
   ngOnInit() {
@@ -46,41 +55,54 @@ export class OptionsComponent implements OnInit {
   changeColorDefault(){
     this.colorStyle = DEFAULT_COLOR;
     this.colorService.colorUpdate(this.colorStyle);
+    this.colorService.currentColorUpdate("Aucun");
   }
 
   changeColorProta(){
     this.colorStyle = PROTA_COLOR;
     this.colorService.colorUpdate(this.colorStyle);
+    this.colorService.currentColorUpdate("Protanopie");
+
   }
 
   changeColorTrita(){
     this.colorStyle = TRITA_COLOR;
     this.colorService.colorUpdate(this.colorStyle);
+    this.colorService.currentColorUpdate("Tritanopie");
+
   }
 
   changeColorDeute(){
     this.colorStyle = DEUTE_COLOR;
     this.colorService.colorUpdate(this.colorStyle);
+    this.colorService.currentColorUpdate("Deutéranopie");
+
   }
 
   changeFormatClassic(){
     this.formatting = CLASSIC_Format;
     this.formattingService.formattingUpdate(this.formatting);
+    this.formattingService.changeIllness("Aucune");
   }
 
   changeFormatDMLA(){
     this.formatting = DMLA_FORMAT;
     this.formattingService.formattingUpdate(this.formatting);
+    this.formattingService.changeIllness("DMLA");
+
   }
 
   changeFormatGlaucome(){
     this.formatting = GLAUCOME_FORMAT;
     this.formattingService.formattingUpdate(this.formatting);
+    this.formattingService.changeIllness("Glaucome");
+
   }
 
   applySizeChange(){
     const size: string = (document.getElementById('size') as HTMLInputElement).value;
     document.documentElement.style.setProperty(`--font-size`, size + 'px');
+    this.formattingService.changeSize(size);
   }
 
   getAllSize(){

@@ -3,13 +3,16 @@ import {Formatting} from "../models/formatting.model";
 export const CLASSIC_Format:Formatting = {
   marginLeft: "none",
   marginRight: "none",
-  width: "auto"
+  width: "auto",
+  justifyContent: "space-between",
 }
 
 export const DMLA_FORMAT:Formatting = {
   marginLeft: "none",
   marginRight: "none",
-  width:"100%"
+  width:"100%",
+  justifyContent: "space-between",
+
 
 }
 
@@ -17,5 +20,6 @@ export const GLAUCOME_FORMAT:Formatting = {
   marginLeft: "auto",
   marginRight: "auto",
   width:"50%",
-  textAlign:"center"
+  textAlign:"center",
+  justifyContent: "center",
 }
