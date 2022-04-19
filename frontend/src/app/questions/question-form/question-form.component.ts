@@ -30,7 +30,7 @@ export class QuestionFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'))
+    this.quizService.getQuizById(this.route.snapshot.paramMap.get('id'));
   }
 
   get answers(){

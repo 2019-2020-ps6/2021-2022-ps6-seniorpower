@@ -57,7 +57,7 @@ export class PlayQuizComponent implements OnInit {
     this.quizService.getQuizById(this.route.snapshot.paramMap.get('id')) //recup le quiz lié a l'id
     console.log(this.id);
     console.log(this.quiz);
-
+    this.variableService.tempResultat =0;
     this.loupeService.setup();
   }
 
@@ -77,10 +77,9 @@ export class PlayQuizComponent implements OnInit {
   }
 
   incrementCorrect(answer: Answer) {
-    for (let i = 0; i < this.getCorrectAnswer().length; i++) {
-      if (this.getCorrectAnswer()[i].value === answer.value) {
+
+      if (answer.isCorrect) {
         this.variableService.tempResultat++;
-      }
     }
     this.resultAffiche = true;
     this.selectAnswer.set(this.indexQuiz, answer);

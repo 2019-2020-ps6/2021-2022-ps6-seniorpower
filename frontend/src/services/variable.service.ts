@@ -17,6 +17,7 @@ export class VariableService {
 
   constructor(private http: HttpClient) {
     this.getVariables();
+    this.tempResultat = 0;
   }
 
   addVariable(variable: Variable) {

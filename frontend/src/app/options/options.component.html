@@ -2,7 +2,7 @@
   <h1>Options</h1>
   <main>
     <p>
-      Choisissez la taille de la police :
+      Choisissez la taille de l'écriture :
       <select class="input-custom" type = "text" oninput="this.nextElementSibling.value = this.value" (change) = "applySizeChange()" id="size">
         <option *ngFor = "let size of getAllSize()" [value]="size">
           {{size}}

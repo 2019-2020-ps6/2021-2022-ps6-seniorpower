@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Question} from "../../../models/question.model";
-import {QuizService} from "../../../services/quiz.service";
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-question',
@@ -10,19 +8,22 @@ import {ActivatedRoute} from "@angular/router";
 })
 
 export class QuestionsComponent implements OnInit{
-  
+
  @Input()
  question: Question;
+ @Output()
+ questionDelete: EventEmitter<Question> = new EventEmitter<Question>();
 
-  constructor(public quizService: QuizService,private route: ActivatedRoute,) {
+  constructor() {
   }
 
   ngOnInit():void {
 
   }
 
-  deleteQuestion(question){
+  deleteQuestion(){
     console.log(this.question);
-    this.quizService.deleteQuestion(question,this.route.snapshot.paramMap.get('id'));
+    this.questionDelete.emit(this.question);
+    //this.quizService.deleteQuestion(question,this.route.snapshot.paramMap.get('id'));
   }
 }

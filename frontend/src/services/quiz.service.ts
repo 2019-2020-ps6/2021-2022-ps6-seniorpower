@@ -47,8 +47,6 @@ export class QuizService {
     this.quizzes.push(quiz);
     this.quizzes$.next(this.quizzes);
     this.postQuizzes(quiz);
-    // You need here to update the list of quiz and then update our observable (Subject) with the new list
-    // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
   }
 
   deleteQuiz(quiz: Quiz){
@@ -101,7 +99,7 @@ export class QuizService {
 
 
   addQuestion(question:Question,id:string|null){
-    console.log(this.stockURL+"api/quizzes/" + id + "/questions")
+    console.log(this.stockURL+"api/quizzes/" + id + "/questions");
     this.http.post<Question>(this.stockURL+"api/quizzes/" + id + "/questions", question).subscribe((question)=>{
       console.log(question);
     });
@@ -110,15 +108,30 @@ export class QuizService {
 
   }
 
-  deleteQuestion(question:Question, Quizid:string|undefined){
-    let quiz = this.getQuiz(Quizid);
+  deleteQuestion(question:Question, quiz:Quiz){
+    console.log(this.stockURL+"api/quizzes/" + quiz.id + "/questions");
+    //this.http.delete<Question>(this.stockURL+"api/quizzes/" + quiz.id + "/questions/" + question.id);
+    let quizModif = this.quizzes.find((quizz)=> quizz.id ===quiz.id);
+    let index = this.questions.indexOf(question);
+    console.log("index = " + index.toString());
+    console.log("La question = " + quizModif.questions[index]);
+
+    quizModif.questions.splice(index,1);
+    this.questions.splice(index,1);
+    this.questions$.next(this.questions);
+
+    console.log("Quiz modifié = " + quizModif.questions[index]);
+
+    this.http.put<Quiz>(this.stockURL+"api/quizzes/" + quiz.id,quizModif);
+
+   /* let quiz = this.getQuiz(Quizid);
     const index = quiz.questions.indexOf(question);
     const indexQuiz = this.quizzes.indexOf(quiz)
 
     this.quizzes[indexQuiz].questions.splice(index,1);
     quiz = this.quizzes[indexQuiz];
     this.quizzes$.next(this.quizzes);
-    this.putQuiz(quiz); //TODO verif
+    this.putQuiz(quiz); */
   }
 
   getThemes(){
