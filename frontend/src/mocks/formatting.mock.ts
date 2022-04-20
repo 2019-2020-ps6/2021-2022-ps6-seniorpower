@@ -4,7 +4,7 @@ export const CLASSIC_Format:Formatting = {
   marginLeft: "none",
   marginRight: "none",
   width: "auto",
-  justifyContent: "space-between",
+  justifyContent: "start",
 }
 
 export const DMLA_FORMAT:Formatting = {
