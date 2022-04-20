@@ -13,7 +13,7 @@ export class UserService {
   private userSelected: User = {name: "",password:""} as User;
   public userSelected$: BehaviorSubject<User> = new BehaviorSubject(this.userSelected);
   private stockURL = 'http://localhost:9428/';
-
+  public userEnter:User;
   constructor(private http: HttpClient) {
     this.getUsers();
 
@@ -57,5 +57,14 @@ export class UserService {
     this.http.get<User>(this.stockURL + "api/users" + userId).subscribe((quiz) => {
       this.userSelected$.next(quiz);
     });
+  }
+
+  isAdmin(){
+    if(this.userEnter){
+      if(this.userEnter.name == "Admin"){
+        return true;
+      }
+    }
+    return false;
   }
 }

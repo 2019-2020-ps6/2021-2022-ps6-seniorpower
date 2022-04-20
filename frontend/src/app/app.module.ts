@@ -22,7 +22,7 @@ import {MenuComponent} from "./menu/menu.component";
 import {ThemeComponent} from "./themes/theme/theme.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
 import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
-
+import {AuthentificationComponent } from './authentification/authentification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,14 +40,15 @@ import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
     ThemeViewComponent,
     UserListComponent,
     OptionsComponent,
-
+  
 
     UserListComponent,
     PlayQuizComponent,
     OptionsComponent,
     MenuComponent,
     ThemeComponent,
-    ThemeListComponent
+    ThemeListComponent,
+    AuthentificationComponent
 
   ],
   imports: [

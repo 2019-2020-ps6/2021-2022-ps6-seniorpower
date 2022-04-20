@@ -1,7 +1,11 @@
 export interface Formatting {
-  marginLeft: string;
+  marginLeft: string,
   marginRight: string,
   width:string,
   textAlign?:string,
-  justifyContent: string,
+  flexWrap?:string,
+  justifyContent?:string,
+  size?:string
+
+
 }

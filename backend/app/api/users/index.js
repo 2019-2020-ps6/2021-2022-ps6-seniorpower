@@ -22,8 +22,13 @@ router.get('/:userId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const user = User.create({ ...req.body })
-    res.status(201).json(user)
+    let boolCheckName = true;
+    User.get().forEach((user) => {if (user.name === req.body.name) {boolCheckName = false} })
+    if(boolCheckName){
+      const user = User.create({ ...req.body })
+      res.status(201).json(user)
+    }
+    res.status(400).json("theme are already in base")
   } catch (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra)

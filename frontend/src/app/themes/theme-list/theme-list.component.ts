@@ -5,6 +5,7 @@ import {Question} from "../../../models/question.model";
 import {LoupeService} from "../../../services/loupe.service";
 import { FormGroup } from '@angular/forms';
 import { FormBuilder, Validators} from "@angular/forms";
+import { UserService } from "src/services/user.service";
 
 @Component({
   selector: 'app-theme-list',
@@ -16,7 +17,7 @@ export class ThemeListComponent implements OnInit {
   public themeList: Theme[];
   public themeForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder,public quizService: QuizService,public loupeService:LoupeService) {
+  constructor(public formBuilder: FormBuilder,public quizService: QuizService,public loupeService:LoupeService,public userService:UserService) {
     this.quizService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
     });

@@ -1,1 +1,36 @@
-[]
+
+[
+  {
+    "id": 1649874647268,
+    "name": "football",
+    "creationDate": "date",
+    "questions": [
+      {
+        "id": 1650349960833,
+        "label": "aaa",
+        "quizId": 1649874647268,
+        "answers": [
+          {
+            "id": 1650349960840,
+            "value": "valueTest1",
+            "isCorrect": true,
+            "questionId": 1650349960833
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1650358641950,
+    "name": "b",
+    "creationDate": "date",
+    "questions": []
+  },
+  {
+    "id": 1650358643388,
+    "name": "b",
+    "creationDate": "date",
+    "questions": []
+  }
+]
+
