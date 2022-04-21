@@ -6,6 +6,8 @@ export interface Formatting {
   flexWrap?:string,
   justifyContent?:string,
   size?:string
+  justifyContentOptions:string,
+
 
 
 }
