@@ -1,5 +1,7 @@
+<button class="buttonback" (click)="goBack()">Retour</button>
 <h1 *ngIf="quiz">{{quiz.name}}</h1>
+
 <app-question-form [quiz]="quiz"></app-question-form>
 <app-question-list [quiz]="quiz"></app-question-list>
 <br>
-<button class="button-card" (click)="goBack()">Retour</button>
+

@@ -1,1 +1,45 @@
 @import '../../../styles/card.scss';
+
+
+.buttonback {
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  background: #e0e5ec;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  font-size: large;
+  color: black;
+  z-index: 1;
+  font-weight: bold;
+}
+.buttonback:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  direction: rtl;
+  z-index: -1;
+  background: beige;
+  transition: all 0.3s ease;
+  font-weight: bold;
+
+}
+.buttonback:hover {
+  color: #000;
+  font-weight: bold;
+}
+.buttonback:hover:after {
+  left: auto;
+  right: 0;
+  width: 100%;
+}
+.buttonback:active {
+  top: 2px;
+}
