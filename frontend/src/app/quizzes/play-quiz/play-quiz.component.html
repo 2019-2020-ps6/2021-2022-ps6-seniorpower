@@ -1,7 +1,6 @@
 <div *ngIf="quiz">
   <div *ngIf="!isEnd()" class="card2">
-    <div class="result">
-    </div>
+   <br>
     <div class="question-number" >Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
     <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
@@ -41,7 +40,8 @@
         <button class="next" [style.background-color]="colorStyle.font.colorNext" [style.color]="colorStyle.font.colorText" (click)="next()">Suivant</button>   </div>
     </div>
   </div>
-  <div *ngIf="quizEnd">
+  <div *ngIf="quizEnd" class="card2">
+
     <div class="question-number" >Le quiz est fini !</div>
     <div class="question-number" >Votre score est : {{variableService.tempResultat}} / {{quiz.questions.length}}</div>
     <button class="buttonBack" routerLink="/quiz-list"><span>Retour à la sélection de quiz</span></button>

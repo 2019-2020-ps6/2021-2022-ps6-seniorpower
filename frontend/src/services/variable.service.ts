@@ -44,9 +44,9 @@ export class VariableService {
 
   getVariableSync():Variable{
     var request = new XMLHttpRequest();
-    request.open('GET', this.stockURL+"api/variables", false);  
+    request.open('GET', this.stockURL+"api/variables", false);
     request.send(null);
-    return JSON.parse(request.responseText); 
+    return JSON.parse(request.responseText);
 }
 
   postVariableSync(variable: Variable){
@@ -59,9 +59,9 @@ export class VariableService {
   getUserSelected(){
     let id = this.getVariableSync().userSelected;
     var request = new XMLHttpRequest();
-    request.open('GET', this.stockURL+"api/users/" + id, false);  
+    request.open('GET', this.stockURL+"api/users/" + id, false);
     request.send(null);
-    return JSON.parse(request.responseText); 
+    return JSON.parse(request.responseText);
   }
 
   postUserSync(user : User){
@@ -90,7 +90,7 @@ export class VariableService {
     }
     return false;
   }
-  
+
   logOut(){
     let temp = {id :this.idLogOut,name:"none",password:"none"} as User;
     console.log("log out");

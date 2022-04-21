@@ -37,17 +37,6 @@
                 <input class="input-custom" type = "text" id="daltonisme"  name="authentification" formControlName="daltonisme">
                 <br>
               </label>
-    <button type="submit" class="button-card" [disabled] = "userForm.invalid" (click)="addUser()">Créer</button>
-    <label for="name">
-      Nom <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-    </label>
-    <label for = "password">
-      <br> Mot de passe <br>
-      <input class="input-custom" type="password" id="password" [formControlName]="'password'">
-    </label>
-    <br>
-
     <button type="submit" class="button2 pulse" [disabled] = "userForm.invalid" (click)="addUser()">
       <span>Créer</span>
     </button>
