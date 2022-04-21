@@ -1,5 +1,4 @@
 <ng-container *ngIf="quizOnTheme()">
-<p>{{this.name}}</p>
 <div>
     <div *ngFor="let quiz of quizOnTheme()">
         <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>

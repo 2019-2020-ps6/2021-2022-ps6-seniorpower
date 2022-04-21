@@ -7,9 +7,9 @@
     <a id='loupe-button' class="loupe button-card" (click)=loupe() [style.background-color]="colorStyle.font.colorLoupe">Loupe</a><!--TODO-->
     <span *ngIf = "show()">
       <a routerLink="/menu" class="button-card right">Menu Principal</a>
-      <a routerLink="/themes" class="button-card right">Themes</a>
+      <a routerLink="/themes" class="button-card right">Thèmes</a>
       <a *ngIf="this.userService.isAdmin()" routerLink="/user-list" class="button-card right">Utilisateurs</a>
-      <a *ngIf="this.userService.userEnter" (click) = "logOut()" class="button-card right">Deconnexion</a>
+      <a *ngIf="this.userService.userEnter" (click) = "logOut()" class="button-card right">Déconnexion</a>
     </span>
 
   </nav>
