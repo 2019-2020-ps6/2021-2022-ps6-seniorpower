@@ -80,10 +80,23 @@ body{
 
   border-radius: 25%;
 
+  border: 2px solid #000;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+
 }
-.option:hover{
-  background-color: lightgoldenrodyellow;
+.option:hover {
+  box-shadow:
+    -7px -7px 20px 0px rgba(238, 226, 200, 0.94),
+    -4px -4px 5px 0px rgba(238, 226, 200, 0.94),
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
 }
+
 .AfficherR{
   width:30vw;
   height: 8vh;
@@ -112,4 +125,82 @@ body{
 
 .button-card{
   border: black solid 2px;
+}
+
+
+.buttonBack {
+  padding-left: 2px;
+  padding-right: 2px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+
+  background: #000;
+  color: #fff;
+  line-height: 42px;
+  border: none;
+}
+.buttonBack span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.buttonBack:before,
+.buttonBack:after {
+  position: absolute;
+  content: "";
+  height: 0%;
+  width: 2px;
+  background: #000;
+}
+.buttonBack:before {
+  right: 0;
+  top: 0;
+  transition: all 500ms ease;
+}
+.buttonBack:after {
+  left: 0;
+  bottom: 0;
+  transition: all 500ms ease;
+}
+.buttonBack:hover{
+  color: #000;
+  background: transparent;
+}
+.buttonBack:hover:before {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.buttonBack:hover:after {
+  transition: all 500ms ease;
+  height: 100%;
+}
+.buttonBack span:before,
+.buttonBack span:after {
+  position: absolute;
+  content: "";
+  background: #000;
+}
+.buttonBack span:before {
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.buttonBack span:after {
+  right: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  transition: all 500ms ease;
+}
+.buttonBack span:hover:before {
+  width: 100%;
+}
+.buttonBack span:hover:after {
+  width: 100%;
 }

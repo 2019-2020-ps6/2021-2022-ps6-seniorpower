@@ -44,6 +44,6 @@
   <div *ngIf="quizEnd">
     <div class="question-number" >Le quiz est fini !</div>
     <div class="question-number" >Votre score est : {{variableService.tempResultat}} / {{quiz.questions.length}}</div>
-    <button class="button-card" routerLink="/quiz-list">Retour à la sélection de quiz</button>
+    <button class="buttonBack" routerLink="/quiz-list"><span>Retour à la sélection de quiz</span></button>
   </div>
 </div>
