@@ -3,6 +3,8 @@ import {LoupeService} from "../../services/loupe.service";
 import {FormattingService} from "../../services/formatting.service";
 import {Formatting} from "../../models/formatting.model";
 import {CLASSIC_Format} from "../../mocks/formatting.mock";
+import {ColorService} from "../../services/color.service";
+import {ColorStyle} from "../../models/colorstyle.model";
 
 @Component({
   selector: 'app-menu',
@@ -10,11 +12,14 @@ import {CLASSIC_Format} from "../../mocks/formatting.mock";
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+  color:ColorStyle;
   formatting:Formatting = CLASSIC_Format;
-  constructor(public loupeService:LoupeService, private formattingService:FormattingService) {
+  constructor(public loupeService:LoupeService, private formattingService:FormattingService,private colorService:ColorService) {
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
+    })
+    this.colorService.getColorStyle().subscribe((color)=>{
+      this.color = color;
     })
   }
 
