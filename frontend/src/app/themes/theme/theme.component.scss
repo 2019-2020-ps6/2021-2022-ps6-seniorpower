@@ -1,14 +1,45 @@
 @import '../../../styles/card.scss';
 
-h2{
-  background-color: beige;
-  text-align: center;
-  border: solid 1px black;
-  color: black;
-  font-weight: bold;
-  margin: 5px;
-  padding: 0.5em 1em;
-}
 #general{
   align-items: center;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    height: 60px;
+
+    background-color: var(--light-theme);
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--color);
+    transition: all 0.3s;
+    position: relative;
+
+    text-align: center;
+    overflow: hidden;
+    margin: 4px;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 6px 30px -10px rgba(#CCCCCC, 1);
+
+    &:hover {
+      transform: translateX(5px) translateY(-7px);
+    }
+
+}
+span{
+  text-decoration: none;
+}
+
+a:link, a:visited{
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  margin: 5px;
+  padding: 0.5em 1em;
+  text-align: center;
 }

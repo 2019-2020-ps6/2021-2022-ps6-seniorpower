@@ -1,12 +1,7 @@
-<div class="card" *ngIf="theme" id="general">
-  <h2>
-    <i class="fab fa-leanpub"></i>
-    {{theme.name}}
-  </h2>
+
   <nav>
-    <a routerLink="/themes/{{theme.name}}" class="button-card" >
-      <button class="button-card"  >Choisir !</button>
+    <a routerLink="/themes/{{theme.name}}" >
+      <span >{{theme.name}}</span>
     </a>
   </nav>
 
-</div>

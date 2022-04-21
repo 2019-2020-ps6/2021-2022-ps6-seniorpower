@@ -1,6 +1,6 @@
 <div *ngIf="!connexion && !inscription">
-  <button (click) = "inscription = true" class="button-card" >Inscription</button>
-  <button (click) = "connexion = true" class="button-card" >Connexion</button>
+  <button (click) = "inscription = true" class="button1" >Inscription</button>
+  <button (click) = "connexion = true" class="button1" >Connexion</button>
 </div>
 <div *ngIf="!auth && connexion" >
 <div  class = "card">
@@ -17,7 +17,9 @@
         <input class="input-custom" type = "text" id="mdp"  name="authentification" formControlName="password">
         <br>
       </label>
-      <button (click) = "addUser()" class="button-card" >Connexion</button>
+    <br>
+      <button (click) = "addUser()" class="connexion effect01" >
+        <span>Connexion</span></button>
   </form>
 </div>
 <button (click) = "connexion = false" class ="button-card">Retour</button>

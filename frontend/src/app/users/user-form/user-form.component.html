@@ -10,7 +10,10 @@
       <input class="input-custom" type="password" id="password" [formControlName]="'password'">
     </label>
     <br>
-    <button type="submit" class="button-card" [disabled] = "userForm.invalid" (click)="addUser()">Créer</button>
+
+    <button type="submit" class="button2 pulse" [disabled] = "userForm.invalid" (click)="addUser()">
+      <span>Créer</span>
+    </button>
   </form>
 </div>
 <!-- Uncomment below to see your form structure and how it changes
