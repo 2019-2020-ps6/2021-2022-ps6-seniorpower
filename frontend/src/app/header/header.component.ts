@@ -5,6 +5,7 @@ import {ColorService} from "../../services/color.service";
 import {LoupeService} from "../../services/loupe.service";
 import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
+import { VariableService } from 'src/services/variable.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
-  constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router) {
+  constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router,public variableService:VariableService) {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
@@ -29,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut(){
-    this.userService.userEnter = undefined;
+    this.variableService.logOut();
     this.router.navigate(['/authentification']);
   }
 

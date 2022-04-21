@@ -1,46 +1,36 @@
+
 [
   {
-    "id": 1650537242874,
-    "name": "AAA",
+    "id": 1649874647268,
+    "name": "football",
     "creationDate": "date",
     "questions": [
       {
-        "id": 1650537254179,
-        "label": "aaaa",
+        "id": 1650349960833,
+        "label": "aaa",
+        "quizId": 1649874647268,
         "answers": [
           {
-            "id": 1650537254186,
-            "value": "aaaaaaaaa",
+            "id": 1650349960840,
+            "value": "valueTest1",
             "isCorrect": true,
-            "questionId": 1650537254179
-          },
-          {
-            "id": 1650537254187,
-            "value": "bbbb",
-            "isCorrect": false,
-            "questionId": 1650537254179
-          },
-          {
-            "id": 1650537254188,
-            "value": "ccccc",
-            "isCorrect": false,
-            "questionId": 1650537254179
+            "questionId": 1650349960833
           }
-        ],
-        "quizId": 1650537242874
+        ]
       }
     ]
   },
   {
-    "id": 1650539070477,
-    "name": "tuy",
+    "id": 1650358641950,
+    "name": "b",
     "creationDate": "date",
     "questions": []
   },
   {
-    "id": 1650539076386,
-    "name": "T",
+    "id": 1650358643388,
+    "name": "b",
     "creationDate": "date",
     "questions": []
   }
 ]
+

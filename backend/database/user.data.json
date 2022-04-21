@@ -1,12 +1,11 @@
 [
   {
+    "nom": "Administrateur",
+    "prenom": "Administrateur",
     "id": 1650401496294,
     "name": "Admin",
-    "password": "Admin"
-  },
-  {
-    "id": 1650532038152,
-    "name": "Moi",
-    "password": "mdp"
+    "password": "Admin",
+    "maladie": "none",
+    "daltonisme": "none"
   }
 ]
