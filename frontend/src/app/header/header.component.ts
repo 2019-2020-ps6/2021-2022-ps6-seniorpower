@@ -14,6 +14,9 @@ import { VariableService } from 'src/services/variable.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public isConnected;
+  public isConnectedAdmin;
+
   colorStyle:ColorStyle = DEFAULT_COLOR;
   constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router,public variableService:VariableService) {
     this.colorService.getColorStyle().subscribe((color) => {
@@ -23,6 +26,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isConnected = this.variableService.isConnected();
+    this.isConnectedAdmin = this.variableService.isConnected() && this.variableService.isAdmin();
   }
 
   public loupe(){
@@ -41,4 +46,5 @@ export class HeaderComponent implements OnInit {
     return false
     
   }
+
 }
