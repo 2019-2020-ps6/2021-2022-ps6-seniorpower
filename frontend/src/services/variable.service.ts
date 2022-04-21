@@ -96,4 +96,16 @@ export class VariableService {
     console.log("log out");
     this.postUserSync(temp);
   }
+
+  putUserInUsers(user:User){
+    let xhr = new XMLHttpRequest();
+    xhr.open("PUT", this.stockURL+"api/users/" + user.id,false);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.send(JSON.stringify(user));
+  }
+
+  //pour recuperer l'user qui est connecté : getUserSelected() (function synchrone)
+  //pour poster l'user apres modifications : putUserInUsers(user : User) (function synchrone)
+  //il faut etre connecté pour recuperer user connecté, isConnected() renvoie true si connecté et false sinon
+  // il y a 4 element nouveaux parametre dans user : maladie(string) et daltonisme (string) nom (string) et prenom (string)
 }

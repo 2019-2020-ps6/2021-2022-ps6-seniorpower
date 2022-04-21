@@ -17,6 +17,10 @@ export class UserFormComponent implements OnInit{
   constructor(public formBuilder: FormBuilder, public userService: UserService) {
     this.userForm = this.formBuilder.group({
       name: [null, Validators.required],
+      nom: [null, Validators.required],
+      prenom: [null, Validators.required],
+      maladie: [null, Validators.required],
+      daltonisme: [null, Validators.required],
       password: [null, Validators.required],
       id:['']
     });

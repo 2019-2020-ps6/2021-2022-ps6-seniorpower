@@ -35,9 +35,8 @@ export class AuthentificationComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
+    
   
   addUser() {
     this.authentificationForm.patchValue({

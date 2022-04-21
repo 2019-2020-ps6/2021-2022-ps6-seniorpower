@@ -1,15 +1,42 @@
 <div class="card">
   <h2>Créer un utilisateur</h2>
   <form class="user-form" [formGroup]="userForm">
-    <label for="name">
-      Nom <br>
-      <input class="input-custom" type="text" id="name" [formControlName]="'name'">
-    </label>
-    <label for = "password">
-      <br> Mot de passe <br>
-      <input class="input-custom" type="password" id="password" [formControlName]="'password'">
-    </label>
-    <br>
+    <label for="nom">
+      <h2><i class="fab fa-leanpub">
+        Nom :</i></h2>
+        <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="nom">
+        <br>
+      </label>
+      <label for="prenom">
+        <h2><i class="fab fa-leanpub">
+          Prenom :</i></h2>
+          <input class="input-custom" type = "text" id="prenom"  name="authentification" formControlName="prenom">
+          <br>
+        </label>
+    <label for="nom">
+      <h2><i class="fab fa-leanpub">
+        Nom d'utilisateur :</i></h2>
+        <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="name">
+        <br>
+      </label>
+    <label for="mdp">
+      <h2><i class="fab fa-leanpub">
+        Mot de passe :</i></h2>
+        <input class="input-custom" type = "text" id="mdp"  name="authentification" formControlName="password">
+        <br>
+      </label>
+          <label for="maladie">
+            <h2><i class="fab fa-leanpub">
+              Maladie :</i></h2>
+              <input class="input-custom" type = "text" id="maladie"  name="authentification" formControlName="maladie">
+              <br>
+            </label>
+            <label for="daltonisme">
+              <h2><i class="fab fa-leanpub">
+                daltonisme :</i></h2>
+                <input class="input-custom" type = "text" id="daltonisme"  name="authentification" formControlName="daltonisme">
+                <br>
+              </label>
     <button type="submit" class="button-card" [disabled] = "userForm.invalid" (click)="addUser()">Créer</button>
   </form>
 </div>

@@ -1,7 +1,11 @@
 [
   {
+    "nom": "Administrateur",
+    "prenom": "Administrateur",
     "id": 1650401496294,
     "name": "Admin",
-    "password": "Admin"
+    "password": "Admin",
+    "maladie": "none",
+    "daltonisme": "none"
   }
 ]
