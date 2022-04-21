@@ -51,7 +51,7 @@ a{
 }
 
 .button2 .text {
-  transform: translateX(35px);
+  transform: translateX(10px);
   color: black;
   font-weight: bold;
 }
@@ -102,4 +102,8 @@ a{
 }
 .modify{
   background-color: rgba(200, 160, 229, 0.73);
+}
+
+.textsize{
+  font-size: large;
 }
