@@ -92,6 +92,16 @@ export class QuizService {
     });
   }
 
+  getQuizId(id: string | null) : Quiz | null{
+    for(let i = 0; i < this.quizzes.length;i++){
+      if(this.quizzes[i].id == id){
+        return this.quizzes[i];
+      }
+    }
+    return null;
+
+  }
+
   getQuiz(id: string | null): Quiz {
     const quiz = this.quizzes.find(q => q.id === id)!;
     return quiz;

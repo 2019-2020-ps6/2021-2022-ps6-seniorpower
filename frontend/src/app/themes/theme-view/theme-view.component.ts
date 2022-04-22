@@ -3,7 +3,6 @@ import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model"
 import {LoupeService} from "../../../services/loupe.service";
-import {Theme} from "../../../models/theme.model"
 
 @Component({
   selector: 'app-theme-view',
@@ -13,17 +12,10 @@ import {Theme} from "../../../models/theme.model"
 export class ThemeViewComponent implements OnInit {
 
   public name:string | null;
-  public quiz;
-  public themeList:Theme[];
-  
 
   constructor(private route: ActivatedRoute,
     private quizService: QuizService,public loupeService:LoupeService) {
-    this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
-    this.quizService.themes$.subscribe((themes: Theme[]) => {
-      this.themeList = themes;
-    });
-    }
+     }
 
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name');
@@ -38,9 +30,10 @@ export class ThemeViewComponent implements OnInit {
       return null;
     }
     for(let i = 0; i < theme.idQuizList.length;i++){
-      quizzes.push(this.quizService.getQuiz(theme.idQuizList[i]));
+        if(this.quizService.getQuizId(theme.idQuizList[i]) != null || this.quizService.getQuizId(theme.idQuizList[i]) != undefined){
+          quizzes.push(this.quizService.getQuizId(theme.idQuizList[i]));
+        }
     }
-    console.log(quizzes);
     return quizzes;
   }
 
