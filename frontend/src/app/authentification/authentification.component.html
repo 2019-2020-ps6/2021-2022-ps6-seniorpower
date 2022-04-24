@@ -18,13 +18,13 @@
         <br>
       </label>
     <br>
-      <button (click) = "addUser()" class="connexion effect01" >
+      <button (click) = "addUser()" class="button2 pulse" >
         <span>Connexion</span></button>
   </form>
 </div>
-<button (click) = "connexion = false" class ="button-card">Retour</button>
+<button (click) = "connexion = false" class ="connexion effect01"><span>Retour</span></button>
 </div>
 <div *ngIf="inscription">
   <app-user-form></app-user-form>
-  <button (click) = "inscription = false" class ="button-card">Retour</button>
+  <button (click) = "inscription = false" class ="connexion effect01"><span>Retour</span></button>
 </div>

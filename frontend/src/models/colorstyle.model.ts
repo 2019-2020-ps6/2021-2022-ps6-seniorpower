@@ -6,7 +6,11 @@ export interface ColorStyle { //TODO Modele definitif a definir
     colorFalse: string;
     colorNext?:string;
     colorAfficher:string;
-    colorText: string
+    colorText: string,
+    colorJouer:string,
+    colorSuppr:string,
+    colorModif:string,
+    connexionColor:string
   };
 
 }
