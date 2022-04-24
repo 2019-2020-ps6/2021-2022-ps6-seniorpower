@@ -1,7 +1,7 @@
 
 <div class="aside">
 
-  <nav>
+  <nav *ngIf="this.router.url !== '/authentification'">
     <div class="button-card menuaside" routerLink="/themes" >
 
       <img  alt="html image example" src="./../../assets/search.svg" width="90%" height="50%" />
@@ -22,6 +22,12 @@
         <div class="button-card menuaside" routerLink="/quiz-list">
       <img  alt="html image example" src="./../../assets/pencil-square.svg" width="90%" height="50%" />
       Creation de Quiz
+    </div>
+  </nav>
+  <nav *ngIf="this.router.url === '/authentification'">
+    <div class="button-card menuaside house" routerLink="/menu" >
+      <img alt="htlm image" src="./../../assets/house.svg" width="90%" height="50%"/>
+      Accueil
     </div>
   </nav>
 </div>
