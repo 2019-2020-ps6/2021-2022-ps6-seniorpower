@@ -16,5 +16,23 @@
     "maladie": "DMLA",
     "daltonisme": "Protanopie",
     "password": "a"
+  },
+  {
+    "id": 1650808340489,
+    "name": "James Bond",
+    "nom": "Bond",
+    "prenom": "James",
+    "maladie": "DMLA",
+    "daltonisme": "Tritanopie",
+    "password": "love"
+  },
+  {
+    "id": 1650808510501,
+    "name": "fatilao",
+    "nom": "fati",
+    "prenom": "lao",
+    "maladie": "Glaucome",
+    "daltonisme": "Protanopie",
+    "password": "nodejs"
   }
 ]

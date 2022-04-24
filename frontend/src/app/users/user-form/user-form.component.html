@@ -16,7 +16,7 @@
     <label for="nom">
       <h2><i class="fab fa-leanpub">
         Nom d'utilisateur :</i></h2>
-        <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="name">
+        <input class="input-custom" type = "text" id="nom"   name="authentification" formControlName="name">
         <br>
       </label>
     <label for="mdp">
@@ -28,17 +28,17 @@
           <label for="illness">
             <h2><i class="fab fa-leanpub">
               Maladie :</i></h2>
-              <select class="input-custom" type = "text" (change) = "applyIllnessChange()" id="illness">
+              <select class="input-custom" type = "text" name="authentification"   formControlName="maladie" (change) = "applyIllnessChange()" id="illness">
                 <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness">
                   {{illness}}
                 </option>
               </select>
             <br>
                     </label>
-                    <label for="color">
+                    <label for="daltonisme">
                       <h2><i class="fab fa-leanpub">
                         Type de Daltonisme :</i></h2>
-                        <select class="input-custom" type = "text" (change) = "applyColorChange()" id="color">
+                        <select class="input-custom" type = "text" name="authentification" (change) = "applyColorChange()" id="daltonisme" formControlName="daltonisme">
                           <option *ngFor = "let color of getAllColors()" [selected]="color === currentColor" [value]="color" >
                             {{color}}
                           </option>
