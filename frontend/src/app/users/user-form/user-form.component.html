@@ -25,22 +25,30 @@
         <input class="input-custom" type = "text" id="mdp"  name="authentification" formControlName="password">
         <br>
       </label>
-          <label for="maladie">
+          <label for="illness">
             <h2><i class="fab fa-leanpub">
               Maladie :</i></h2>
-              <input class="input-custom" type = "text" id="maladie"  name="authentification" formControlName="maladie">
-              <br>
-            </label>
-            <label for="daltonisme">
-              <h2><i class="fab fa-leanpub">
-                daltonisme :</i></h2>
-                <input class="input-custom" type = "text" id="daltonisme"  name="authentification" formControlName="daltonisme">
-                <br>
-              </label>
-    <button type="submit" class="button2 pulse" [disabled] = "userForm.invalid" (click)="addUser()">
-      <span>Créer</span>
-    </button>
-  </form>
-</div>
-<!-- Uncomment below to see your form structure and how it changes
-<br><br>{{quizForm.getRawValue() | json}}-->
+              <select class="input-custom" type = "text" (change) = "applyIllnessChange()" id="illness">
+                <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness">
+                  {{illness}}
+                </option>
+              </select>
+            <br>
+                    </label>
+                    <label for="color">
+                      <h2><i class="fab fa-leanpub">
+                        Type de Daltonisme :</i></h2>
+                        <select class="input-custom" type = "text" (change) = "applyColorChange()" id="color">
+                          <option *ngFor = "let color of getAllColors()" [selected]="color === currentColor" [value]="color" >
+                            {{color}}
+                          </option>
+                        </select>
+                      <br>
+                      </label>
+            <button type="submit" class="button2 pulse" [disabled] = "userForm.invalid" (click)="addUser()">
+              <span>Créer</span>
+            </button>
+          </form>
+        </div>
+        <!-- Uncomment below to see your form structure and how it changes
+        <br><br>{{quizForm.getRawValue() | json}}-->
