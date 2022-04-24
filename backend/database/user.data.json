@@ -52,5 +52,14 @@
     "maladie": "Glaucome",
     "daltonisme": "Protanopie",
     "password": "bob"
+  },
+  {
+    "id": 1650828404498,
+    "name": "123",
+    "nom": "123",
+    "prenom": "123",
+    "maladie": "Aucune",
+    "daltonisme": "Aucun",
+    "password": "123"
   }
 ]
