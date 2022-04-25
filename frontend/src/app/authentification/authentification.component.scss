@@ -2,7 +2,7 @@
 
 .connexion{
   cursor: pointer;
-  font-size: 5vw;
+  font-size: 4em;
   font-weight: 400;
   position: relative;
   text-decoration: none;
@@ -14,8 +14,9 @@
 }
 
 .ret{
-  font-size: 4vw;
+  font-size: 2em;
 }
+
 
 .effect01 {
   color: #FFF;
@@ -113,11 +114,11 @@
 .button2 {
   display: inline-flex;
   align-items: center;
-  font-size: 5vw;
+  font-size: 2em;
   background: rgba(224, 53, 53, 0.62);
   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
   border-radius: 5px;
-  padding: 0 30px;
+  padding: 0 2em;
   color: #ffffff;
   font-family: Lato, Arial, sans-serif;
   text-transform: uppercase;
@@ -179,8 +180,8 @@
 }
 
 .card{
-  font-size: 3vw;
+  font-size: 2em;
   input{
-    font-size: 3vw;
+    font-size: 1em;
   }
 }

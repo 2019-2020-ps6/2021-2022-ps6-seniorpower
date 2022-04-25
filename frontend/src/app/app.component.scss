@@ -27,7 +27,7 @@
   padding: 2vh 2vw;
   flex: 1;
   width: 100%;
-  max-height: calc(100vh - $factor-header);
+  max-height: calc(100vh - $factor-header - 4vh);
   overflow:scroll;
   overflow-x: hidden; /* Hide horizontal scrollbar */
 }

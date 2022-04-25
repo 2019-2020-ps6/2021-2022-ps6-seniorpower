@@ -2,7 +2,7 @@
 
 
   <nav id="container">
-    <a>Polyquiz</a>
+    <a class="name" routerLink="/menu">Polyquiz</a>
     <a id='hidden-loupe-button' style="display:none" onclick="$('.main').jfMagnify()">Ne s'affiche pas</a>
     <a id='loupe-button' class="loupe button-card" (click)=loupe() [style.background-color]="colorStyle.font.colorLoupe">Loupe</a><!--TODO-->
     <span *ngIf = "show()">
