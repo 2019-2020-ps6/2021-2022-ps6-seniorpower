@@ -328,25 +328,6 @@
     "quizId": 1650537242874
   },
   {
-    "id": 1650576616297,
-    "label": "try",
-    "answers": [
-      {
-        "id": 1650576616322,
-        "value": "valueTest",
-        "isCorrect": false,
-        "questionId": 1650576616297
-      },
-      {
-        "id": 1650576616326,
-        "value": "valueTest",
-        "isCorrect": true,
-        "questionId": 1650576616297
-      }
-    ],
-    "quizId": 1650576604143
-  },
-  {
     "id": 1650584246740,
     "label": "Qui est le vainqueur de la coupe du monde 2018",
     "answers": [
@@ -420,28 +401,40 @@
     "label": "Quel est le nom du sport consistant en une course en ski de fond ainsi que du tir au fusil",
     "answers": [
       {
+        "id": 1650833029158,
         "value": "le bihatlon",
-        "isCorrect": true
+        "isCorrect": true,
+        "questionId": 1650833029119
       },
       {
+        "id": 1650833029160,
         "value": "le speed riding",
-        "isCorrect": false
+        "isCorrect": false,
+        "questionId": 1650833029119
       },
       {
+        "id": 1650833029164,
         "value": "Le bobsleigh",
-        "isCorrect": false
+        "isCorrect": false,
+        "questionId": 1650833029119
       },
       {
+        "id": 1650833029167,
         "value": "le skeleton",
-        "isCorrect": false
+        "isCorrect": false,
+        "questionId": 1650833029119
       },
       {
+        "id": 1650833029169,
         "value": "Le curling",
-        "isCorrect": false
+        "isCorrect": false,
+        "questionId": 1650833029119
       },
       {
+        "id": 1650833029172,
         "value": "Le bandy",
-        "isCorrect": false
+        "isCorrect": false,
+        "questionId": 1650833029119
       }
     ],
     "quizId": 1650832772911

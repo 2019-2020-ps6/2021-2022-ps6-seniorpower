@@ -4,25 +4,31 @@
       <h2><i class="fab fa-leanpub">
         Nom :</i></h2>
         <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="nom">
+        <span *ngIf="userForm.get('nom').invalid">{{messageError.nom.required}}</span>
         <br>
       </label>
       <label for="prenom">
         <h2><i class="fab fa-leanpub">
           Prenom :</i></h2>
           <input class="input-custom" type = "text" id="prenom"  name="authentification" formControlName="prenom">
+          <span *ngIf="userForm.get('prenom').invalid">{{messageError.prenom.required}}</span>
           <br>
         </label>
     <label for="nom">
       <h2><i class="fab fa-leanpub">
         Nom d'utilisateur :</i></h2>
-        <input class="input-custom" type = "text" id="nom"   name="authentification" formControlName="name">
+        <input class="input-custom" type = "text" id="name"   name="authentification" formControlName="name">
+        <span *ngIf="userForm.get('name').invalid">{{messageError.name.required}}</span>
+        <span *ngIf="userForm.get('name').invalid" >{{messageError.name.validUsername}}</span>
         <br>
       </label>
     <label for="mdp">
       <h2><i class="fab fa-leanpub">
         Mot de passe :</i></h2>
         <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
-        <br>
+        <span *ngIf="userForm.get('password').invalid">{{messageError.password.required}}</span>
+
+      <br>
       </label>
           <label for="illness">
             <h2><i class="fab fa-leanpub">
@@ -44,10 +50,11 @@
                         </select>
                       <br>
                       </label>
-            <button type="submit" class="button2 pulse" [disabled] = "userForm.invalid" (click)="addUser()">
+            <button type="submit"  id="submit" class="button2 pulse"  (click)="addUser()" >
               <span>Créer</span>
             </button>
           </form>
+
         </div>
         <!-- Uncomment below to see your form structure and how it changes
         <br><br>{{quizForm.getRawValue() | json}}-->

@@ -7,7 +7,7 @@ export const CLASSIC_Format:Formatting = {
   width: "auto",
   justifyContent: "space-evenly",
   justifyContentOptions: "space-evenly",
-  justifyContentTheme: "inherit"
+  justifyContentTheme: "revert"
 
 }
 

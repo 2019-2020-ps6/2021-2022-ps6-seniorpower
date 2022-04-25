@@ -7,50 +7,5 @@
     "password": "Admin",
     "maladie": "none",
     "daltonisme": "none"
-  },
-  {
-    "id": 1650809046552,
-    "name": "bob",
-    "nom": "Bob",
-    "prenom": "bob",
-    "maladie": "DMLA",
-    "daltonisme": "Tritanopie",
-    "password": "bob"
-  },
-  {
-    "id": 1650809052126,
-    "name": "bob2",
-    "nom": "Bob",
-    "prenom": "bob",
-    "maladie": "DMLA",
-    "daltonisme": "Deutéranopie",
-    "password": "bob"
-  },
-  {
-    "id": 1650809058365,
-    "name": "bob3",
-    "nom": "Bob",
-    "prenom": "bob",
-    "maladie": "DMLA",
-    "daltonisme": "Protanopie",
-    "password": "bob"
-  },
-  {
-    "id": 1650809067850,
-    "name": "bob4",
-    "nom": "Bob",
-    "prenom": "bob",
-    "maladie": "Glaucome",
-    "daltonisme": "Protanopie",
-    "password": "bob"
-  },
-  {
-    "id": 1650828404498,
-    "name": "123",
-    "nom": "123",
-    "prenom": "123",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "123"
   }
 ]

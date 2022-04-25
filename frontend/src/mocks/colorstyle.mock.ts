@@ -9,14 +9,14 @@ export const DEFAULT_COLOR:ColorStyle = {
     colorNext:"white",
     colorAfficher:"#50DBB4",
     colorText: "black",
-    colorJouer:"#ffc7a0",
+    colorJouer:"rgba(59, 234, 162, 0.62)",
     colorSuppr:"rgba(232, 78, 78, 0.66)",
     colorModif:"rgba(200, 160, 229, 0.73)",
     connexionColor: "rgba(224, 53, 53, 0.62)"//TODO & effects too
   },
 }
 
-export const PROTA_COLOR:ColorStyle = {//TODO from here
+export const PROTA_COLOR:ColorStyle = {
   font: {
     colorLoupe: "lightgreen",
     colorTrue: "#ff9900",

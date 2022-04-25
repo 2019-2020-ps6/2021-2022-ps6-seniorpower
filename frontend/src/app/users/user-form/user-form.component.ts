@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import { FormGroup } from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 import { FormBuilder, Validators} from "@angular/forms";
 import {User} from "../../../models/user.model";
 import {UserService} from "../../../services/user.service";
@@ -9,6 +9,8 @@ import {FormattingService} from "../../../services/formatting.service";
 import {ColorService} from "../../../services/color.service";
 import {ColorStyle} from "../../../models/colorstyle.model";
 import {DEFAULT_COLOR, DEUTE_COLOR, PROTA_COLOR, TRITA_COLOR} from "../../../mocks/colorstyle.mock";
+import {UsernameValidator} from "./username.validators";
+
 
 @Component({
   selector: 'app-user-form',
@@ -19,6 +21,22 @@ import {DEFAULT_COLOR, DEUTE_COLOR, PROTA_COLOR, TRITA_COLOR} from "../../../moc
 export class UserFormComponent implements OnInit{
 
   public userForm: FormGroup;
+  public users;
+  public messageError = {
+    'name': {
+      'required': "Nom d'utilisateur requis",
+      'validUsername': "Nom d'utilisateur déjà pris"
+    },
+    'nom': {
+      'required': 'Nom manquant'
+    },
+    'prenom': {
+      'required': 'Prénom manquant'
+    },
+    'password': {
+      'required': 'Mot de passe manquant'
+    }
+  }
 
   formatting:Formatting = CLASSIC_Format;
   colorStyle:ColorStyle = DEFAULT_COLOR;
@@ -29,15 +47,7 @@ export class UserFormComponent implements OnInit{
 
 
   constructor(public formBuilder: FormBuilder, public userService: UserService,public formattingService:FormattingService,public colorService: ColorService) {
-    this.userForm = this.formBuilder.group({
-      name: [null, Validators.required],
-      nom: [null, Validators.required],
-      prenom: [null, Validators.required],
-      maladie: [null, Validators.required],
-      daltonisme: [null, Validators.required],
-      password: [null, Validators.required],
-      id:['']
-    });
+
     this.formattingService.getFormatting().subscribe((format)=> {
       this.formatting = format;
     });
@@ -47,12 +57,29 @@ export class UserFormComponent implements OnInit{
     this.formattingService.getCurrentIllness().subscribe((illness)=>{
       this.currentIllness = illness;
     });
+    this.userService.users$.subscribe((user)=>{
+      this.users=user;
+    });
+    this.userForm = this.formBuilder.group({
+      name:  new FormControl('', Validators.compose([
+        UsernameValidator.validUsername(this),Validators.required])),
+      nom: [null, Validators.required],
+      prenom: [null, Validators.required],
+      maladie: [null, Validators.required],
+      daltonisme: [null, Validators.required],
+      password: [null, Validators.required],
+      id:['']
+    });
   }
 
   ngOnInit() {
   }
 
   addUser() {
+    if (this.userForm.invalid){
+
+      return;
+    }
     this.userForm.patchValue({
       id:Date.now()
     });
@@ -150,7 +177,6 @@ export class UserFormComponent implements OnInit{
       }
     }
   }
-
 
 }
 

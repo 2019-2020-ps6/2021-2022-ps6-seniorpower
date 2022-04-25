@@ -157,10 +157,8 @@
 
     $.fn.jfMagnify = function(options) {
         return this.each(function() {
-            if (true) {
-                var plugin = new $.jfMagnify(this, options);
-                $(this).data('jfMagnify', plugin);
-            }
+          var plugin = new $.jfMagnify(this, options);
+          $(this).data('jfMagnify', plugin);
         });
     };
 })(jQuery);

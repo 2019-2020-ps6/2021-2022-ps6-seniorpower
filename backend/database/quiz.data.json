@@ -26,39 +26,13 @@
     ]
   },
   {
-    "id": 1650576604143,
-    "name": "ty",
-    "creationDate": "date",
-    "questions": [
-      {
-        "id": 1650576616297,
-        "label": "try",
-        "answers": [
-          {
-            "id": 1650576616322,
-            "value": "valueTest",
-            "isCorrect": false,
-            "questionId": 1650576616297
-          },
-          {
-            "id": 1650576616326,
-            "value": "valueTest",
-            "isCorrect": true,
-            "questionId": 1650576616297
-          }
-        ],
-        "quizId": 1650576604143
-      }
-    ]
-  },
-  {
     "id": 1650799447698,
     "name": "James Bond",
     "creationDate": "date",
     "questions": [
       {
         "id": 1650799713243,
-        "label": "Qui esl l'écrivain de la série de film \"James Bond\"",
+        "label": "Qui est l'écrivain de la série de film \"James Bond\"",
         "answers": [],
         "quizId": 1650799447698
       }
