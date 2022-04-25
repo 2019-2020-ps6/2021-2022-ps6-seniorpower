@@ -7,6 +7,7 @@ export const CLASSIC_Format:Formatting = {
   width: "auto",
   justifyContent: "space-evenly",
   justifyContentOptions: "space-evenly",
+  justifyContentTheme: "inherit"
 
 }
 
@@ -18,6 +19,7 @@ export const DMLA_FORMAT:Formatting = {
   justifyContent:"space-between",
   size:"40%",
   justifyContentOptions: "start",
+  justifyContentTheme: "space-between"
 
 }
 
@@ -28,5 +30,6 @@ export const GLAUCOME_FORMAT:Formatting = {
   textAlign:"center",
   justifyContent: "center",
   justifyContentOptions: "center",
+  justifyContentTheme: "center"
 
 }

@@ -7,8 +7,8 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder, Validators} from "@angular/forms";
 import { UserService } from "src/services/user.service";
 import { VariableService } from "src/services/variable.service";
-import {Formatting} from "../../../models/formatting.model";
 import {FormattingService} from "../../../services/formatting.service";
+import {Formatting} from "../../../models/formatting.model";
 
 @Component({
   selector: 'app-theme-list',

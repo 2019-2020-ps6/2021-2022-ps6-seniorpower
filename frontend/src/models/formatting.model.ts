@@ -7,7 +7,5 @@ export interface Formatting {
   justifyContent?:string,
   size?:string
   justifyContentOptions:string,
-
-
-
+  justifyContentTheme?:string
 }
