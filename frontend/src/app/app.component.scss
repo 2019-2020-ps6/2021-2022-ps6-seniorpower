@@ -29,4 +29,5 @@
   width: 100%;
   max-height: calc(100vh - $factor-header);
   overflow:scroll;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }

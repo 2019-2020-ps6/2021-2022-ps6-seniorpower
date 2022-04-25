@@ -27,8 +27,8 @@
           <label for="illness">
             <h2><i class="fab fa-leanpub">
               Maladie :</i></h2>
-              <select class="input-custom" type = "text" name="authentification"   formControlName="maladie" (change) = "applyIllnessChange()" id="illness">
-                <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness">
+              <select class="input-custom" type = "text" name="authentification"   formControlName="maladie" (change) = "applyIllnessChange()" id="illness" >
+                <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness" >
                   {{illness}}
                 </option>
               </select>
