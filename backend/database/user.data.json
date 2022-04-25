@@ -9,15 +9,6 @@
     "daltonisme": "none"
   },
   {
-    "id": 1650576873898,
-    "name": "a",
-    "nom": "Test",
-    "prenom": "Test",
-    "maladie": "DMLA",
-    "daltonisme": "Protanopie",
-    "password": "a"
-  },
-  {
     "id": 1650809046552,
     "name": "bob",
     "nom": "Bob",

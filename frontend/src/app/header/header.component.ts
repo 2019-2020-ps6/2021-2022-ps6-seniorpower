@@ -6,6 +6,7 @@ import {LoupeService} from "../../services/loupe.service";
 import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
 import { VariableService } from 'src/services/variable.service';
+import{ ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -15,10 +16,10 @@ import { VariableService } from 'src/services/variable.service';
 export class HeaderComponent implements OnInit {
 
   public isConnected;
-  public isConnectedAdmin;
+  public isAdminConnected;
 
   colorStyle:ColorStyle = DEFAULT_COLOR;
-  constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router,public variableService:VariableService) {
+  constructor(public colorService: ColorService, public loupeService:LoupeService,public userService:UserService,public router:Router,public variableService:VariableService,private cdRef : ChangeDetectorRef  ) {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
@@ -27,7 +28,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isConnected = this.variableService.isConnected();
-    this.isConnectedAdmin = this.variableService.isConnected() && this.variableService.isAdmin();
+    this.isAdminConnected = this.variableService.isConnected() && this.variableService.isAdmin();
+
   }
 
   public loupe(){

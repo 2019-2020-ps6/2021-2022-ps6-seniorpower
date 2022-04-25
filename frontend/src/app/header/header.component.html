@@ -8,7 +8,7 @@
     <span *ngIf = "show()">
       <!-- <a routerLink="/menu" class="button-card right">Menu Principal</a>
       <a routerLink="/themes" class="button-card right">Thèmes</a> -->
-      <a *ngIf="isConnectedAdmin" routerLink="/user-list" class="button-card right">Utilisateurs</a>
+      <a *ngIf="isAdminConnected" routerLink="/user-list" class="button-card right">Utilisateurs</a>
       <a *ngIf="isConnected" (click) = "logOut()" class="button-card right">Déconnexion</a>
     </span>
 

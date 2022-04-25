@@ -1,8 +1,8 @@
-<div *ngIf="!connexion && !inscription">
+<div class="centerRow" *ngIf="!connexion && !inscription">
   <button (click) = "inscription = true" class="button1" >Inscription</button>
   <button (click) = "connexion = true" class="button1" >Connexion</button>
 </div>
-<div *ngIf="!auth && connexion" >
+<div class="centerCol" *ngIf="!auth && connexion" >
 <div  class = "card">
   <form class="authentification-form" [formGroup]="authentificationForm">
     <label for="nom">
@@ -24,7 +24,7 @@
 </div>
 <button (click) = "connexion = false" class ="connexion effect01"><span>Retour</span></button>
 </div>
-<div *ngIf="inscription">
+<div class="centerCol" *ngIf="inscription">
   <app-user-form></app-user-form>
   <button (click) = "inscription = false" class ="connexion effect01"><span>Retour</span></button>
 </div>
