@@ -23,12 +23,14 @@ export class HeaderComponent implements OnInit {
     this.colorService.getColorStyle().subscribe((color) => {
       this.colorStyle = color;
     });
-
+    this.variableService.variable$.subscribe((variable) => {
+      this.isConnected = this.variableService.isConnected();
+      this.isAdminConnected = this.variableService.isConnected() && this.variableService.isAdmin();
+    }
+    );
   }
 
   ngOnInit() {
-    this.isConnected = this.variableService.isConnected();
-    this.isAdminConnected = this.variableService.isConnected() && this.variableService.isAdmin();
 
   }
 

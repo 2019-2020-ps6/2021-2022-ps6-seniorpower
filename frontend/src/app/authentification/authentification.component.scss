@@ -1,19 +1,20 @@
 @import '../../styles/card.scss';
 
 .connexion{
-  letter-spacing: 0.1em;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 5vw;
   font-weight: 400;
-  line-height: 45px;
-  max-width: 160px;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
-  width: 100%;
+  display: inline-block;
 }
 .connexion:hover {
   text-decoration: none;
+}
+
+.ret{
+  font-size: 4vw;
 }
 
 .effect01 {
@@ -66,9 +67,9 @@
 }
 
 .button1 {
-  font-size: 25px;
-  width: 8em;
-  height: 2em;
+  font-size: 7vw;
+  width: 50vw;
+  height: 50vh;
   text-align: center;
   line-height: 2em;
   font-family: sans-serif;
@@ -79,20 +80,6 @@
   background-color: rgba(155, 140, 232, 0.65);
 }
 
-.button1::before,
-.button1::after {
-  content: '';
-  position: absolute;
-  width: 0.6em;
-  height: 0.6em;
-  background-color: gainsboro;
-  border-radius: 50%;
-  transition: 0.5s cubic-bezier(0.5, -0.5, 0.25, 1.5);
-  top: calc(50% - 0.6em / 2);
-}
-
-.button1::before {left: 0; z-index: -1;}
-.button1::after {right: 0; z-index: -2;}
 
 .button1:hover {
   color: white;
@@ -104,15 +91,6 @@
   height: 100%;
   border-radius: 0;
   background-color: rgba(125, 104, 239, 0.65);
-}
-
-.button1:hover::before {
-  top: 0;
-}
-
-.button1:hover::after {
-  right: -0.4em;
-  filter: brightness(0.8);
 }
 
 
@@ -135,10 +113,10 @@
 .button2 {
   display: inline-flex;
   align-items: center;
+  font-size: 5vw;
   background: rgba(224, 53, 53, 0.62);
   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
   border-radius: 5px;
-  height: 45px;
   padding: 0 30px;
   color: #ffffff;
   font-family: Lato, Arial, sans-serif;
@@ -198,4 +176,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card{
+  font-size: 3vw;
+  input{
+    font-size: 3vw;
+  }
 }

@@ -1,6 +1,6 @@
 <div class="theme-list" *ngIf="themeList">
 
-  <div class = "card">
+  <div *ngIf="isAdmin" class = "card">
     <form class="theme-form" [formGroup]="themeForm">
       <label for = "theme" >
         <h2>

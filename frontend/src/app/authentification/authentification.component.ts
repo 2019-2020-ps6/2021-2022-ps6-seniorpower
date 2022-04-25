@@ -48,6 +48,7 @@ export class AuthentificationComponent implements OnInit {
         this.auth = true;
         console.log("connexion" ,this.userList[i]);
         this.variableService.postUserSync(this.userList[i]);
+        this.variableService.getVariables();
         this.router.navigate(['/menu']);
       }
     }

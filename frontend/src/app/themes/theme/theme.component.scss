@@ -10,7 +10,6 @@ nav{
     align-items: center;
 
     width: auto;
-    height: 60px;
 
     background-color: var(--light-theme);
     cursor: pointer;
@@ -36,6 +35,8 @@ span{
 }
 
 a:link, a:visited{
+  
+  font-size: 4vw;
   text-decoration: none;
   color: black;
   font-weight: bolder;

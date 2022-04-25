@@ -1,17 +1,14 @@
 @import '../../../styles/card.scss';
-h2{
-  background: #f1f1d0;
-  border-radius: 4px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: black;
-  display: inline-block;
-  margin: 1rem;
-  position: relative;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
-  padding: 0 1em 1em 1em;
 
+form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 70vw;
+  font-size: 2.5vw;
 }
+
 
 @keyframes pulse {
   0% {
@@ -29,13 +26,16 @@ h2{
 }
 
 .button2 {
+  margin-top: 2vw;
+  height: 5vw;
+  width: auto;
+  padding: 1vw 3vw;
   display: inline-flex;
   align-items: center;
   background: rgba(224, 53, 53, 0.62);
   box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
   border-radius: 5px;
-  height: 45px;
-  padding: 0 30px;
+  font-size: 4vw;
   color: #ffffff;
   font-family: Lato, Arial, sans-serif;
   text-transform: uppercase;
@@ -80,4 +80,22 @@ h2{
   &:hover:before, &:hover:after {
     display: none;
   }
+}
+
+input{
+  font-size: 2vw;
+  margin-bottom: 2vw;
+}
+
+select{
+  font-size: 2vw;
+}
+
+.title{
+  justify-self: center;
+}
+
+h2{
+  text-align: center;
+  margin: 1vw;
 }

@@ -4,6 +4,7 @@ import { QuizService } from '../../../services/quiz.service';
 import { Question } from '../../../models/question.model';
 import {ColorStyle} from "../../../models/colorstyle.model";
 import {ColorService} from "../../../services/color.service";
+import { VariableService } from 'src/services/variable.service';
 
 @Component({
   selector: 'app-quiz',
@@ -27,12 +28,17 @@ export class QuizComponent implements OnInit {
   public questionList: Question[];
   public color:ColorStyle;
 
-  constructor(public quizService: QuizService, public colorService:ColorService) {
+  public isAdmin;
+
+  constructor(public quizService: QuizService, public colorService:ColorService,public variableService:VariableService) {
     this.quizService.questions$.subscribe((questionList) => {
       this.questionList = questionList;
     });
     this.colorService.color$.subscribe((color) => {
       this.color = color;
+    });
+    this.variableService.variable$.subscribe((variable) => {
+      this.isAdmin = this.variableService.isAdmin();
     });
   }
 
