@@ -7,6 +7,8 @@ import { FormGroup } from '@angular/forms';
 import { FormBuilder, Validators} from "@angular/forms";
 import { UserService } from "src/services/user.service";
 import { VariableService } from "src/services/variable.service";
+import {Formatting} from "../../../models/formatting.model";
+import {FormattingService} from "../../../services/formatting.service";
 
 @Component({
   selector: 'app-theme-list',
@@ -17,16 +19,19 @@ export class ThemeListComponent implements OnInit {
 
   public themeList: Theme[];
   public themeForm: FormGroup;
-
+  formatting:Formatting;
   public isAdmin;
 
-  constructor(public formBuilder: FormBuilder,public quizService: QuizService,public loupeService:LoupeService,public userService:UserService,public variableService:VariableService) {
+  constructor(public formBuilder: FormBuilder,public quizService: QuizService,public loupeService:LoupeService,public userService:UserService,public variableService:VariableService, private formattingService:FormattingService) {
     this.quizService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
     });
     this.variableService.variable$.subscribe((variable) => {
       this.isAdmin = this.variableService.isConnected && this.variableService.isAdmin();
     });
+    this.formattingService.getFormatting().subscribe((format)=> {
+          this.formatting = format;
+        })
 
       // Form creation
       this.themeForm = this.formBuilder.group({
