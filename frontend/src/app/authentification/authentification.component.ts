@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {QuizService} from "../../services/quiz.service";
-import {FormArray, FormBuilder, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from "src/models/user.model";
 import { UserService } from "src/services/user.service";
 import { Router } from "@angular/router";
@@ -21,6 +21,8 @@ export class AuthentificationComponent implements OnInit {
   public inscription : Boolean = false;
   public connexion : Boolean = false;
   public responseData : any;
+  public submitted : Boolean;
+  public noMatch: Boolean;
 
   constructor(public formBuilder:FormBuilder,public userService: UserService,public router: Router,public variableService: VariableService) {
     this.userService.users$.subscribe((users) => {
@@ -30,18 +32,31 @@ export class AuthentificationComponent implements OnInit {
      this.authentificationForm = this.formBuilder.group(
       {
         id:[''],
-        name:[''],
-        password:[''],
+        name:['',Validators.required],
+        password:['',Validators.required],
       });
   }
 
   ngOnInit() {}
+
+  get f() { return this.authentificationForm.controls; }
     
   
   addUser() {
     this.authentificationForm.patchValue({
       id:Date.now(),
     });
+
+    this.submitted = true;
+
+        // stop here if form is invalid
+        if (this.authentificationForm.invalid) {
+            this.noMatch = false;
+            return;
+        }
+
+
+    
     const userEnter: User = this.authentificationForm.getRawValue() as User;
     for(let i = 0;i< this.userList.length;i++){
       if(this.userList[i].name == userEnter.name && this.userList[i].password == userEnter.password){
@@ -52,6 +67,9 @@ export class AuthentificationComponent implements OnInit {
         this.router.navigate(['/menu']);
       }
     }
+    this.noMatch = true;
+    this.submitted = false;
+    
   }
 
 }

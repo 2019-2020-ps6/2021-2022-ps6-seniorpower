@@ -10,14 +10,21 @@
         Nom d'utilisateur :</i></h2>
         <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="name">
         <br>
+        <div *ngIf="submitted && f['name'].errors" >
+          <div *ngIf="f['name'].errors['required']">Nom d'utilisateur requis<br></div>
+      </div>
       </label>
     <label for="mdp">
       <h2><i class="fab fa-leanpub">
         Mot de passe :</i></h2>
         <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
         <br>
+        <div *ngIf="submitted && f['password'].errors" >
+          <div *ngIf="f['password'].errors['required']">Mot de passe requis<br></div>
+      </div>
       </label>
     <br>
+    <div *ngIf="noMatch">Mot de passe ou nom d'utilisateur incorrecte <br><br></div>
       <button (click) = "addUser()" class="button2 pulse" >
         <span>Connexion</span></button>
   </form>
