@@ -7,5 +7,14 @@
     "password": "Admin",
     "maladie": "none",
     "daltonisme": "none"
+  },
+  {
+    "id": 1650925253615,
+    "name": "b",
+    "nom": "b",
+    "prenom": "b",
+    "maladie": "DMLA",
+    "daltonisme": "Aucun",
+    "password": "b"
   }
 ]
