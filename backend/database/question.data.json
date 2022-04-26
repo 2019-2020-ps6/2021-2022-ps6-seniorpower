@@ -438,5 +438,55 @@
       }
     ],
     "quizId": 1650832772911
+  },
+  {
+    "id": 1650954854643,
+    "label": "Où ont eu lieu les jeux olympiques de 1996 ?",
+    "answers": [
+      {
+        "id": 1650954854657,
+        "value": "Atlanta",
+        "isCorrect": true,
+        "questionId": 1650954854643
+      },
+      {
+        "id": 1650954854661,
+        "value": "Los Angeles",
+        "isCorrect": false,
+        "questionId": 1650954854643
+      },
+      {
+        "id": 1650954854664,
+        "value": "New York",
+        "isCorrect": false,
+        "questionId": 1650954854643
+      },
+      {
+        "id": 1650954854667,
+        "value": "Rio De Janeiro",
+        "isCorrect": false,
+        "questionId": 1650954854643
+      }
+    ],
+    "quizId": 1650954792312
+  },
+  {
+    "id": 1650954999508,
+    "label": "Quel couple de patineurs artistiques canadiens a dû partager sa médaille d’or olympique avec ses adversaires russes ?",
+    "answers": [
+      {
+        "value": "Shae-Lynn Bourne et Victor Kraatz",
+        "isCorrect": false
+      },
+      {
+        "value": "Jamie Salé et David Pelletier",
+        "isCorrect": true
+      },
+      {
+        "value": "Meaghan Duhamel et Eric Radfod",
+        "isCorrect": false
+      }
+    ],
+    "quizId": 1650954792312
   }
 ]

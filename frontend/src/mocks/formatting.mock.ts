@@ -16,7 +16,7 @@ export const DMLA_FORMAT:Formatting = {
   marginRight: "none",
   width:"100%",
   flexWrap:"wrap",
-  justifyContent:"space-between",
+  justifyContent:"start",
   size:"40%",
   justifyContentOptions: "start",
   justifyContentTheme: "space-between"
