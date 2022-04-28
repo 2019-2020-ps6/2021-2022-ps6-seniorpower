@@ -7,5 +7,8 @@ export interface Formatting {
   justifyContent?:string,
   size?:string
   justifyContentOptions:string,
-  justifyContentTheme?:string
+  justifyContentTheme?:string,
+  columnCount:string,
+  flexDirection: string,
+  alignItems: string,
 }

@@ -4,7 +4,8 @@
     <div class="question-number" >Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
     <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
-      <div class="option-container" [style.justify-content]="format.justifyContent">
+      <div class="option-container" [style.justify-content]="format.justifyContent" [style.flex-direction]="format.flexDirection"
+           [style.align-items]="format.alignItems"  [style.flex-wrap]="format.flexWrap">
         <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
           <button class="option"(click)="incrementCorrect(answer)" >
             {{answer.value}}
@@ -15,7 +16,8 @@
 
 
     <div *ngIf="resultAffiche"> <!--Quand on appuie sur une réponse -->
-      <div class="option-container" [style.justify-content]="format.justifyContent">
+      <div class="option-container" [style.justify-content]="format.justifyContent" [style.flex-direction]="format.flexDirection"
+           [style.align-items]="format.alignItems"  [style.flex-wrap]="format.flexWrap">
         <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
 
           <div *ngIf="answer.isCorrect;then contenu_bon else contenu_pas_bon">
