@@ -11,4 +11,7 @@ export interface Formatting {
   columnCount:string,
   flexDirection: string,
   alignItems: string,
+  heightquestion:string,
+  marginquestion:string,
+  paddingquestion:string
 }

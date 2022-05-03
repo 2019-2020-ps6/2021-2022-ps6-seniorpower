@@ -1,8 +1,8 @@
 <div *ngIf="quiz">
-  <div *ngIf="!isEnd()" class="card2">
+  <div *ngIf="!isEnd()" class="card2" [style.height]="format.heightquestion" [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">
    <br>
-    <div class="question-number" >Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
-    <div class="question-script">{{quiz.questions[indexQuiz].label}}</div>
+    <div class="question-number" [style.height]="format.heightquestion" [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
+    <div class="question-script"  [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
       <div class="option-container" [style.justify-content]="format.justifyContent" [style.flex-direction]="format.flexDirection"
            [style.align-items]="format.alignItems"  [style.flex-wrap]="format.flexWrap">

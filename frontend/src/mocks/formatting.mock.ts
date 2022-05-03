@@ -11,6 +11,9 @@ export const CLASSIC_Format:Formatting = {
   columnCount:"none",
   flexDirection: "none",
   alignItems: "none",
+  heightquestion:"10px",
+  marginquestion:"10px",
+  paddingquestion:"10px"
 }
 
 export const DMLA_FORMAT:Formatting = {
@@ -25,6 +28,9 @@ export const DMLA_FORMAT:Formatting = {
   columnCount:"1",
   flexDirection: "column",
   alignItems: "start",
+  heightquestion:"0px",
+  marginquestion:"0px",
+  paddingquestion:"0px"
 
 }
 
@@ -39,6 +45,9 @@ export const GLAUCOME_FORMAT:Formatting = {
   columnCount:"none",
   flexDirection: "none",
   alignItems: "none",
-  flexWrap:"wrap"
+  flexWrap:"wrap",
+  heightquestion:"10px",
+  marginquestion:"10px",
+  paddingquestion:"10px"
 
 }

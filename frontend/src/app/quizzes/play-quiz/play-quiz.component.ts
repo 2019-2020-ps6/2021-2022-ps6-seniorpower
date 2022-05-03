@@ -58,6 +58,7 @@ export class PlayQuizComponent implements OnInit {
     this.formattingService.getFormatting().subscribe((format)=>{
       this.format = format;
     });
+
   }
 
   ngOnInit(): void {
