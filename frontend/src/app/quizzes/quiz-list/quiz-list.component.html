@@ -1,4 +1,4 @@
-<div [style]="formatting">
+<div [style.width]="formatting.size">
   <app-quiz-form></app-quiz-form></div>
   <div class="quiz-list"  [style.justify-content]="formatting.justifyContent">
     <div class="quiz" *ngFor="let quiz of quizList" [style.width]="formatting.size">

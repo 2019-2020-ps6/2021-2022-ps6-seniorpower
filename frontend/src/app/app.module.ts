@@ -23,6 +23,7 @@ import {ThemeComponent} from "./themes/theme/theme.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
 import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
 import {AuthentificationComponent } from './authentification/authentification.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,7 @@ import {AuthentificationComponent } from './authentification/authentification.co
     ThemeViewComponent,
     UserListComponent,
     OptionsComponent,
-  
+
 
     UserListComponent,
     PlayQuizComponent,
@@ -48,8 +49,7 @@ import {AuthentificationComponent } from './authentification/authentification.co
     MenuComponent,
     ThemeComponent,
     ThemeListComponent,
-    AuthentificationComponent
-
+    AuthentificationComponent,
   ],
   imports: [
     BrowserModule,

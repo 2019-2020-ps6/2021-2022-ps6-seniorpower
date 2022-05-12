@@ -10,7 +10,10 @@ export interface ColorStyle { //TODO Modele definitif a definir
     colorJouer:string,
     colorSuppr:string,
     colorModif:string,
-    connexionColor:string
+    connexionColor:string,
+    quizFormColorBox : string,
+    quizFormColorAnim :string,
+    quizFormColorText:string
   };
 
 }

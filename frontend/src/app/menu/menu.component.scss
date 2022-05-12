@@ -6,3 +6,39 @@
   font-size: 1.5em;
   line-height: 1.5em;
 }
+
+.option-container{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding: 5px;
+  height: 20vh;
+  text-align: center;
+  flex-wrap: wrap;
+
+}
+
+.option{
+  padding: 10px;
+  width: auto;
+  height: auto;
+  font-size: larger;
+  text-align: center;
+  border-radius: 25%;
+  border: 2px solid #000;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+
+.option:hover {
+  box-shadow:
+    -7px -7px 20px 0px rgba(238, 226, 200, 0.94),
+    -4px -4px 5px 0px rgba(238, 226, 200, 0.94),
+    7px 7px 20px 0px #0002,
+    4px 4px 5px 0px #0001;
+}

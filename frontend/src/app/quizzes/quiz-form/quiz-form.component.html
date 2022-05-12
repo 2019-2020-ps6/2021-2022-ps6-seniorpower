@@ -1,24 +1,29 @@
-<div class="card">
-  <h2>Créer un Quiz</h2>
-  <form class="quiz-form" [formGroup]="quizForm">
-    <label for="title">
-      Titre <br>
-      <input class="input-custom" type="text" id="name" formControlName="name">
-    </label>
-    <label for = "theme">
-      <br> Thème <br>
-      <select class="input-custom" type = "text" id="theme"  name="theme-list">
-        <option *ngFor = "let currentTheme of getAllThemeName()" [value]="currentTheme">
-          {{currentTheme}}
-        </option>
+<div [style.justify-content]="format.justifyContent" > <!--TODO-->
+  <div class="pagewrap">
+    <form class="form" id="form" [formGroup]="quizForm">
+      <h3 class="form__title">Créer un Quiz</h3>
 
-      </select>
-    </label>
-    <br>
-    <h4>
-    <button type="submit" class="button-card" [disabled]="quizForm.invalid" (click)="addQuiz()">Créer</button>
-    </h4>
-  </form>
+      <div class="container">
+        <input class="container__input" type="text" id="username" name="username" value="" required formControlName="name">
+        <label id="userLabel" for="username" class="container__label">Titre</label>
+      </div>
+
+
+      <br><br>
+      <div class="container" id="container_theme">
+        <select class="container__input" type = "text" id="theme"  name="theme-list">
+          <option *ngFor = "let currentTheme of getAllThemeName()" [value]="currentTheme">
+            {{currentTheme}}
+          </option>
+        </select>
+        <label id="passLabel" for = "theme" class="container__label">Thème</label>
+      </div>
+
+      <button class="form__submit button2" [disabled]="quizForm.invalid" (click)="addQuiz()"
+      >
+        Créer</button>
+    </form>
+  </div>
 </div>
 <!-- Uncomment below to see your form structure and how it changes
 <br><br>{{quizForm.getRawValue() | json}}-->

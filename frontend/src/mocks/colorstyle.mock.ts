@@ -12,7 +12,10 @@ export const DEFAULT_COLOR:ColorStyle = {
     colorJouer:"rgba(59, 234, 162, 0.62)",
     colorSuppr:"rgba(232, 78, 78, 0.66)",
     colorModif:"rgba(200, 160, 229, 0.73)",
-    connexionColor: "rgba(224, 53, 53, 0.62)"//TODO & effects too
+    connexionColor: "rgba(224, 53, 53, 0.62)",//TODO & effects too
+    quizFormColorAnim:"#79bee5",
+    quizFormColorBox:"skyblue",
+    quizFormColorText:"white"
   },
 }
 
@@ -28,7 +31,12 @@ export const PROTA_COLOR:ColorStyle = {
     colorJouer:"rgba(71,148,236,0.62)",
     colorSuppr:"rgba(238,158,41,0.66)",
     colorModif:"rgba(234,229,229,0.91)",
-    connexionColor: "rgba(224, 53, 53, 0.62)"//TODO & effects too
+    connexionColor: "rgba(224, 53, 53, 0.62)",
+
+
+    quizFormColorAnim:"#79bee5",
+    quizFormColorBox:"skyblue",
+    quizFormColorText:"white"
   },
 }
 
@@ -44,7 +52,11 @@ export const TRITA_COLOR:ColorStyle = {
     colorJouer:"rgba(59, 234, 162, 0.62)",
     colorSuppr:"rgba(232, 78, 78, 0.66)",
     colorModif:"rgba(253,164,0,0.73)",
-    connexionColor: "rgba(224, 53, 53, 0.62)"//TODO & effects too
+    connexionColor: "rgba(224, 53, 53, 0.62)",
+
+    quizFormColorAnim:"#79bee5",
+    quizFormColorBox:"skyblue",
+    quizFormColorText:"white"
   },
 }
 
@@ -60,6 +72,11 @@ export const DEUTE_COLOR:ColorStyle = {
     colorJouer:"rgba(14,182,243,0.65)",
     colorSuppr:"rgba(255,149,0,0.84)",
     colorModif:"rgba(0,255,225,0.73)",
-    connexionColor: "rgba(224, 53, 53, 0.62)"//TODO & effects too
+    connexionColor: "rgba(224, 53, 53, 0.62)",
+
+
+    quizFormColorAnim:"#79bee5",
+    quizFormColorBox:"skyblue",
+    quizFormColorText:"white"
   },
 }

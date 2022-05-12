@@ -4,6 +4,10 @@ import { FormBuilder, Validators} from "@angular/forms";
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from '../../../models/quiz.model';
 import {Theme} from "../../../models/theme.model";
+import {FormattingService} from "../../../services/formatting.service";
+import {Formatting} from "../../../models/formatting.model";
+import {ColorStyle} from "../../../models/colorstyle.model";
+import {ColorService} from "../../../services/color.service";
 
 @Component({
   selector: 'app-quiz-form',
@@ -15,6 +19,8 @@ import {Theme} from "../../../models/theme.model";
 export class QuizFormComponent implements OnInit {
   public themeList:Theme[];
   public quizList:Quiz[];
+  public format:Formatting;
+  public color:ColorStyle;
 
 
   // Note: We are using here ReactiveForms to create our form. Be careful when you look for some documentation to
@@ -26,7 +32,7 @@ export class QuizFormComponent implements OnInit {
    */
   public quizForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public formattingService:FormattingService, public colorService:ColorService) {
     // Form creation
     this.quizForm = this.formBuilder.group({
       name: [null, Validators.required],
@@ -42,12 +48,20 @@ export class QuizFormComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes;
     });
+
+    this.formattingService.format$.subscribe((format:Formatting)=>{
+      this.format = format;
+    })
+
+    this.colorService.color$.subscribe((color:ColorStyle)=>{
+      this.color = color;
+    })
     // You can also add validators to your inputs such as required, maxlength or even create your own validator!
     // More information: https://angular.io/guide/reactive-forms#simple-form-validation
     // Advanced validation: https://angular.io/guide/form-validation#reactive-form-validation
   }
 
-  ngOnInit() { 
+  ngOnInit() {
   }
 
   addQuiz() {
@@ -74,6 +88,6 @@ export class QuizFormComponent implements OnInit {
     return themeNameList;
   }
 
-  
+
 
 }
