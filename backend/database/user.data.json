@@ -16,41 +16,5 @@
     "maladie": "DMLA",
     "daltonisme": "Aucun",
     "password": "aaa"
-  },
-  {
-    "id": 1650961218012,
-    "name": "aa",
-    "nom": "aa",
-    "prenom": "aa",
-    "maladie": "DMLA",
-    "daltonisme": "Aucun",
-    "password": "aa"
-  },
-  {
-    "id": 1652166578598,
-    "name": "chalkovic",
-    "nom": "Schalkwijk",
-    "prenom": "Mathieu",
-    "maladie": "DMLA",
-    "daltonisme": "Protanopie",
-    "password": "chalkovic"
-  },
-  {
-    "id": 1652170851280,
-    "name": "b",
-    "nom": "bbbbbbbbbbb",
-    "prenom": "bbbbb",
-    "maladie": "Aucune",
-    "daltonisme": "Deutéranopie",
-    "password": "b"
-  },
-  {
-    "id": 1652170881193,
-    "name": "c",
-    "nom": "c",
-    "prenom": "c",
-    "maladie": "Aucune",
-    "daltonisme": "Protanopie",
-    "password": "c"
   }
 ]
