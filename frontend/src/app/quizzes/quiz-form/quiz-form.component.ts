@@ -18,7 +18,6 @@ import {ColorService} from "../../../services/color.service";
 
 export class QuizFormComponent implements OnInit {
   public themeList:Theme[];
-  public quizList:Quiz[];
   public format:Formatting;
   public color:ColorStyle;
 
@@ -43,10 +42,6 @@ export class QuizFormComponent implements OnInit {
 
     this.quizService.themes$.subscribe((themes: Theme[]) => {
       this.themeList = themes;
-    });
-
-    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      this.quizList = quizzes;
     });
 
     this.formattingService.format$.subscribe((format:Formatting)=>{

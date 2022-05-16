@@ -108,13 +108,14 @@ body{
   border: black solid 3px;
 }
 
-.next{ //TODO gestion débordement
+.next{
   height: auto;
   width: auto;
   text-align: center;
   padding: 5px;
   font-size: larger;
   border: black solid 3px;
+  cursor: pointer;
 }
 
 .navigation{
@@ -206,4 +207,8 @@ body{
 }
 .buttonBack span:hover:after {
   width: 100%;
+}
+
+.quiz-form{
+  display: flex;
 }

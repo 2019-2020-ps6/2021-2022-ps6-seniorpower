@@ -1,0 +1,16 @@
+<div class="pagewrap" [style.justify-content]="format.justifyContent" xmlns="http://www.w3.org/1999/html">
+  <form class="form" id="form" [formGroup]="themeForm">
+    <h3 class="form__title">Ajouter un Thème</h3>
+
+    <div class="container">
+      <input class="container__input" type="text" id="username" name="username" value="" required formControlName="name" placeholder="Nom du thème">
+      <label id="userLabel" for="username" class="container__label">Nom</label>
+    </div>
+
+
+    <button class="form__submit button2" [disabled]="themeForm.invalid" (click)="addTheme()"
+    >Ajouter</button>
+  </form>
+</div>
+<!-- Uncomment below to see your form structure and how it changes
+<br><br>{{quizForm.getRawValue() | json}}-->

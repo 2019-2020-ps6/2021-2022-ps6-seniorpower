@@ -16,6 +16,7 @@ export class QuizListComponent implements OnInit {
   formatting:Formatting;
 
   constructor(public quizService: QuizService,public loupeService:LoupeService, private formattingService:FormattingService) {
+    console.log("je suis dans le CONSTRUCTEUR")
     this.quizService.quizzes$.subscribe((quizList) => {
       this.quizList = quizList;
     });
@@ -25,14 +26,15 @@ export class QuizListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("je suis dans le ON INIT")
     this.loupeService.setup();
-    this.quizService.getQuizzes();
   }
 
 
   quizSelected(selected: boolean) {
     console.log('event received from child:', selected);
   }
+
   deleteQuiz(quiz: Quiz){
     this.quizService.deleteQuiz(quiz);
     console.log('event deletion',quiz);

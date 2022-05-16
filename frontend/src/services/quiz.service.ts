@@ -63,6 +63,7 @@ export class QuizService {
 
 
   getQuizzes(){
+    console.log("aaaaaaaaaaaaaaaaaaaaasalut get quiz")
     this.http.get<Quiz[]>(this.stockURL+"api/quizzes").subscribe((quizList) => {
       this.quizzes = quizList;
       this.quizzes$.next(this.quizzes);

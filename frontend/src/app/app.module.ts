@@ -23,6 +23,7 @@ import {ThemeComponent} from "./themes/theme/theme.component";
 import {ThemeListComponent} from "./themes/theme-list/theme-list.component";
 import {ThemeViewComponent} from "./themes/theme-view/theme-view.component";
 import {AuthentificationComponent } from './authentification/authentification.component';
+import {ThemeFormComponent} from "./themes/theme-form/theme-form.component";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {AuthentificationComponent } from './authentification/authentification.co
     ThemeComponent,
     ThemeListComponent,
     AuthentificationComponent,
+    ThemeFormComponent
   ],
   imports: [
     BrowserModule,
