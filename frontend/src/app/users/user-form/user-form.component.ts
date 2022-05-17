@@ -38,6 +38,7 @@ export class UserFormComponent implements OnInit{
   illnessList:String[] = ["Aucune","DMLA","Glaucome"];
   currentColor:string;
   currentIllness:string;
+  created:boolean = false;
 
 
   constructor(public formBuilder: FormBuilder, public userService: UserService,public formattingService:FormattingService,public colorService: ColorService) {
@@ -69,7 +70,7 @@ export class UserFormComponent implements OnInit{
 
   addUser() {
     if (this.userForm.invalid){
-
+      this.created = false;
       return;
     }
     this.userForm.patchValue({
@@ -78,6 +79,7 @@ export class UserFormComponent implements OnInit{
     const userToCreate: User = this.userForm.getRawValue() as User;
     console.log('Add User: ', userToCreate);
     this.userService.addUser(userToCreate);
+    this.created = true;
   }
   getAllIllness(){
     return this.illnessList;

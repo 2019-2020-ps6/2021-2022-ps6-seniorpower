@@ -49,7 +49,9 @@
       <span>Créer</span>
     </button>
   </form>
-
 </div>
+<br>
+<span class="create" *ngIf="this.userForm.invalid===false && created " >Utilisateur Créé !</span>
+
 <!-- Uncomment below to see your form structure and how it changes
 <br><br>{{quizForm.getRawValue() | json}}-->

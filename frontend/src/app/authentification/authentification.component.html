@@ -7,7 +7,7 @@
   <form class="authentification-form" [formGroup]="authentificationForm">
     <label for="nom">
       <h2><i class="fab fa-leanpub">
-        Nom d'utilisateur :</i></h2>
+        Nom d'utilisateur</i></h2>
         <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="name">
         <br>
         <div *ngIf="submitted && f['name'].errors" >
@@ -16,9 +16,12 @@
       </label>
     <label for="mdp">
       <h2><i class="fab fa-leanpub">
-        Mot de passe :</i></h2>
+        Mot de passe</i></h2>
+
         <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
-        <br>
+      <button class="icon" (click)="showHide()"> <span><i class="fa fa-eye-slash"></i></span></button> <!--Todo css de l'icone-->
+
+      <br>
         <div *ngIf="submitted && f['password'].errors" >
           <div *ngIf="f['password'].errors['required']">Mot de passe requis<br></div>
       </div>

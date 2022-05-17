@@ -18,16 +18,16 @@ export class AuthentificationComponent implements OnInit {
   public auth : Boolean = false;
   public inscription : Boolean = false;
   public connexion : Boolean = false;
-  public responseData : any;
   public submitted : Boolean;
   public noMatch: Boolean;
+  public hide:boolean = true;
 
   constructor(public formBuilder:FormBuilder,public userService: UserService,public router: Router,public variableService: VariableService) {
     this.userService.users$.subscribe((users) => {
       this.userList = users;
     });
-     //Form creation
-     this.authentificationForm = this.formBuilder.group(
+    //Form creation
+    this.authentificationForm = this.formBuilder.group(
       {
         id:[''],
         name:['',Validators.required],
@@ -44,16 +44,11 @@ export class AuthentificationComponent implements OnInit {
     this.authentificationForm.patchValue({
       id:Date.now(),
     });
-
     this.submitted = true;
-
-        // stop here if form is invalid
-        if (this.authentificationForm.invalid) {
-            this.noMatch = false;
-            return;
-        }
-
-
+    if (this.authentificationForm.invalid) {
+      this.noMatch = false;
+      return;
+    }
 
     const userEnter: User = this.authentificationForm.getRawValue() as User;
     for(let i = 0;i< this.userList.length;i++){
@@ -68,6 +63,18 @@ export class AuthentificationComponent implements OnInit {
     this.noMatch = true;
     this.submitted = false;
 
+  }
+
+  showHide(){
+    var p = document.getElementById('mdp');
+    if (this.hide){
+      this.hide = false;
+      p.setAttribute('type','text');
+    }
+    else{
+      this.hide = true;
+      p.setAttribute('type','password');
+    }
   }
 
 }
