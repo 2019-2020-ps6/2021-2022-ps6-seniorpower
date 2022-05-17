@@ -7,8 +7,8 @@ import {CLASSIC_Format} from "../mocks/formatting.mock";
   providedIn: 'root'
 })
 export class FormattingService {
-  currentSize:string = "22";
-  private currentSize$: BehaviorSubject<string> = new BehaviorSubject("22");
+  currentSize:string = "Moyen";
+  private currentSize$: BehaviorSubject<string> = new BehaviorSubject("Moyen");
 
   currentIllness:string = "Aucune";
   private currentIllness$: BehaviorSubject<string> = new BehaviorSubject("Aucune");

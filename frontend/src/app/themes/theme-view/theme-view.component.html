@@ -1,7 +1,12 @@
-<ng-container *ngIf="quizOnTheme()">
-<div class="container">
+<ng-container *ngIf="quizzes.length>0">
+  <button  class ="connexion effect01" routerLink="/themes"><span>Retour</span></button>
+  <div class="container">
     <div *ngFor="let quiz of quizOnTheme()">
-        <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
+      <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
     </div>
-</div>
+  </div>
+</ng-container>
+<ng-container  *ngIf="quizzes.length<=0">
+  <div class="container"><h1>Il n'y a pas de quiz pour ce thème</h1></div>
+  <button  class ="connexion effect01" routerLink="/themes"><span>Retour</span></button>
 </ng-container>

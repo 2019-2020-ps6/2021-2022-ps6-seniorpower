@@ -20,7 +20,7 @@ export class OptionsComponent implements OnInit {
   colorStyle:ColorStyle = DEFAULT_COLOR;
   formatting:Formatting = CLASSIC_Format;
   police: PoliceStyle = CLASSIC_Police;
-  sizes:String[] = ["15","16","17","18","19","20","21","22"];
+  sizes:String[] = ["Petit","Moyen","Grand","Très grand"];
   colorList:String[] = ["Aucun","Protanopie","Tritanopie","Deutéranopie"];
   illnessList:String[] = ["Aucune","DMLA","Glaucome"];
   currentSize:string;
@@ -99,22 +99,8 @@ export class OptionsComponent implements OnInit {
 
   }
 
-  applySizeChange(){
-    const size: string = (document.getElementById('size') as HTMLInputElement).value;
-    document.documentElement.style.setProperty(`--font-size`, size + 'px');
-    this.formattingService.changeSize(size);
-  }
-
   getAllSize(){
     return this.sizes
-  }
-  changeArial(){
-    this.police=Arial_Police;
-    this.policeStyleService.PoliceUpdate(this.police)
-  }
-  changeVerdana(){
-    this.police=Verdana_Police;
-    this.policeStyleService.PoliceUpdate(this.police)
   }
 
   getAllColors(){
@@ -163,5 +149,28 @@ export class OptionsComponent implements OnInit {
         break;
       }
     }
+  }
+
+  applySizeChange(){
+    const size: string = (document.getElementById('size') as HTMLInputElement).value;
+    switch (size){
+      case "Petit":{
+        document.documentElement.style.setProperty(`--font-size`, 18 + 'px');
+        break;
+      }
+      case "Moyen":{
+        document.documentElement.style.setProperty(`--font-size`, 22 + 'px');
+        break;
+      }
+      case "Grand":{
+        document.documentElement.style.setProperty(`--font-size`, 24 + 'px');
+        break;
+      }
+      case "Très grand":{
+        document.documentElement.style.setProperty(`--font-size`, 30 + 'px');
+        break;
+      }
+    }
+    this.formattingService.changeSize(size);
   }
 }

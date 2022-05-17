@@ -12,15 +12,19 @@ import {LoupeService} from "../../../services/loupe.service";
 export class ThemeViewComponent implements OnInit {
 
   public name:string | null;
+  public quizzes:Quiz[]|null;
 
   constructor(private route: ActivatedRoute,
-    private quizService: QuizService,public loupeService:LoupeService) {
-     }
+              private quizService: QuizService,public loupeService:LoupeService) {
+    this.quizzes = this.quizOnTheme();
+  }
 
   ngOnInit(): void {
     this.name = this.route.snapshot.paramMap.get('name');
     this.loupeService.setup();
+    this.quizzes = this.quizOnTheme();
   }
+
 
   quizOnTheme(){
     let quizzes : Quiz[] = [];
@@ -30,9 +34,9 @@ export class ThemeViewComponent implements OnInit {
       return null;
     }
     for(let i = 0; i < theme.idQuizList.length;i++){
-        if(this.quizService.getQuizId(theme.idQuizList[i]) != null || this.quizService.getQuizId(theme.idQuizList[i]) != undefined){
-          quizzes.push(this.quizService.getQuizId(theme.idQuizList[i]));
-        }
+      if(this.quizService.getQuizId(theme.idQuizList[i]) != null || this.quizService.getQuizId(theme.idQuizList[i]) != undefined){
+        quizzes.push(this.quizService.getQuizId(theme.idQuizList[i]));
+      }
     }
     return quizzes;
   }

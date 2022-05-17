@@ -10,7 +10,7 @@
       </select>
     </p>
     <p>Choisir la maladie :
-      <select class="input-custom" type = "text" (change) = "applyIllnessChange()" id="illness">
+      <select class="input-custom" type = "text" (change) = "applyIllnessChange()" id="illness" >
         <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness">
           {{illness}}
         </option>
