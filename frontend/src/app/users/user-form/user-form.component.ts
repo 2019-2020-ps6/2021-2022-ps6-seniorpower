@@ -27,12 +27,6 @@ export class UserFormComponent implements OnInit{
       'required': "Nom d'utilisateur requis",
       'validUsername': "Nom d'utilisateur déjà pris"
     },
-    'nom': {
-      'required': 'Nom manquant'
-    },
-    'prenom': {
-      'required': 'Prénom manquant'
-    },
     'password': {
       'required': 'Mot de passe manquant'
     }
@@ -63,8 +57,6 @@ export class UserFormComponent implements OnInit{
     this.userForm = this.formBuilder.group({
       name:  new FormControl('', Validators.compose([
         UsernameValidator.validUsername(this),Validators.required])),
-      nom: [null, Validators.required],
-      prenom: [null, Validators.required],
       maladie: [null, Validators.required],
       daltonisme: [null, Validators.required],
       password: [null, Validators.required],
@@ -90,92 +82,9 @@ export class UserFormComponent implements OnInit{
   getAllIllness(){
     return this.illnessList;
   }
-  applyIllnessChange(){
-    const illness: string = (document.getElementById('illness') as HTMLInputElement).value;
-    switch (illness){
-      case "Aucune":{
-        this.changeFormatClassic();
-        break;
-      }
-      case "DMLA":{
-        this.changeFormatDMLA();
-        break;
-      }
-      case "Glaucome":{
-        this.changeFormatGlaucome();
-        break;
-      }
-    }
-  }
-  changeFormatClassic(){
-    this.formatting = CLASSIC_Format;
-    this.formattingService.formattingUpdate(this.formatting);
-    this.formattingService.changeIllness("Aucune");
-  }
 
-  changeFormatDMLA(){
-    this.formatting = DMLA_FORMAT;
-    this.formattingService.formattingUpdate(this.formatting);
-    this.formattingService.changeIllness("DMLA");
-
-  }
-
-  changeFormatGlaucome(){
-    this.formatting = GLAUCOME_FORMAT;
-    this.formattingService.formattingUpdate(this.formatting);
-    this.formattingService.changeIllness("Glaucome");
-
-  }
-  changeColorDefault(){
-    this.colorStyle = DEFAULT_COLOR;
-    this.colorService.colorUpdate(this.colorStyle);
-    this.colorService.currentColorUpdate("Aucun");
-  }
-
-  changeColorProta(){
-    this.colorStyle = PROTA_COLOR;
-    this.colorService.colorUpdate(this.colorStyle);
-    this.colorService.currentColorUpdate("Protanopie");
-
-  }
-
-  changeColorTrita(){
-    this.colorStyle = TRITA_COLOR;
-    this.colorService.colorUpdate(this.colorStyle);
-    this.colorService.currentColorUpdate("Tritanopie");
-
-  }
-
-  changeColorDeute(){
-    this.colorStyle = DEUTE_COLOR;
-    this.colorService.colorUpdate(this.colorStyle);
-    this.colorService.currentColorUpdate("Deutéranopie");
-
-  }
   getAllColors(){
     return this.colorList;
-  }
-
-  applyColorChange(){
-    const color: string = (document.getElementById('color') as HTMLInputElement).value;
-    switch (color){
-      case "Aucun":{
-        this.changeColorDefault();
-        break;
-      }
-      case "Protanopie":{
-        this.changeColorProta();
-        break;
-      }
-      case "Tritanopie":{
-        this.changeColorTrita();
-        break;
-      }
-      case "Deutéranopie":{
-        this.changeColorDeute();
-        break;
-      }
-    }
   }
 
 }

@@ -1,60 +1,55 @@
 <div class="card">
   <form class="user-form" [formGroup]="userForm">
-    <label for="nom">
-      <h2><i class="fab fa-leanpub">
-        Nom :</i></h2>
-        <input class="input-custom" type = "text" id="nom"  name="authentification" formControlName="nom">
-        <span *ngIf="userForm.get('nom').invalid">{{messageError.nom.required}}</span>
-        <br>
-      </label>
-      <label for="prenom">
-        <h2><i class="fab fa-leanpub">
-          Prenom :</i></h2>
-          <input class="input-custom" type = "text" id="prenom"  name="authentification" formControlName="prenom">
-          <span *ngIf="userForm.get('prenom').invalid">{{messageError.prenom.required}}</span>
-          <br>
-        </label>
-    <label for="nom">
-      <h2><i class="fab fa-leanpub">
-        Nom d'utilisateur :</i></h2>
-        <input class="input-custom" type = "text" id="name"   name="authentification" formControlName="name">
-        <span *ngIf="userForm.get('name').invalid">{{messageError.name.required}}</span>
-        <span *ngIf="userForm.get('name').invalid" >{{messageError.name.validUsername}}</span>
-        <br>
-      </label>
-    <label for="mdp">
-      <h2><i class="fab fa-leanpub">
-        Mot de passe :</i></h2>
-        <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
-        <span *ngIf="userForm.get('password').invalid">{{messageError.password.required}}</span>
+    <h1>Créer un utilisateur</h1>
+    <label class="line" for="name">
+       <span class="outer">
+      <h2><i class="fa fa-user">
+        Nom d'utilisateur</i></h2>
+      <input class="input-custom" type = "text" id="name"   name="authentification" formControlName="name">
+         <br>
+         <span class="error" *ngIf="userForm.get('name').invalid">{{messageError.name.required}} </span>
+         <span class="error" *ngIf="userForm.get('name').invalid" > {{messageError.name.validUsername}}</span>
+       </span>
+    </label>
 
-      <br>
-      </label>
-          <label for="illness">
-            <h2><i class="fab fa-leanpub">
-              Maladie :</i></h2>
-              <select class="input-custom" type = "text" name="authentification"   formControlName="maladie" (change) = "applyIllnessChange()" id="illness" >
-                <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness" >
-                  {{illness}}
-                </option>
-              </select>
-            <br>
-                    </label>
-                    <label for="daltonisme">
-                      <h2><i class="fab fa-leanpub">
-                        Type de Daltonisme :</i></h2>
-                        <select class="input-custom" type = "text" name="authentification" (change) = "applyColorChange()" id="daltonisme" formControlName="daltonisme">
-                          <option *ngFor = "let color of getAllColors()" [selected]="color === currentColor" [value]="color" >
-                            {{color}}
-                          </option>
-                        </select>
-                      <br>
-                      </label>
-            <button type="submit"  id="submit" class="button2 pulse"  (click)="addUser()" >
-              <span>Créer</span>
-            </button>
-          </form>
+    <label class="line" for="mdp">
+       <span class="outer">
+      <h2><i class="fa fa-lock">
+        Mot de passe</i></h2>
+      <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
+      <br><span class="error" *ngIf="userForm.get('password').invalid">{{messageError.password.required}}</span>
+       </span>
+    </label>
 
-        </div>
-        <!-- Uncomment below to see your form structure and how it changes
-        <br><br>{{quizForm.getRawValue() | json}}-->
+    <label class="line" for="illness">
+      <span class="outer">
+      <h2><i class="fa fa-glasses">
+        Maladie</i></h2>
+      <select class="input-custom" type = "text" name="authentification"   formControlName="maladie" id="illness" >
+        <option *ngFor = "let illness of getAllIllness()" [value]="illness" [selected]="illness === currentIllness" >
+          {{illness}}
+        </option>
+      </select>
+      </span>
+    </label>
+
+    <label class="line" for="daltonisme">
+       <span class="outer">
+      <h2><i class="fa fa-palette">
+        Type de Daltonisme</i></h2>
+      <select class="input-custom" type = "text" name="authentification" id="daltonisme" formControlName="daltonisme">
+        <option *ngFor = "let color of getAllColors()" [selected]="color === currentColor" [value]="color" >
+          {{color}}
+        </option>
+      </select>
+       </span>
+    </label>
+
+    <button type="submit"  id="submit" class="button2 pulse"  (click)="addUser()" >
+      <span>Créer</span>
+    </button>
+  </form>
+
+</div>
+<!-- Uncomment below to see your form structure and how it changes
+<br><br>{{quizForm.getRawValue() | json}}-->

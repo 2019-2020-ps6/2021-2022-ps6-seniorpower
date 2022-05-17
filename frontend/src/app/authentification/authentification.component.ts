@@ -1,11 +1,9 @@
 import {Component, OnInit} from "@angular/core";
-import {QuizService} from "../../services/quiz.service";
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { User } from "src/models/user.model";
 import { UserService } from "src/services/user.service";
 import { Router } from "@angular/router";
 import { VariableService } from "src/services/variable.service";
-import { Variable } from "src/models/variable.model";
 
 
 @Component({
@@ -40,8 +38,8 @@ export class AuthentificationComponent implements OnInit {
   ngOnInit() {}
 
   get f() { return this.authentificationForm.controls; }
-    
-  
+
+
   addUser() {
     this.authentificationForm.patchValue({
       id:Date.now(),
@@ -56,7 +54,7 @@ export class AuthentificationComponent implements OnInit {
         }
 
 
-    
+
     const userEnter: User = this.authentificationForm.getRawValue() as User;
     for(let i = 0;i< this.userList.length;i++){
       if(this.userList[i].name == userEnter.name && this.userList[i].password == userEnter.password){
@@ -69,7 +67,7 @@ export class AuthentificationComponent implements OnInit {
     }
     this.noMatch = true;
     this.submitted = false;
-    
+
   }
 
 }
