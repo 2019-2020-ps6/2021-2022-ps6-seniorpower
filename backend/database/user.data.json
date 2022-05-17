@@ -14,47 +14,5 @@
     "maladie": "Aucune",
     "daltonisme": "Aucun",
     "password": "aaa"
-  },
-  {
-    "id": 1652800989303,
-    "name": "Test",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "test"
-  },
-  {
-    "id": 1652801058029,
-    "name": "tEST",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "TEST"
-  },
-  {
-    "id": 1652801077504,
-    "name": "A",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "A"
-  },
-  {
-    "id": 1652801123859,
-    "name": "b",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "b"
-  },
-  {
-    "id": 1652801157686,
-    "name": "t",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "t"
-  },
-  {
-    "id": 1652801262929,
-    "name": "c",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "c"
   }
 ]
