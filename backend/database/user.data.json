@@ -7,12 +7,5 @@
     "password": "Admin",
     "maladie": "none",
     "daltonisme": "none"
-  },
-  {
-    "id": 1652726876179,
-    "name": "aaa",
-    "maladie": "Aucune",
-    "daltonisme": "Aucun",
-    "password": "aaa"
   }
 ]
