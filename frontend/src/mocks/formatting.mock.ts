@@ -10,6 +10,7 @@ export const CLASSIC_Format:Formatting = {
   justifyContentTheme: "revert",
   columnCount:"none",
   flexDirection: "none",
+  flexWrap:"nowrap",
   alignItems: "none",
   heightquestion:"10px",
   marginquestion:"10px",
@@ -46,7 +47,7 @@ export const GLAUCOME_FORMAT:Formatting = {
   columnCount:"none",
   flexDirection: "none",
   alignItems: "none",
-  flexWrap:"wrap",
+  flexWrap:"nowrap",
   heightquestion:"10px",
   marginquestion:"10px",
   paddingquestion:"10px"
