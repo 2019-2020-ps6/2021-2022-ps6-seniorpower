@@ -6,9 +6,13 @@
       <h2><i class="fa fa-user">
         Nom d'utilisateur</i></h2>
       <input class="input-custom" type = "text" id="name"   name="authentification" formControlName="name">
-         <br>
-         <span class="error" *ngIf="userForm.get('name').invalid">{{messageError.name.required}} </span>
-         <span class="error" *ngIf="userForm.get('name').invalid" > {{messageError.name.validUsername}}</span>
+      <div *ngIf="submitted && f['name'].errors" >
+        <div *ngIf="f['name'].errors['required']">Nom d'utilisateur requis<br></div>
+        <div *ngIf="f['name'].errors['validUsername']">Nom d'utilisateur dejas pris<br></div>
+    </div>
+    <div *ngIf="submitted && already" >
+      <div>Nom d'utilisateur déjà pris<br></div>
+  </div>
        </span>
     </label>
 
@@ -17,7 +21,9 @@
       <h2><i class="fa fa-lock">
         Mot de passe</i></h2>
       <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
-      <br><span class="error" *ngIf="userForm.get('password').invalid">{{messageError.password.required}}</span>
+        <div *ngIf="submitted && f['password'].errors" >
+          <div *ngIf="f['password'].errors['required']">Mot de passe requis<br></div>
+      </div>
        </span>
     </label>
 
@@ -30,6 +36,9 @@
           {{illness}}
         </option>
       </select>
+      <div *ngIf="submitted && f['maladie'].errors" >
+        <div *ngIf="f['maladie'].errors['required']">Maladie requis<br></div>
+      </div>
       </span>
     </label>
 
@@ -42,6 +51,9 @@
           {{color}}
         </option>
       </select>
+      <div *ngIf="submitted && f['daltonisme'].errors" >
+        <div *ngIf="f['daltonisme'].errors['required']">Daltonisme requis<br></div>
+    </div>
        </span>
     </label>
 

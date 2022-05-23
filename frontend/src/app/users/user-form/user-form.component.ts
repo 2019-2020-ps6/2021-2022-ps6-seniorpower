@@ -22,15 +22,8 @@ export class UserFormComponent implements OnInit{
 
   public userForm: FormGroup;
   public users;
-  public messageError = {
-    'name': {
-      'required': "Nom d'utilisateur requis",
-      'validUsername': "Nom d'utilisateur déjà pris"
-    },
-    'password': {
-      'required': 'Mot de passe manquant'
-    }
-  }
+  public submitted = false;
+  public already = false;
 
   formatting:Formatting = CLASSIC_Format;
   colorStyle:ColorStyle = DEFAULT_COLOR;
@@ -68,7 +61,10 @@ export class UserFormComponent implements OnInit{
   ngOnInit() {
   }
 
+  get f() { return this.userForm.controls; }
+
   addUser() {
+    this.submitted = true;
     if (this.userForm.invalid){
       this.created = false;
       return;
@@ -80,6 +76,12 @@ export class UserFormComponent implements OnInit{
     console.log('Add User: ', userToCreate);
     this.userService.addUser(userToCreate);
     this.created = true;
+    this.userService.getUsers();
+    for(let i = 0;i<this.users.length;i++){
+      if(this.users[i].name == userToCreate.name){
+        this.already = true;
+      }
+    }
   }
   getAllIllness(){
     return this.illnessList;
