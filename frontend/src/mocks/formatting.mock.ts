@@ -32,6 +32,7 @@ export const DMLA_FORMAT:Formatting = {
   marginquestion:"0px",
   paddingquestion:"0px"
 
+
 }
 
 export const GLAUCOME_FORMAT:Formatting = {

@@ -51,7 +51,19 @@ body{
   display: inline-block;
 
 }
+.question-number2{
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: #d0d3f1;
 
+  color: #0f2a29;
+  line-height: 42px;
+  border:4px solid #000;
+font-size: 35px;}
 .card2{
   margin: 15px;
   padding: 5px;
