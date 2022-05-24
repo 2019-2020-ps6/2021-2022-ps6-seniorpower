@@ -86,7 +86,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   incrementCorrect(answer: Answer) {
-      this.loupeService.refresh();
+      this.loupeService.setup();
       if (answer.isCorrect) {
         this.variableService.tempResultat++;
     }
@@ -98,7 +98,7 @@ export class PlayQuizComponent implements OnInit {
   }
 
   next(){
-    this.loupeService.refresh();
+    this.loupeService.setup();
     this.resultAffiche = false;
     this.indexQuiz++;
     if (this.isEnd()){
