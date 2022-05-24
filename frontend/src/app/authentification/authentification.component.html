@@ -19,7 +19,7 @@
         Mot de passe</i></h2>
 
         <input class="input-custom" type = "password" id="mdp"  name="authentification" formControlName="password">
-      <button class="icon" (click)="showHide()"> <span><i class="fa fa-eye-slash"></i></span></button> <!--Todo css de l'icone-->
+      <span class="icon" (click)="showHide()"> <span><i class="fa fa-eye-slash"></i></span></span> <!--Todo css de l'icone-->
 
       <br>
         <div *ngIf="submitted && f['password'].errors" >
