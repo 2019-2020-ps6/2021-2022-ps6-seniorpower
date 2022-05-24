@@ -14,5 +14,12 @@
     "maladie": "DMLA",
     "daltonisme": "Tritanopie",
     "password": "user1"
+  },
+  {
+    "id": 1653399293449,
+    "name": "Etienne",
+    "maladie": "DMLA",
+    "daltonisme": "Aucun",
+    "password": "etienne"
   }
 ]

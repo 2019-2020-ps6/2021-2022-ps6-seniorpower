@@ -233,5 +233,11 @@
     "name": "test",
     "creationDate": "date",
     "questions": []
+  },
+  {
+    "id": 1653399348825,
+    "name": "Histoire de France",
+    "creationDate": "date",
+    "questions": []
   }
 ]
