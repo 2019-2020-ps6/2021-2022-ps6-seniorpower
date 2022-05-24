@@ -1,6 +1,6 @@
 <div *ngIf="quiz">
   <div *ngIf="!isEnd()" class="card2" [style.height]="format.heightquestion" [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">
-   <br>
+    <br>
     <div class="question-number" [style.height]="format.heightquestion" [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">Question {{indexQuiz+1}} / {{quiz.questions.length}}</div>
     <div class="question-script"  [style.margin]="format.marginquestion" [style.padding]="format.paddingquestion">{{quiz.questions[indexQuiz].label}}</div>
     <div *ngIf="!resultAffiche">
@@ -37,16 +37,16 @@
           </ng-template>
 
         </div>
-      </div>
+      </div> <br>
       <div class="navigation" >
         <button class="next" [style.background-color]="colorStyle.font.colorNext" [style.color]="colorStyle.font.colorText" (click)="next()" >Suivant</button>   </div>
     </div>
   </div>
-  <div *ngIf="quizEnd" class="card2">
-    <div [style]="format">
-    <div class="question-number2"   [style.justify-content]="format.justifyContent" >Le quiz est fini ! </div>
-    <div class="question-number2"  [style.justify-content]="format.justifyContent"  >Votre score est : {{variableService.tempResultat}} / {{quiz.questions.length}}</div>
-    <button class="buttonBack" routerLink="/quiz-list"><span>Retour à la sélection de quiz</span></button>
+  <div *ngIf="quizEnd" class="card2 end" [style.justify-content]="format.justifyContent">
+    <div >
+      <div class="question-number2"   [style.justify-content]="format.justifyContent" >Le quiz est fini ! </div>
+      <div class="question-number2"  [style.justify-content]="format.justifyContent"  >Votre score est : {{variableService.tempResultat}} / {{quiz.questions.length}}</div>
+      <button class="buttonBack" routerLink="/quiz-list"><span>Retour à la sélection de quiz</span></button>
+    </div>
   </div>
-</div>
 </div>
