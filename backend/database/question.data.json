@@ -513,5 +513,28 @@
       }
     ],
     "quizId": 1650959522328
+  },
+  {
+    "id": 1653399411950,
+    "label": "Quels sont les surnoms de Napoléon Bonaparte",
+    "answers": [
+      {
+        "value": "Napoléon Ier",
+        "isCorrect": true
+      },
+      {
+        "value": "Napoléon II",
+        "isCorrect": false
+      },
+      {
+        "value": "Roi Soleil",
+        "isCorrect": false
+      },
+      {
+        "value": "Cladomir",
+        "isCorrect": false
+      }
+    ],
+    "quizId": 1653399348825
   }
 ]
