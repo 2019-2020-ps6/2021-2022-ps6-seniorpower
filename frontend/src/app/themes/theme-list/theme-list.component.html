@@ -5,7 +5,7 @@
    <app-theme-form></app-theme-form>
   </div>
   <div class="container" [style.justify-content]="formatting.justifyContentTheme">
-  <div class="theme" *ngFor="let theme of themeList" [style.width]="formatting.size" [style.justify-content]="formatting.justifyContentTheme">
+  <div class="theme" *ngFor="let theme of themeList" [style.width]="formatting.size" >
     <!--Inputs & Output allow communication between parent & child components.-->
     <!--More information: https://angular.io/guide/component-interaction-->
     <app-theme [theme]="theme"></app-theme>

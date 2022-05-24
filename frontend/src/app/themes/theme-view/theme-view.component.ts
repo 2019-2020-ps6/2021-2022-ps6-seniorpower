@@ -3,6 +3,8 @@ import {ActivatedRoute} from "@angular/router";
 import {QuizService} from "../../../services/quiz.service";
 import {Quiz} from "../../../models/quiz.model"
 import {LoupeService} from "../../../services/loupe.service";
+import {FormattingService} from "../../../services/formatting.service";
+import {Formatting} from "../../../models/formatting.model";
 
 @Component({
   selector: 'app-theme-view',
@@ -13,10 +15,14 @@ export class ThemeViewComponent implements OnInit {
 
   public name:string | null;
   public quizzes:Quiz[]|null;
+  formatting:Formatting;
 
   constructor(private route: ActivatedRoute,
-              private quizService: QuizService,public loupeService:LoupeService) {
+              private quizService: QuizService,public loupeService:LoupeService,private formattingService:FormattingService) {
     this.quizzes = this.quizOnTheme();
+  this.formattingService.getFormatting().subscribe((format)=> {
+            this.formatting = format;
+          })
   }
 
   ngOnInit(): void {

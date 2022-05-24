@@ -1,6 +1,6 @@
 <ng-container *ngIf="quizzes.length>0">
   <button  class ="connexion effect01" routerLink="/themes"><span>Retour</span></button>
-  <div class="container">
+  <div class="container" [style.justify-content]="formatting.justifyContentTheme">
     <div *ngFor="let quiz of quizOnTheme()">
       <app-quiz [quiz]="quiz" (quizSelected)="quizSelected($event)"></app-quiz>
     </div>
