@@ -7,7 +7,7 @@
       <div class="option-container" [style.justify-content]="format.justifyContent" [style.flex-direction]="format.flexDirection"
            [style.align-items]="format.alignItems"  [style.flex-wrap]="format.flexWrap">
         <div  *ngFor="let answer of quiz.questions[indexQuiz].answers;">
-          <button class="option"(click)="incrementCorrect(answer)" >
+          <button class="option"(click)="incrementCorrect(answer) " >
             {{answer.value}}
           </button>
         </div>
