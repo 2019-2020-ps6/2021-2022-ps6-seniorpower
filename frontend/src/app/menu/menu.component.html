@@ -4,7 +4,9 @@
   <div class="contenu">
     <h2>Bienvenue sur le <span class="bold">Polyquiz</span> !</h2>
 
-    Une <span class="bold" [style.background-color]="color.font.colorLoupe" >loupe</span> en haut à gauche de la page pour pouvoir agrandir le texte !.
+    Une <span class="bold" [style.background-color]="colorStyle.font.colorLoupe" >loupe</span> en haut à gauche de la page pour pouvoir agrandir le texte !
+    <br>
+    Pour deplacer la loupe, cliquez et glissez là où vous voulez agrandir le texte. 
     <br>
     Vous pouvez modifier vos paramètres dans <span class="bold">"Options"</span>
     <br>
@@ -13,10 +15,10 @@
 
   <p>Exemple de boutons <span class="bold">Vrai</span> et <span class="bold">Faux</span>
   <div class="option-container" [style.justify-content]="formatting.justifyContentOptions" >
-    <button class="option"[style.background-color]="color.font.colorTrue">
+    <button class="option"[style.background-color]="colorStyle.font.colorTrue">
       Réponse Vraie
     </button>
-    <button class="option"[style.background-color]="color.font.colorFalse">
+    <button class="option"[style.background-color]="colorStyle.font.colorFalse">
       Réponse Fausse
     </button>
   </div>

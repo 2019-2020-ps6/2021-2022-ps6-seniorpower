@@ -9,9 +9,16 @@
     "daltonisme": "none"
   },
   {
-    "id": 1653331904346,
-    "name": "user1",
+    "id": 1653390465740,
+    "name": "123",
     "maladie": "DMLA",
+    "daltonisme": "Aucun",
+    "password": "123"
+  },
+  {
+    "id": 1653398582538,
+    "name": "456",
+    "maladie": "Glaucome",
     "daltonisme": "Tritanopie",
     "password": "user1"
   },

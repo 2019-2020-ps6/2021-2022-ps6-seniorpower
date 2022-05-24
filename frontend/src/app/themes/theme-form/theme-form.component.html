@@ -3,7 +3,7 @@
     <h3 class="form__title">Ajouter un Thème</h3>
 
     <div class="container">
-      <input class="container__input" type="text" id="username" name="username" value="" required formControlName="name" placeholder="Nom du thème">
+      <input [maxlength]="25" class="container__input" type="text" id="username" name="username" value="" required formControlName="name" placeholder="Nom du thème">
       <label id="userLabel" for="username" class="container__label">Nom</label>
     </div>
 

@@ -3,7 +3,7 @@
     <h3 class="form__title">Créer un Quiz</h3>
 
     <div class="container">
-      <input class="container__input" type="text" id="username" name="username" value="" required formControlName="name" placeholder="">
+      <input [maxlength]="20" class="container__input" type="text" id="username" name="username" value="" required formControlName="name" placeholder="">
       <label id="userLabel" for="username" class="container__label">Titre</label>
     </div>
 

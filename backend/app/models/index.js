@@ -4,7 +4,8 @@ const User = require('./user.model.js')
 const Answer = require('./answer.model.js')
 const Theme = require('./theme.model.js')
 const Variable = require('./variable.model.js')
-
+const Result = require('./result.model.js')
+const Response = require('./response.model.js')
 module.exports = {
-  Quiz, Question, User,Theme,Answer,Variable
+  Quiz, Question, User,Theme,Answer,Variable,Result,Response
 }

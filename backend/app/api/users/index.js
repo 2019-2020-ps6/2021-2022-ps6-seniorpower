@@ -1,7 +1,8 @@
 const { Router } = require('express')
 
 const { User } = require('../../models')
-
+const ResultsRouter = require('./results')
+const { Result } = require('../../models')
 const router = new Router()
 
 router.get('/', (req, res) => {
@@ -11,6 +12,7 @@ router.get('/', (req, res) => {
     res.status(500).json(err)
   }
 })
+
 
 router.get('/:userId', (req, res) => {
   try {
@@ -28,7 +30,7 @@ router.post('/', (req, res) => {
       const user = User.create({ ...req.body })
       res.status(201).json(user)
     }
-    res.status(400).json('theme are already in base')
+    res.status(400).json('user are already in base')
   } catch (err) {
     if (err.name === 'ValidationError') {
       res.status(400).json(err.extra)
@@ -56,4 +58,8 @@ router.put('/:userId', (req, res) => {
   }
 })
 
+
 module.exports = router
+router.use('/:userId/results', ResultsRouter)
+
+///:userId/results/:quizId/responses/:questionId
